@@ -2262,7 +2262,7 @@ class cocos2d::CCActionManager {
 
 [[link(win, android)]]
 class cocos2d::CCAnimate {
-    static cocos2d::CCAnimate* create(cocos2d::CCAnimation*) = imac 0x3a90d0, m1 0x335390;
+    static cocos2d::CCAnimate* create(cocos2d::CCAnimation*) = imac 0x3a90d0, m1 0x335390, ios 0x1908e8;
 
     bool initWithAnimation(cocos2d::CCAnimation*);
 
