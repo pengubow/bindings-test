@@ -10587,7 +10587,7 @@ class GJScoreCell : TableViewCell, FLAlertLayerProtocol {
     void onBan(cocos2d::CCObject* sender);
     void onCheck(cocos2d::CCObject* sender);
     void onMoreLevels(cocos2d::CCObject* sender);
-    void onViewProfile(cocos2d::CCObject* sender) = win 0xb8d60, imac 0x243770, m1 0x1f291c;
+    void onViewProfile(cocos2d::CCObject* sender) = win 0xb8d60, imac 0x243770, m1 0x1f291c, ios 0x113cf0;
     TodoReturn updateBGColor(int) = ios 0x10a720;
 
     virtual bool init() = win 0xb3f00, m1 0x1f2910, imac 0x243750, ios 0x113ce4;
@@ -11245,7 +11245,7 @@ class GJUserMessage : cocos2d::CCNode {
 [[link(android)]]
 class GJUserScore : cocos2d::CCNode {
     GJUserScore() = win 0x1401d0;
-    static GJUserScore* create(cocos2d::CCDictionary*) = win 0x16e1a0, m1 0x479a1c;
+    static GJUserScore* create(cocos2d::CCDictionary*) = win 0x16e1a0, m1 0x479a1c, ios 0x99f28;
     // virtual ~GJUserScore();
 
     static GJUserScore* create() = win inline, m1 0x4a205c {
