@@ -15461,7 +15461,7 @@ class ProfilePage : FLAlertLayer, FLAlertLayerProtocol, LevelCommentDelegate, Co
     void loadPage(int) = win 0x3aee30;
     void loadPageFromUserInfo(GJUserScore*) = win 0x3a9240, m1 0x6b662c, imac 0x7a4660, ios 0x19b0d8;
     void onBlockUser(cocos2d::CCObject* sender) = win 0x3ad200, m1 0x6b9f98;
-    void onClose(cocos2d::CCObject* sender) = win 0x3adfd0, m1 0x6b5db8, imac 0x7a3d60;
+    void onClose(cocos2d::CCObject* sender) = win 0x3adfd0, m1 0x6b5db8, imac 0x7a3d60, ios 0x19a8dc;
     void onComment(cocos2d::CCObject* sender) = win 0x3acc50, m1 0x6ba888;
     void onCommentHistory(cocos2d::CCObject* sender) = win 0x3acbc0, imac 0x7a7830, m1 0x6b92c8;
     void onCopyName(cocos2d::CCObject* sender) = win 0x3ac290;
