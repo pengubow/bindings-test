@@ -1032,27 +1032,28 @@ class cocos2d::CCFileUtils {
     virtual bool writeToFile(cocos2d::CCDictionary*, gd::string const&) = m1 0x3a1a68, imac 0x426ce0, ios 0x153f78;
 }
 
-[[link(win, android)]]
-class cocos2d::CCFiniteTimeAction {
-	float getDuration() = ios inline {
-        return m_fDuration;
-    }
+// this is literally already in sdk, and adding it here breaks building sdk
+// [[link(win, android)]]
+// class cocos2d::CCFiniteTimeAction {
+	// float getDuration() = ios inline {
+    //     return m_fDuration;
+    // }
 
-	void setDuration(float duration) = ios inline {
-        m_fDuration = duration;
-    }
+	// void setDuration(float duration) = ios inline {
+    //     m_fDuration = duration;
+    // }
 
 	// CCFiniteTimeAction(cocos2d::CCFiniteTimeAction const&);
-	CCFiniteTimeAction() = ios inline {
-        m_fDuration = 0;
-    }
-    ~CCFiniteTimeAction() = ios inline {}
+	// CCFiniteTimeAction() = ios inline {
+    //     m_fDuration = 0;
+    // }
+    // ~CCFiniteTimeAction() = ios inline {}
 
-	virtual cocos2d::CCFiniteTimeAction* reverse() = ios inline {
-        CCLOG("cocos2d: FiniteTimeAction#reverse: Implement me");
-        return NULL;
-    }
-}
+	// virtual cocos2d::CCFiniteTimeAction* reverse() = ios inline {
+    //     CCLOG("cocos2d: FiniteTimeAction#reverse: Implement me");
+    //     return NULL;
+    // }
+// }
 
 [[link(win, android)]]
 class cocos2d::CCGLProgram {
@@ -1902,11 +1903,11 @@ class cocos2d::CCDirector {
     bool isSendCleanupToScene();
     int levelForSceneInStack(cocos2d::CCScene*);
     void pause();
-    void popScene();
+    void popScene() = ios 0x1796e8;
     bool popSceneWithTransition(float, cocos2d::PopTransition) = imac 0x4714c0, m1 0x3e02e8;
     void popToRootScene();
     void popToSceneInStack(cocos2d::CCScene*);
-    void popToSceneStackLevel(int);
+    void popToSceneStackLevel(int) = ios 0x179844;
     void purgeCachedData();
     void purgeDirector() = imac 0x471780;
     bool pushScene(cocos2d::CCScene*) = imac 0x471230, m1 0x3e0034, ios 0x179580;
@@ -2287,13 +2288,13 @@ class cocos2d::CCAnimate {
 [[link(win, android)]]
 class cocos2d::CCAnimation {
     // static cocos2d::CCAnimation* create(cocos2d::CCArray*, float);
-    static cocos2d::CCAnimation* create(cocos2d::CCArray*, float, unsigned int) = m1 0x22e300, imac 0x284c00;
-    static cocos2d::CCAnimation* create() = m1 0x22dffc, imac 0x2848d0;
+    static cocos2d::CCAnimation* create(cocos2d::CCArray*, float, unsigned int) = imac 0x284c00;
+    static cocos2d::CCAnimation* create();
     static cocos2d::CCAnimation* createWithSpriteFrames(cocos2d::CCArray*, float) = m1 0x22e128, imac 0x284a00, ios 0x1a73f4;
 
-    bool init() = m1 0x22e0cc, imac 0x2849b0;
-    bool initWithAnimationFrames(cocos2d::CCArray*, float, unsigned int) = m1 0x22e3fc, imac 0x284d00;
-    bool initWithSpriteFrames(cocos2d::CCArray*, float) = m1 0x22e1b0, imac 0x284a90;
+    bool init();
+    bool initWithAnimationFrames(cocos2d::CCArray*, float, unsigned int);
+    bool initWithSpriteFrames(cocos2d::CCArray*, float);
 
     float getDelayPerUnit() const;
     cocos2d::CCArray* getFrames() const;
@@ -3047,7 +3048,7 @@ class cocos2d::CCMenuItemSprite {
     virtual void selected() = imac 0x3ad0c0, m1 0x338e40, ios 0x50ab0;
     virtual void unselected() = imac 0x3ad160, m1 0x338ecc, ios 0x50b3c;
     virtual void setEnabled(bool) = imac 0x3ad1e0, m1 0x338f4c, ios 0x50bbc;
-    virtual cocos2d::CCNode* getNormalImage() = m1 0x338964, imac 0x3acc10, ios 0x50764;
+    virtual cocos2d::CCNode* getNormalImage() = m1 0x338964, imac 0x3acc10, ios 0x50764; // i actually like have no idea if this is correct. Somebody check the binding im too lazy
     virtual void setNormalImage(cocos2d::CCNode*) = imac 0x3acc20, m1 0x33896c, ios 0x5076c;
     virtual cocos2d::CCNode* getSelectedImage() = m1 0x338a38, imac 0x3acce0;
     virtual void setSelectedImage(cocos2d::CCNode*) = imac 0x3accf0, m1 0x338a40, ios 0x50840;
