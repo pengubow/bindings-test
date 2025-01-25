@@ -7202,7 +7202,7 @@ class GameStatsManager : cocos2d::CCNode {
         return m_completedLevels->objectForKey(this->getLevelKey(levelID, false, false, false, false)) != nullptr;
     }
     bool hasCompletedMapPack(int);
-    bool hasCompletedOnlineLevel(int) = win 0x1db070, m1 0x60ecc, imac 0x6d330;
+    bool hasCompletedOnlineLevel(int) = win 0x1db070, m1 0x60ecc, imac 0x6d330, ios 0x330b64;
     bool hasCompletedStarLevel(GJGameLevel*) = imac 0x6d570;
     bool hasPendingUserCoin(char const*);
     bool hasRewardBeenCollected(GJRewardType, int);
@@ -9821,7 +9821,7 @@ class GJMapPack : cocos2d::CCNode {
         return nullptr;
     }
 
-    int completedMaps() = win 0x16e080, imac 0x5495d0, m1 0x4a1dac;
+    int completedMaps() = win 0x16e080, imac 0x5495d0, m1 0x4a1dac, ios 0xb303c;
     bool hasCompletedMapPack() = win inline, imac 0x549680, m1 0x4a1e70, ios 0xb30d4 {
         auto total = this->totalMaps();
         if (total > 0) return this->completedMaps() >= total;
