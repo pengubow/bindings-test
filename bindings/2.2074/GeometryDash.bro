@@ -32,12 +32,12 @@ class AccountLayer : GJDropDownLayer, GJAccountDelegate, GJAccountBackupDelegate
     static AccountLayer* create() = win 0x7d560;
 
     TodoReturn createToggleButton(gd::string, cocos2d::SEL_MenuHandler, bool, cocos2d::CCMenu*, cocos2d::CCPoint);
-    void doBackup() = win inline, m1 0xb6708, imac 0xcd8a0 {
+    void doBackup() = win inline, m1 0xb6708, imac 0xcd8a0, ios 0x169c3c {
         this->updatePage(false);
         if (!GJAccountManager::sharedState()->getAccountBackupURL()) this->backupAccountFailed((BackupAccountError)-1, 0);
         else this->showLoadingUI();
     }
-    void doSync() = win inline, m1 0xb67e4, imac 0xcd970 {
+    void doSync() = win inline, m1 0xb67e4, imac 0xcd970, ios 0x169cc4 {
         this->updatePage(false);
         if (!GJAccountManager::sharedState()->getAccountSyncURL()) this->syncAccountFailed((BackupAccountError)-1, 0);
         else this->showLoadingUI();
@@ -65,7 +65,7 @@ class AccountLayer : GJDropDownLayer, GJAccountDelegate, GJAccountBackupDelegate
         m_buttonMenu->setEnabled(enable);
         this->setKeypadEnabled(enable);
     }
-    void updatePage(bool) = win 0x7e760;
+    void updatePage(bool) = win 0x7e760, ios 0x169834;
 
     virtual void customSetup() = win 0x7d6c0, m1 0xb530c, imac 0xcc490, ios 0x168d38;
     virtual void layerHidden() = win 0x7f450, imac 0xce520, m1 0xb72fc, ios 0x16a450;
@@ -19887,7 +19887,7 @@ class TextArea : cocos2d::CCSprite {
 
     static TextArea* create(gd::string str, char const* font, float scale, float width, cocos2d::CCPoint anchor, float lineHeight, bool disableColor) = win 0x76e50, m1 0x2a4014, imac 0x30d440, ios 0xf9894;
 
-    void colorAllCharactersTo(cocos2d::ccColor3B) = win 0x77600, imac 0x30dfc0, m1 0x2a4b20;
+    void colorAllCharactersTo(cocos2d::ccColor3B) = win 0x77600, imac 0x30dfc0, m1 0x2a4b20, ios 0xf9ec0;
     void colorAllLabels(cocos2d::ccColor3B) = imac 0x30e070, m1 0x2a4be4;
     void fadeIn(float, bool) = m1 0x2a47e4;
     void fadeInCharacters(float, float, bool, TextFadeInStyle);
