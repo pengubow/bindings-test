@@ -5821,7 +5821,7 @@ class GameLevelManager : cocos2d::CCNode {
     void storeUserInfo(GJUserScore*);
     void storeUserMessage(GJUserMessage*);
     void storeUserMessageReply(int, GJUserMessage*);
-    void storeUserName(int userID, int accountID, gd::string userName) = win 0x143ca0, m1 0x4754d4;
+    void storeUserName(int userID, int accountID, gd::string userName) = win 0x143ca0, m1 0x4754d4, ios 0x97218;
     void storeUserNames(gd::string usernameString) = imac 0x5179d0, m1 0x474d1c;
     void submitUserInfo();
     void suggestLevelStars(int, int, int);
