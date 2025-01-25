@@ -5628,7 +5628,7 @@ class GameLevelManager : cocos2d::CCNode {
     void getNews();
     int getNextFreeTemplateID();
     gd::string getNextLevelName(gd::string);
-    void getOnlineLevels(GJSearchObject*) = win 0x14bb70, m1 0x484cec, imac 0x529700;
+    void getOnlineLevels(GJSearchObject*) = win 0x14bb70, m1 0x484cec, imac 0x529700, ios 0xa0fec;
     char const* getPageInfo(char const*);
     char const* getPostCommentKey(int);
     const char * getRateStarsKey(int key);
@@ -9746,7 +9746,7 @@ class GJLevelScoreCell : TableViewCell {
 class GJListLayer : cocos2d::CCLayerColor {
     // virtual ~GJListLayer();
 
-    static GJListLayer* create(BoomListView*, char const*, cocos2d::ccColor4B, float, float, int) = win 0x277e70, imac 0x5b9e00, m1 0x4eff60;
+    static GJListLayer* create(BoomListView*, char const*, cocos2d::ccColor4B, float, float, int) = win 0x277e70, imac 0x5b9e00, m1 0x4eff60, ios 0x838dc;
 
     bool init(BoomListView*, char const*, cocos2d::ccColor4B, float, float, int) = win 0x277fa0, imac 0x5b9f10, m1 0x4f0054, ios 0x839d0;
 
@@ -10606,7 +10606,7 @@ class GJSearchObject : cocos2d::CCNode {
     static GJSearchObject* create(SearchType searchType) = win 0x1716f0, imac 0x54a4c0, m1 0x4a2b10, ios 0xb8ec8;
     static GJSearchObject* createFromKey(char const* key) = win 0x170ff0;
 
-    char const* getKey() = win 0x171c40, m1 0x4857e8, imac 0x52a470;
+    char const* getKey() = win 0x171c40, m1 0x4857e8, imac 0x52a470, ios 0xa1778;
     char const* getNextPageKey();
     GJSearchObject* getNextPageObject();
     GJSearchObject* getPageObject(int page) = win 0x171d90;
