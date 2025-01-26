@@ -12106,7 +12106,7 @@ class LevelCell : TableViewCell {
     void loadCustomLevelCell() = win 0xadb20, imac 0x23d540, m1 0x1ed1f0, ios 0x10f6e4;
     void loadFromLevel(GJGameLevel*) = win 0xad940, imac 0x232d00, m1 0x1e2d4c, ios 0x105c2c;
     void loadLocalLevelCell() = win 0xb05f0, imac 0x23cc80, m1 0x1ec8ac, ios 0x10edd4;
-    void onClick(cocos2d::CCObject* sender) = win 0xb1080, imac 0x240090, m1 0x1ef99c;
+    void onClick(cocos2d::CCObject* sender) = win 0xb1080, imac 0x240090, m1 0x1ef99c, ios 0x111c5c;
     void onToggle(cocos2d::CCObject* sender) = ios 0x111c44;
     void onViewProfile(cocos2d::CCObject* sender) = win 0xb12a0, imac 0x2401f0, m1 0x1efb00;
     void updateBGColor(int) = ios 0x105dc0;
