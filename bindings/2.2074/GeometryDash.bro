@@ -5846,7 +5846,7 @@ class GameLevelManager : cocos2d::CCNode {
     void uploadUserMessage(int, gd::string, gd::string) = win 0x1588b0, m1 0x491cac;
     int userIDForAccountID(int);
     GJUserScore* userInfoForAccountID(int) = imac 0x518ac0;
-    gd::string userNameForUserID(int) = win 0x143e80, m1 0x475748;
+    gd::string userNameForUserID(int) = win 0x143e80, m1 0x475748, ios 0x9735c;
     TodoReturn verifyContainerOnlyHasLevels(cocos2d::CCDictionary*);
     void verifyLevelState(GJGameLevel*);
     gd::string writeSpecialFilters(GJSearchObject*) = win 0x14b8b0, imac 0x529260;
@@ -12010,7 +12010,7 @@ class LevelBrowserLayer : cocos2d::CCLayerColor, LevelManagerDelegate, FLAlertLa
     TodoReturn deleteSelected();
     TodoReturn exitLayer(cocos2d::CCObject*);
     cocos2d::CCArray* getItemsMatchingSearch(cocos2d::CCArray*, gd::string, GJSearchObject*) = win 0x2c6b80;
-    gd::string getSearchTitle() = win 0x2c39e0;
+    gd::string getSearchTitle() = win 0x2c39e0, m1 0x3eb248, ios 0x4101ac;
     bool init(GJSearchObject*) = win 0x2c0a60, m1 0x3e66c8, imac 0x478340, ios 0x40c1f8;
     bool isCorrect(char const*) = win 0x2c2370;
     void loadPage(GJSearchObject*) = win 0x2c2540, imac 0x47b5e0, m1 0x3e99f0;
@@ -12038,7 +12038,7 @@ class LevelBrowserLayer : cocos2d::CCLayerColor, LevelManagerDelegate, FLAlertLa
         static_cast<CustomListView*>(m_list->m_listView)->reloadAll();
     }
     void setSearchObject(GJSearchObject*);
-    void setupLevelBrowser(cocos2d::CCArray*) = win 0x2c36d0, imac 0x47ce70, m1 0x3eafb8;
+    void setupLevelBrowser(cocos2d::CCArray*) = win 0x2c36d0, imac 0x47ce70, m1 0x3eafb8, ios 0x40ff18;
     void show() = m1 0x3ece8c, ios 0x41185c;
     void updateLevelsLabel();
     void updatePageLabel() = win 0x2c4a70, imac 0x479d90;
@@ -13908,14 +13908,14 @@ class MusicDownloadManager : cocos2d::CCNode, PlatformDownloadDelegate {
     void createSongsInfo(gd::string, gd::string) = win 0x3288a0, imac 0x575b00, m1 0x4c998c;
     void dataLoaded(DS_Dictionary*) = win 0x32a450, imac 0x578e00, m1 0x4cc790;
     void deleteSFX(int);
-    void deleteSong(int) = imac 0x577120, m1 0x4cada0;
-    void downloadCustomSong(int) = win 0x32ad40, imac 0x5778d0, m1 0x4cb4c4;
+    void deleteSong(int) = imac 0x577120, m1 0x4cada0, ios 0x159818;
+    void downloadCustomSong(int) = win 0x32ad40, imac 0x5778d0, m1 0x4cb4c4, ios 0x159d0c;
     void downloadMusicLibrary();
     void downloadSFX(int) = imac 0x57d0e0, m1 0x4d01c0;
     void downloadSFXFailed(int, GJSongError);
     void downloadSFXFinished(int);
     void downloadSFXLibrary();
-    void downloadSong(int) = win 0x329460, imac 0x577410, m1 0x4cb0d0;
+    void downloadSong(int) = win 0x329460, imac 0x577410, m1 0x4cb0d0, ios 0x159a58;
     void downloadSongFailed(int, GJSongError);
     void downloadSongFinished(int);
     void encodeDataTo(DS_Dictionary*) = m1 0x4cc738;
@@ -13958,8 +13958,8 @@ class MusicDownloadManager : cocos2d::CCNode, PlatformDownloadDelegate {
     bool isRunningActionForSongID(int) = imac 0x573cb0;
     bool isSFXDownloaded(int) = imac 0x5784f0, m1 0x4cbfe4;
     bool isSFXLibraryLoaded();
-    bool isSongDownloaded(int) = win 0x329c80, imac 0x576cc0, m1 0x4ca9c8;
-    void limitDownloadedSongs() = m1 0x4cac6c, imac 0x576fe0;
+    bool isSongDownloaded(int) = win 0x329c80, imac 0x576cc0, m1 0x4ca9c8, ios 0x159650;
+    void limitDownloadedSongs() = m1 0x4cac6c, imac 0x576fe0, ios 0x159790;
     void loadSongInfoFailed(int, GJSongError);
     void loadSongInfoFinished(SongInfoObject*) = win 0x32ec70;
     void musicActionFailed(GJMusicAction);
@@ -13968,7 +13968,7 @@ class MusicDownloadManager : cocos2d::CCNode, PlatformDownloadDelegate {
     void onDownloadMusicLibraryCompleted(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*);
     void onDownloadSFXCompleted(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) = imac 0x57d3b0, m1 0x4d04ac;
     void onDownloadSFXLibraryCompleted(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*);
-    void onDownloadSongCompleted(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) = win 0x329750, imac 0x577ba0, m1 0x4cb7b4;
+    void onDownloadSongCompleted(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) = win 0x329750, imac 0x577ba0, m1 0x4cb7b4, ios 0x159f80;
     void onGetCustomContentURLCompleted(gd::string, gd::string) = imac 0x5736a0, m1 0x4c7868;
     void onGetSongInfoCompleted(gd::string, gd::string) = win 0x328460, m1 0x4c75d8, imac 0x573400, ios 0x157414;
     void onProcessHttpRequestCompleted(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) = imac 0x572ca0, m1 0x4c6e34, ios 0x15701c;
