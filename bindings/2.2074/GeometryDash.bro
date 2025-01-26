@@ -3337,7 +3337,7 @@ class CustomSongWidget : cocos2d::CCNode, MusicDownloadDelegate, FLAlertLayerPro
     static CustomSongWidget* create(SongInfoObject* songInfo, CustomSongDelegate* songDelegate, bool showSongSelect, bool showPlayMusic, bool showDownload, bool isRobtopSong, bool unkBool, bool isMusicLibrary, int unk) = win 0xc74f0, imac 0x603090, m1 0x530a34;
     TodoReturn addExtraVisuals(bool, bool);
 
-    void deleteSong() = win 0xc9160, m1 0x534634, imac 0x607140;
+    void deleteSong() = win 0xc9160, m1 0x534634, imac 0x607140, ios 0xffe0c;
     void downloadAssetFailed(int, GJAssetType, GJSongError) = win 0xcc4a0;
     void downloadAssetFinished(int, GJAssetType) = win 0xcc3e0, imac 0x608f70, m1 0x53620c;
     void downloadFailed() = imac 0x608e20, m1 0x5360a4;
@@ -12463,7 +12463,7 @@ class LevelInfoLayer : cocos2d::CCLayer, LevelDownloadDelegate, LevelUpdateDeleg
     void onLike(cocos2d::CCObject* sender) = win 0x2e9e60, m1 0x253da8, imac 0x2ade50;
     void onLowDetailMode(cocos2d::CCObject* sender);
     void onOwnerDelete(cocos2d::CCObject* sender);
-    void onPlay(cocos2d::CCObject* sender) = win 0x2e7bd0, m1 0x251bc4, imac 0x2abca0;
+    void onPlay(cocos2d::CCObject* sender) = win 0x2e7bd0, m1 0x251bc4, imac 0x2abca0, ios 0x2a9d0;
     void onPlayReplay(cocos2d::CCObject* sender);
     void onRate(cocos2d::CCObject* sender) = win 0x2e96e0, m1 0x256d54;
     void onRateDemon(cocos2d::CCObject* sender) = win 0x2e9ce0, imac 0x2ae030, m1 0x253f84;
