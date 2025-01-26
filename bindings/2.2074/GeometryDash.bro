@@ -11248,7 +11248,7 @@ class GJUserScore : cocos2d::CCNode {
     static GJUserScore* create(cocos2d::CCDictionary*) = win 0x16e1a0, m1 0x479a1c, ios 0x99f28;
     // virtual ~GJUserScore();
 
-    static GJUserScore* create() = win inline, m1 0x4a205c {
+    static GJUserScore* create() = win inline, m1 0x4a205c, ios 0xb3264 { // ?
         auto ret = new GJUserScore();
         if (ret->init()) {
             ret->autorelease();
