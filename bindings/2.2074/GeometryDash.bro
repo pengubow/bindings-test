@@ -5534,9 +5534,9 @@ class GameLevelManager : cocos2d::CCNode {
     void deleteAccountComment(int, int);
     void deleteComment(int, CommentType, int);
     bool deleteFriendRequests(int, cocos2d::CCArray*, bool);
-    void deleteLevel(GJGameLevel*) = win 0x142fe0, imac 0x517010, m1 0x4743e0;
+    void deleteLevel(GJGameLevel*) = win 0x142fe0, imac 0x517010, m1 0x4743e0, ios 0x967dc;
     void deleteLevelComment(int, int);
-    void deleteLevelList(GJLevelList*) = win 0x143890, imac 0x517880, m1 0x474ba4;
+    void deleteLevelList(GJLevelList*) = win 0x143890, imac 0x517880, m1 0x474ba4, ios 0x96d58;
     bool deleteSentFriendRequest(int) = imac 0x53de10;
     void deleteServerLevel(int) = win 0x152350;
     void deleteServerLevelList(int);
@@ -6188,7 +6188,7 @@ class GameManager : GManager {
     TodoReturn saveDPadLayout(int, bool);
     void setGameVariable(char const*, bool) = win 0x17fe90, imac 0x370550, m1 0x3018c0, ios 0x318f14;
     void setHasRatingPower(int);
-    void setIntGameVariable(char const*, int) = win 0x1805f0, imac 0x370b70, m1 0x301f7c;
+    void setIntGameVariable(char const*, int) = win 0x1805f0, imac 0x370b70, m1 0x301f7c, ios 0x319274;
     void setPlayerBall(int id) {
         m_playerBall = id;
     }
@@ -9141,7 +9141,7 @@ class GJGameLevel : cocos2d::CCNode {
     TodoReturn getNormalPercent();
     TodoReturn getSongName();
     gd::string getUnpackedLevelDescription() = win 0x16d150, m1 0x4a16d8, imac 0x548eb0, ios 0xb2c14;
-    void handleStatsConflict(GJGameLevel*) = win 0x16cc80, imac 0x526870, m1 0x482228;
+    void handleStatsConflict(GJGameLevel*) = win 0x16cc80, imac 0x526870, m1 0x482228, ios 0x9f82c;
     inline bool isPlatformer() {
         return m_levelLength == 5;
     }
@@ -9683,7 +9683,7 @@ class GJLevelList : cocos2d::CCNode {
     cocos2d::CCArray* getListLevelsArray(cocos2d::CCArray*) = win 0x174160;
     gd::string getUnpackedDescription() = win 0x173b80, imac 0x54b670;
     void handleStatsConflict(GJLevelList*) = imac 0x54b4a0, m1 0x4a37fc;
-    bool hasMatchingLevels(GJLevelList*) = win 0x173970, imac 0x54b4c0, m1 0x4a3814;
+    bool hasMatchingLevels(GJLevelList*) = win 0x173970, imac 0x54b4c0, m1 0x4a3814, ios 0xb4390;
     TodoReturn orderForLevel(int);
     TodoReturn parseListLevels(gd::string) = win 0x173c40;
     TodoReturn removeLevelFromList(int);
