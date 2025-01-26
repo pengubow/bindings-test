@@ -3448,7 +3448,7 @@ class DailyLevelPage : FLAlertLayer, FLAlertLayerProtocol, GJDailyLevelDelegate,
     // virtual ~DailyLevelPage();
     //DailyLevelPage() = ios 0x1c66c0;
 
-    static DailyLevelPage* create(GJTimedLevelType) = win 0xccfd0;
+    static DailyLevelPage* create(GJTimedLevelType) = win 0xccfd0, m1 0x1d0d8c, ios 0x1baec4;
 
     void claimLevelReward(DailyLevelNode*, GJGameLevel*, cocos2d::CCPoint) = win 0xd06b0, m1 0x1d3470;
     void createDailyNode(GJGameLevel*, bool, float, bool) = win 0xcee40, imac 0x21f7b0, m1 0x1d2700;
@@ -5570,7 +5570,7 @@ class GameLevelManager : cocos2d::CCNode {
     TodoReturn getCompletedEventLevels(int, int);
     TodoReturn getCompletedGauntletDemons();
     TodoReturn getCompletedGauntletLevels();
-    cocos2d::CCArray* getCompletedLevels(bool) = win 0x145860;
+    cocos2d::CCArray* getCompletedLevels(bool) = win 0x145860, m1 0x47b4a4, ios 0x9b350;
     TodoReturn getCompletedWeeklyLevels();
     int getDailyID(GJTimedLevelType);
     double getDailyTimer(GJTimedLevelType);
@@ -5591,7 +5591,7 @@ class GameLevelManager : cocos2d::CCNode {
     void getGauntletsearchKey(int);
     void getGJChallenges() = win 0x164ad0, m1 0x49be48;
     void getGJDailyLevelState(GJTimedLevelType) = imac 0x543260;
-    void getGJRewards(int) = imac 0x542540;
+    void getGJRewards(int) = imac 0x542540, m1 0x49b6b0, ios 0xae25c;
     TodoReturn getGJSecretReward(gd::string);
     void getGJUserInfo(int) = win 0x157880, imac 0x536710, m1 0x4901ac;
     int getHighestLevelOrder() = imac 0x51ece0;
@@ -12039,7 +12039,7 @@ class LevelBrowserLayer : cocos2d::CCLayerColor, LevelManagerDelegate, FLAlertLa
     }
     void setSearchObject(GJSearchObject*);
     void setupLevelBrowser(cocos2d::CCArray*) = win 0x2c36d0, imac 0x47ce70, m1 0x3eafb8;
-    void show();
+    void show() = m1 0x3ece8c, ios 0x41185c;
     void updateLevelsLabel();
     void updatePageLabel() = win 0x2c4a70, imac 0x479d90;
 
@@ -12444,12 +12444,12 @@ class LevelInfoLayer : cocos2d::CCLayer, LevelDownloadDelegate, LevelUpdateDeleg
     void confirmMoveToBottom(cocos2d::CCObject*) = win 0x2ea8a0;
     void confirmMoveToTop(cocos2d::CCObject*) = win 0x2ea760, imac 0x2aeb30;
     void confirmOwnerDelete(cocos2d::CCObject*);
-    void downloadLevel() = win 0x2e5770, m1 0x2523a0;
+    void downloadLevel() = win 0x2e5770, m1 0x2523a0, ios 0x2b0ec;
     void incrementDislikes();
     void incrementLikes();
     bool init(GJGameLevel* level, bool challenge) = win 0x2e2a90, imac 0x2a98e0, m1 0x24fa08, ios 0x287d0;
     void loadLevelStep() = win 0x2e8a00, imac 0x2b07d0, m1 0x2566dc;
-    void onAddToList(cocos2d::CCObject* sender) = win 0x2e5160, imac 0x2aee40, m1 0x254e2c;
+    void onAddToList(cocos2d::CCObject* sender) = win 0x2e5160, imac 0x2aee40, m1 0x254e2c, ios 0x2d668;
     void onBack(cocos2d::CCObject* sender) = win 0x2ebce0, imac 0x2ae6d0, m1 0x254684;
     void onClone(cocos2d::CCObject* sender);
     void onDelete(cocos2d::CCObject* sender);
