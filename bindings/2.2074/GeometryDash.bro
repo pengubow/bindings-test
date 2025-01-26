@@ -5834,7 +5834,7 @@ class GameLevelManager : cocos2d::CCNode {
     void updateLevel(GJGameLevel*) = imac 0x52f9a0;
     void updateLevelOrders() = win 0x145680, m1 0x47b2b0;
     void updateLevelRewards(GJGameLevel*) = win 0x144380, m1 0x475db4;
-    void updateSavedLevelList(GJLevelList*) = win 0x14ef40, m1 0x487790;
+    void updateSavedLevelList(GJLevelList*) = win 0x14ef40, m1 0x487790, ios 0xa2948;
     void updateUsernames();
     void updateUserScore() = win 0x153790, m1 0x48c508, imac 0x531c80;
     void uploadAccountComment(gd::string);
@@ -12584,7 +12584,7 @@ class LevelListCell : TableViewCell {
     static LevelListCell* create(float, float);
 
     void loadFromList(GJLevelList*) = win 0xbdf90, imac 0x233ae0, m1 0x1e3af4, ios 0x10698c;
-    void onClick(cocos2d::CCObject* sender) = win 0xbf3c0, imac 0x247470, m1 0x1f5bc8;
+    void onClick(cocos2d::CCObject* sender) = win 0xbf3c0, imac 0x247470, m1 0x1f5bc8, ios 0x115ae8;
     void onListInfo(cocos2d::CCObject* sender);
     void onViewProfile(cocos2d::CCObject* sender) = imac 0x247550, m1 0x1f5c90;
     TodoReturn updateBGColor(int) = ios 0x107e24;
@@ -13075,7 +13075,7 @@ class LevelTools {
     static cocos2d::CCDictionary* createStarPackDict();
     static gd::string fbURLForArtist(int) = win 0x316430;
     static int getAudioBPM(int);
-    static gd::string getAudioFileName(int) = win 0x313750, imac 0x4eb120, m1 0x44ca9c;
+    static gd::string getAudioFileName(int) = win 0x313750, imac 0x4eb120, m1 0x44ca9c, ios 0x1ab7f0;
     static gd::string getAudioString(int) = imac 0x4ecd10, ios 0x1ab920;
     static gd::string getAudioTitle(int) = win 0x312bd0, imac 0x4eab80, m1 0x44c364, ios 0x1ab7c0;
     static TodoReturn getLastGameplayReversed();
@@ -13899,7 +13899,7 @@ class MusicDownloadManager : cocos2d::CCNode, PlatformDownloadDelegate {
     void addDLToActive(char const* tag);
     TodoReturn addMusicDownloadDelegate(MusicDownloadDelegate*) = win 0x327f30;
     void addSongObjectFromString(gd::string);
-    void clearSong(int songID) = win inline, imac 0x72ae0, m1 0x48795c {
+    void clearSong(int songID) = win inline, imac 0x72ae0, m1 0x48795c, ios 0xa2a30 { // ?
         const char* key = cocos2d::CCString::createWithFormat("%i", songID)->getCString();
         m_songObjects->removeObjectForKey(key);
     }
