@@ -5459,7 +5459,7 @@ class FriendsProfilePage : FLAlertLayer, FLAlertLayerProtocol, UploadActionDeleg
     void onBlocked(cocos2d::CCObject* sender) = win 0x13ef50;
     void onClose(cocos2d::CCObject* sender) = win 0x13efe0, m1 0x56ab00;
     void onUpdate(cocos2d::CCObject* sender);
-    void setupUsersBrowser(cocos2d::CCArray* users, UserListType type) = win 0x13e870, imac 0x6421b0, m1 0x56aca8;
+    void setupUsersBrowser(cocos2d::CCArray* users, UserListType type) = win 0x13e870, imac 0x6421b0, m1 0x56aca8, ios 0x1da3a0;
 
     virtual void registerWithTouchDispatcher() = m1 0x56b2b4, imac 0x6427d0, ios 0x1da854;
     virtual void keyBackClicked() = win 0x13f0a0, imac 0x6427a0, m1 0x56b2a8, ios 0x1da848;
