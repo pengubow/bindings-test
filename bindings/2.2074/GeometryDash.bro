@@ -5825,7 +5825,7 @@ class GameLevelManager : cocos2d::CCNode {
     void storeUserNames(gd::string usernameString) = imac 0x5179d0, m1 0x474d1c;
     void submitUserInfo();
     void suggestLevelStars(int, int, int);
-    gd::string tryGetUsername(int) = win 0x144000, m1 0x475900;
+    gd::string tryGetUsername(int) = win 0x144000, m1 0x475900, ios 0x9742c;
     CommentType typeFromCommentKey(char const*);
     LikeItemType typeFromLikeKey(char const*);
     void unblockUser(int);
