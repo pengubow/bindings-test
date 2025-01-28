@@ -3321,7 +3321,7 @@ class DS_Dictionary {
     void removeKey(char const*);
     bool saveRootSubDictToCompressedFile(char const*);
     bool saveRootSubDictToFile(char const*);
-    gd::string saveRootSubDictToString() = imac 0x16c030;
+    gd::string saveRootSubDictToString() = imac 0x16c030, m1 0x1388ec, ios 0x164824;
     void setArrayForKey(char const*, cocos2d::CCArray*);
     void setBoolForKey(char const*, bool, bool);
     void setBoolForKey(char const*, bool) = imac 0x16e790, m1 0x13ab9c;
@@ -3519,7 +3519,7 @@ class pugi::xml_document {
 [[link(win, android)]]
 class pugi::xml_node {
     // i'm not bothering
-    	xml_node() = m1 inline, imac inline {
+    	xml_node() = m1 inline, imac inline, ios inline {
     	_root = nullptr;
     }
 }
