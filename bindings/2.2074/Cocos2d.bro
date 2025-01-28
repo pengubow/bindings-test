@@ -3314,7 +3314,7 @@ class DS_Dictionary {
     cocos2d::CCPoint getVec2ForKey(char const*);
     bool loadRootSubDictFromCompressedFile(char const*) = imac 0x16a5b0, m1 0x1372fc;
     bool loadRootSubDictFromFile(char const*);
-    bool loadRootSubDictFromString(gd::string const&) = m1 0x1376b0;
+    bool loadRootSubDictFromString(gd::string const&) = m1 0x1376b0, ios 0x1645d4;
     bool rectFromString(gd::string const&, cocos2d::CCRect&);
     void removeAllKeys();
     void removeKey(unsigned int);
@@ -3349,7 +3349,7 @@ class DS_Dictionary {
     void split(gd::string const&, char const*, gd::vector<gd::string>&);
     bool splitWithForm(gd::string const&, gd::vector<gd::string>&);
     void stepBackToRootSubDict();
-    bool stepIntoSubDictWithKey(char const*) = imac 0x16c5d0;
+    bool stepIntoSubDictWithKey(char const*) = imac 0x16c5d0, m1 0x138dc0, ios 0x164b90;
     void stepOutOfSubDict() = imac 0x16c8a0, m1 0x138ff0;
     bool vec2FromString(gd::string const&, cocos2d::CCPoint&);
 }
@@ -3451,7 +3451,7 @@ class cocos2d::ZipUtils {
     static gd::string base64URLDecode(gd::string const&);
     static gd::string base64URLEncode(gd::string const&);
     static void ccDecodeEncodedPvr(unsigned int*, int);
-    static int ccDeflateMemory(unsigned char*, unsigned int, unsigned char**) = imac 0x1f3290, m1 0x1a8dd8;
+    static int ccDeflateMemory(unsigned char*, unsigned int, unsigned char**) = imac 0x1f3290, m1 0x1a8dd8, ios 0x23d50c;
     static int ccInflateCCZFile(char const*, unsigned char**);
     static int ccInflateGZipFile(char const*, unsigned char**);
     static int ccInflateMemory(unsigned char*, unsigned int, unsigned char**);
@@ -3459,7 +3459,7 @@ class cocos2d::ZipUtils {
     static int ccInflateMemoryWithHint(unsigned char*, unsigned int, unsigned char**, unsigned int);
     static void ccSetPvrEncryptionKey(unsigned int, unsigned int, unsigned int, unsigned int);
     static void ccSetPvrEncryptionKeyPart(int, unsigned int);
-    static gd::string compressString(gd::string const&, bool, int) = imac 0x1f3020, m1 0x1a8b18;
+    static gd::string compressString(gd::string const&, bool, int) = imac 0x1f3020, m1 0x1a8b18, ios 0x23d2b8;
     static gd::string decompressString2(unsigned char*, bool, int, int);
     static gd::string decompressString(gd::string const&, bool, int) = m1 0x1a921c, imac 0x1f36c0;
     static gd::string encryptDecrypt(gd::string const&, int);
@@ -3512,8 +3512,8 @@ class cocos2d::CCSpeed {
 
 [[link(win, android)]]
 class pugi::xml_document {
-    xml_document();
-    ~xml_document() = imac 0x62ab90;
+    xml_document() = m1 0x5553cc, ios 0x3a593c;
+    ~xml_document() = imac 0x62ab90, m1 0x555520, ios 0x3a5a20;
 }
 
 [[link(win, android)]]
