@@ -121,7 +121,7 @@ class cocos2d::CCEaseElasticOut {
 
 [[link(win, android)]]
 class cocos2d::CCEaseExponentialIn {
-    static cocos2d::CCEaseExponentialIn* create(cocos2d::CCActionInterval*);
+    static cocos2d::CCEaseExponentialIn* create(cocos2d::CCActionInterval*) = m1 0x45e9b0, ios 0x26b68c;
 
     // CCEaseExponentialIn(cocos2d::CCEaseExponentialIn const&);
     // CCEaseExponentialIn();
@@ -169,7 +169,7 @@ class cocos2d::CCEaseSineIn {
 
 [[link(win, android)]]
 class cocos2d::CCEaseSineOut {
-    static cocos2d::CCEaseSineOut* create(cocos2d::CCActionInterval*);
+    static cocos2d::CCEaseSineOut* create(cocos2d::CCActionInterval*) = m1 0x45f1f8;
 
     // CCEaseSineOut(cocos2d::CCEaseSineOut const&);
     // CCEaseSineOut();
@@ -2386,8 +2386,8 @@ class cocos2d::CCDictionary {
 
     gd::string getFirstKey();
 
-    void setObject(cocos2d::CCObject*, gd::string const&) = imac 0x2fa5f0, m1 0x2935bc;
-    void setObject(cocos2d::CCObject*, intptr_t) = imac 0x2fa5f0, m1 0x2935bc;
+    void setObject(cocos2d::CCObject*, gd::string const&) = imac 0x2fa5f0, m1 0x292d74, ios 0x41ad70;
+    void setObject(cocos2d::CCObject*, intptr_t) = imac 0x2fa5f0, m1 0x2935bc, ios 0x41b528;
     void setObjectUnSafe(cocos2d::CCObject*, gd::string const&);
     //void setObjectUnSafe(cocos2d::CCObject*, int);
 
