@@ -7114,7 +7114,7 @@ class GameStatsManager : cocos2d::CCNode {
     int accountIDForIcon(int, UnlockType) = imac 0x3171d0;
     TodoReturn addSimpleSpecialChestReward(gd::string, UnlockType, int, bool);
     void addSpecialRewardDescription(gd::string, gd::string);
-    void addStoreItem(int, int, int, int, ShopType) = win 0x1d1000, imac 0x660d0, m1 0x5a758;
+    void addStoreItem(int, int, int, int, ShopType) = win 0x1d1000, imac 0x660d0, m1 0x5a758, ios 0x32bb90;
     bool areChallengesLoaded() = imac 0x729b0;
     TodoReturn areRewardsLoaded();
     void awardCurrencyForLevel(GJGameLevel*) = win 0x1dd990, imac 0x70c90, m1 0x64700;
@@ -7139,7 +7139,7 @@ class GameStatsManager : cocos2d::CCNode {
     void createSecretChestItems() = imac 0x5d080, m1 0x5243c;
     TodoReturn createSecretChestRewards();
     void createSpecialChestItems();
-    void createStoreItems() = win 0x1ce830, m1 0x504f8;
+    void createStoreItems() = win 0x1ce830, m1 0x504f8, ios 0x325a70;
     void dataLoaded(DS_Dictionary*) = win 0x1ef0b0, m1 0x808bc;
     void encodeDataTo(DS_Dictionary*) = m1 0x803f4;
     void firstSetup();
