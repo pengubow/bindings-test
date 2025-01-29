@@ -881,7 +881,7 @@ class cocos2d::CCParticleSnow : cocos2d::CCParticleSystemQuad {
 [[link(win, android)]]
 class cocos2d::CCParticleSystemQuad {
     static cocos2d::CCParticleSystemQuad* create(char const*, bool) = imac 0x5eb190, m1 0x51c418, ios 0x252a98;
-    static cocos2d::CCParticleSystemQuad* create() = m1 0x51d1bc, ios 0x;
+    static cocos2d::CCParticleSystemQuad* create() = m1 0x51d1bc;
     static cocos2d::CCParticleSystemQuad* createWithTotalParticles(unsigned int, bool);
 
     void initIndices();
