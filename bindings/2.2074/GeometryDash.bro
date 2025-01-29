@@ -10603,7 +10603,7 @@ class GJSearchObject : cocos2d::CCNode {
 
     static GJSearchObject* create(SearchType searchType, gd::string searchQuery, gd::string difficulty, gd::string length, int page, bool star, bool uncompleted, bool featured, int songID, bool original, bool twoPlayer, bool customSong, bool songFilter, bool noStar, bool coins, bool epic, bool legendary, bool mythic, bool onlyCompleted, int demonFilter, int folder, int searchMode) = win 0x171900, m1 0x4a2868;
     static GJSearchObject* create(SearchType searchType, gd::string searchQuery) = win 0x1717d0, imac 0x54a530, m1 0x4a2b7c, ios 0xb39a4; // ?
-    static GJSearchObject* create(SearchType searchType) = win 0x1716f0, imac 0x54a4c0, m1 0x4a2b10, ios 0xb8ec8;
+    static GJSearchObject* create(SearchType searchType) = win 0x1716f0, imac 0x54a4c0, m1 0x4a2b10, ios 0xb8ecc;
     static GJSearchObject* createFromKey(char const* key) = win 0x170ff0;
 
     char const* getKey() = win 0x171c40, m1 0x4857e8, imac 0x52a470, ios 0xa1778;
