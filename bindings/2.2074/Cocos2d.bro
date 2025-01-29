@@ -133,7 +133,7 @@ class cocos2d::CCEaseExponentialIn {
 
 [[link(win, android)]]
 class cocos2d::CCEaseExponentialInOut {
-    static cocos2d::CCEaseExponentialInOut* create(cocos2d::CCActionInterval*);
+    static cocos2d::CCEaseExponentialInOut* create(cocos2d::CCActionInterval*) = m1 0x45ede8, ios 0x26ba20; //if this is not it im gonna lose it fr trust
 
     // CCEaseExponentialInOut(cocos2d::CCEaseExponentialInOut const&);
     // CCEaseExponentialInOut();
@@ -145,7 +145,7 @@ class cocos2d::CCEaseExponentialInOut {
 
 [[link(win, android)]]
 class cocos2d::CCEaseExponentialOut {
-    static cocos2d::CCEaseExponentialOut* create(cocos2d::CCActionInterval*) = m1 0x45e9b0, ios 0x26b68c; // ???
+    static cocos2d::CCEaseExponentialOut* create(cocos2d::CCActionInterval*) = m1 0x45ebd4, ios 0x26b85c; // ???
 
     // CCEaseExponentialOut(cocos2d::CCEaseExponentialOut const&);
     // CCEaseExponentialOut();
@@ -2381,7 +2381,7 @@ class cocos2d::CCArray {
 class cocos2d::CCDictionary {
     static cocos2d::CCDictionary* create() = m1 0x294464, imac 0x2fc010, ios 0x41c0c4;
     static cocos2d::CCDictionary* createWithContentsOfFile(char const*);
-    static cocos2d::CCDictionary* createWithContentsOfFileThreadSafe(char const*);
+    static cocos2d::CCDictionary* createWithContentsOfFileThreadSafe(char const*) = m1 0x2944e8, ios 0x41c148;
     static cocos2d::CCDictionary* createWithDictionary(cocos2d::CCDictionary*);
 
     gd::string getFirstKey();
@@ -3133,7 +3133,7 @@ class cocos2d::CCRotateBy {
 
 [[link(win, android)]]
 class cocos2d::CCRotateTo {
-    static cocos2d::CCRotateTo* create(float, float) = imac 0x3a46d0, m1 0x331280;
+    static cocos2d::CCRotateTo* create(float, float) = imac 0x3a46d0, m1 0x331280, ios 0x18e6f4;
     static cocos2d::CCRotateTo* create(float, float, float);
 
     bool initWithDuration(float, float);
