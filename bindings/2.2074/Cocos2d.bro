@@ -3256,7 +3256,7 @@ class cocos2d {
     static void ccGLEnable(cocos2d::ccGLServerState) = ios 0x191fbc;
     static void ccGLEnableVertexAttribs(unsigned int) = m1 0x2dccc8, ios 0x191fc0;
     static void ccGLInvalidateStateCache();
-    static void ccGLUseProgram(unsigned int);
+    static void ccGLUseProgram(unsigned int) = m1 0x2dca88, ios 0x191e68;
     static void ccPointSize(float);
     static void ccSetProjectionMatrixDirty();
     static bool ccVertexLineIntersect(float, float, float, float, float, float, float, float, float*);
