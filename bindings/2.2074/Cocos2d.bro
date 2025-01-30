@@ -2394,7 +2394,7 @@ class cocos2d::CCDictionary {
     // CCDictionary(cocos2d::CCDictionary const&);
     CCDictionary() = m1 0x292204, imac 0x2f9ab0, ios 0x41a508;
     ~CCDictionary() = m1 0x2923c8, imac 0x2f9cb0, ios 0x41a6a0;
-    cocos2d::CCArray* allKeys() = imac 0x2f9d40, m1 0x292450;
+    cocos2d::CCArray* allKeys() = imac 0x2f9d40, m1 0x292450, ios 0x41a6d4;
     cocos2d::CCArray* allKeysForObject(cocos2d::CCObject*);
     char const* charForKey(gd::string const&);
     unsigned int count() = imac 0x2f9d20, m1 0x292434, ios 0x41a6b8;
