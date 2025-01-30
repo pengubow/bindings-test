@@ -927,7 +927,7 @@ class cocos2d::CCProgressTimer {
 
     void setAnchorPoint(cocos2d::CCPoint);
     void setBarChangeRate(cocos2d::CCPoint);
-    void setPercentage(float) = imac 0x5ec9f0, m1 0x51d61c;
+    void setPercentage(float) = imac 0x5ec9f0, m1 0x51d61c, ios 0x3f5678;
     void setReverseDirection(bool);
     void setReverseProgress(bool);
     void setSprite(cocos2d::CCSprite*) = imac 0x5eca70, m1 0x51d68c;
