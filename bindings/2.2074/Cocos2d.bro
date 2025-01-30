@@ -2397,13 +2397,13 @@ class cocos2d::CCDictionary {
     cocos2d::CCArray* allKeys() = imac 0x2f9d40, m1 0x292450;
     cocos2d::CCArray* allKeysForObject(cocos2d::CCObject*);
     char const* charForKey(gd::string const&);
-    unsigned int count() = imac 0x2f9d20, m1 0x292434;
+    unsigned int count() = imac 0x2f9d20, m1 0x292434, ios 0x41a6b8;
     cocos2d::CCObject* objectForKey(gd::string const&) = imac 0x2fa0b0, m1 0x29288c, ios 0x41a8fc;
     cocos2d::CCObject* objectForKey(intptr_t) = imac 0x2fa440, m1 0x292b98, ios 0x41aba8;
     cocos2d::CCObject* randomObject();
     void removeAllObjects() = ios 0x41a564;
     void removeObjectForElememt(cocos2d::CCDictElement*) = imac 0x2fb910;
-    void removeObjectForKey(gd::string const&) = imac 0x2fb510, m1 0x293a98;
+    void removeObjectForKey(gd::string const&) = imac 0x2fb510, m1 0x293a98, ios 0x41b9d8;
     void removeObjectForKey(intptr_t) = imac 0x2fba60, m1 0x293f08;
     void removeObjectsForKeys(cocos2d::CCArray*);
     cocos2d::CCString const* valueForKey(gd::string const&) = imac 0x2fa030, m1 0x2927ec, ios 0x41a868;
