@@ -15803,7 +15803,7 @@ class RewardUnlockLayer : FLAlertLayer, CurrencyRewardDelegate {
     void labelEnterFinishedO(cocos2d::CCObject*) = win inline {}
     void onClose(cocos2d::CCObject* sender) = win 0x3ba220, imac 0x20b3d0, m1 0x1bfec0;
     void playDropSound() = win 0x3b78b0, m1 0x1bfd64;
-    void playLabelEffect(int, int, cocos2d::CCSprite*, cocos2d::CCPoint, float) = imac 0x20d5c0, m1 0x1c1e58;
+    void playLabelEffect(int, int, cocos2d::CCSprite*, cocos2d::CCPoint, float) = imac 0x20d5c0, m1 0x1c1e58, ios 0x1c86c8;
     void playRewardEffect() = ios 0x1c6ac8;
     bool readyToCollect(GJRewardItem* item) = win inline, imac 0x209c10, m1 0x1be8c8 {
         return item ? m_chestType == (int)item->m_rewardType : false;
