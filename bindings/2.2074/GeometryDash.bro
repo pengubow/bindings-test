@@ -13553,7 +13553,7 @@ class MoreOptionsLayer : FLAlertLayer, TextInputDelegate, GooglePlayDelegate, GJ
     // virtual ~MoreOptionsLayer();
     MoreOptionsLayer() {}
 
-    static MoreOptionsLayer* create() = win inline, imac 0x785240, m1 0x6993f0 {
+    static MoreOptionsLayer* create() = win inline, imac 0x785240, m1 0x6993f0, ios inline { //pretty sure ios doesn't have this func
         auto ret = new MoreOptionsLayer();
         if (ret->init()) {
             ret->autorelease();
