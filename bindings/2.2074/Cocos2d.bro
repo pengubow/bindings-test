@@ -1147,7 +1147,7 @@ class cocos2d::CCNode {
     void stopAllActions() = imac 0x260e30, m1 0x20cbec, ios 0x23b4fc;
     void transform() = ios 0x23bd34;
     void transformAncestors();
-    void unschedule(cocos2d::SEL_SCHEDULE) = imac 0x262270, m1 0x20df6c;
+    void unschedule(cocos2d::SEL_SCHEDULE) = imac 0x262270, m1 0x20df6c, ios 0x23c340;
     void unscheduleAllSelectors() = ios 0x23b508;
     void unscheduleUpdate() = imac 0x262160, m1 0x20de9c;
     void updateChildIndexes();
