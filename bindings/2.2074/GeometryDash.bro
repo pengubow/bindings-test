@@ -5296,7 +5296,7 @@ class FMODAudioState {
 class FMODLevelVisualizer : cocos2d::CCNode {
     // virtual ~FMODLevelVisualizer();
 
-    static FMODLevelVisualizer* create() = win 0x297150;
+    static FMODLevelVisualizer* create() = win 0x297150, m1 0x244748, ios 0x2e0ba4;
 
     void updateVisualizer(float, float, float) = win 0x297690, imac 0x29d460, m1 0x244c40, ios 0x2e1008;
 
@@ -8095,7 +8095,7 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     void syncBGTextures() = win 0x234a10, imac 0x147c70, m1 0x11dbd8, ios 0x204004;
     void teleportPlayer(TeleportPortalObject*, PlayerObject*) = win 0x20aa80, imac 0x110400, m1 0xf00d8;
     TodoReturn testInstantCountTrigger(int, int, int, bool, int, gd::vector<int> const&, int, int);
-    void toggleAudioVisualizer(bool) = win 0x242550, m1 0xe2354;
+    void toggleAudioVisualizer(bool) = win 0x242550, m1 0xe2354, ios 0x1dc3c8;
     void toggleDualMode(GameObject*, bool, PlayerObject*, bool) = win 0x2113f0, imac 0x113770, m1 0xf2fe8, ios 0x1e76c4;
     void toggleFlipped(bool, bool) = win 0x240240, m1 0xf6954, imac 0x117af0, ios 0x1ea9b8;
     void toggleGroup(int, bool) = m1 0x1078c4;
