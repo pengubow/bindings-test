@@ -5660,7 +5660,7 @@ class GameLevelManager : cocos2d::CCNode {
     char const* getUserInfoKey(int);
     void getUserList(UserListType) = win 0x15ffa0, imac 0x5402b0, m1 0x499414, ios 0xacef4;
     void getUserMessages(bool, int, int);
-    void getUsers(GJSearchObject*) = win 0x1571c0;
+    void getUsers(GJSearchObject*) = win 0x1571c0, m1 0x48fdec, ios 0xa79b0;
     void gotoLevelPage(GJGameLevel*) = win 0x1473c0, m1 0x47dd44;
     void handleIt(bool, gd::string, gd::string, GJHttpType) = win 0x140e00;
     void handleItDelayed(bool, gd::string, gd::string, GJHttpType);
@@ -12013,7 +12013,7 @@ class LevelBrowserLayer : cocos2d::CCLayerColor, LevelManagerDelegate, FLAlertLa
     gd::string getSearchTitle() = win 0x2c39e0, m1 0x3eb248, ios 0x4101ac;
     bool init(GJSearchObject*) = win 0x2c0a60, m1 0x3e66c8, imac 0x478340, ios 0x40c1f8;
     bool isCorrect(char const*) = win 0x2c2370;
-    void loadPage(GJSearchObject*) = win 0x2c2540, imac 0x47b5e0, m1 0x3e99f0;
+    void loadPage(GJSearchObject*) = win 0x2c2540, imac 0x47b5e0, m1 0x3e99f0, ios 0x40ed84;
     void onClearSearch(cocos2d::CCObject* sender) = win 0x2c67a0, imac 0x47b560;
     void onDeleteAll(cocos2d::CCObject* sender) = win 0x2c61f0, imac 0x47a900;
     void onDeleteSelected(cocos2d::CCObject* sender) = win 0x2c6f10, imac 0x479fc0, m1 0x3e82d8;
