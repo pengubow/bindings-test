@@ -5593,7 +5593,7 @@ class GameLevelManager : cocos2d::CCNode {
     void getGJDailyLevelState(GJTimedLevelType) = imac 0x543260;
     void getGJRewards(int) = imac 0x542540, m1 0x49b6b0, ios 0xae25c;
     TodoReturn getGJSecretReward(gd::string);
-    void getGJUserInfo(int) = win 0x157880, imac 0x536710, m1 0x4901ac;
+    void getGJUserInfo(int) = win 0x157880, imac 0x536710, m1 0x4901ac, ios 0xa7be0;
     int getHighestLevelOrder() = imac 0x51ece0;
     int getIntForKey(char const* key) = win inline, m1 0x49d874, imac 0x544830 {
         return m_searchFilters->valueForKey(key)->intValue();
