@@ -6160,7 +6160,7 @@ class GameManager : GManager {
     void reloadAll(bool switchingModes, bool toFullscreen, bool unused) {
         return this->reloadAll(switchingModes, toFullscreen, false, false, unused);
     }
-    void reloadAllStep2() = win 0x187540, imac 0x378f90, m1 0x3094e8;
+    void reloadAllStep2() = win 0x187540, imac 0x378f90, m1 0x3094e8, ios 0x31dc60;
     void reloadAllStep3();
     void reloadAllStep4();
     void reloadAllStep5() = win 0x187850, imac 0x379180, m1 0x3096c0;
@@ -6256,7 +6256,7 @@ class GameManager : GManager {
     TodoReturn tryCacheAd();
     TodoReturn tryShowInterstitial(int, int, int);
     TodoReturn unloadBackground();
-    void unloadIcon(int, int, int) = win 0x17f050, m1 0x30016c;
+    void unloadIcon(int, int, int) = win 0x17f050, m1 0x30016c, ios 0x3180e4; // prolly
     void unloadIcons(int);
     TodoReturn unlockColor(int, UnlockType);
     TodoReturn unlockedPremium();
