@@ -6240,7 +6240,7 @@ class GameManager : GManager {
     void setPlayerUserID(int);
     void setUGV(char const*, bool) = win 0x180320, m1 0x301c3c, imac 0x370890, ios 0x3190a8;
     void setupGameAnimations() = win 0x1a8870;
-    gd::string sheetNameForIcon(int, int) = win 0x17f470, imac 0x36dcb0, m1 0x2ff040;
+    gd::string sheetNameForIcon(int, int) = win 0x17f470, imac 0x36dcb0, m1 0x2ff040, ios 0x317a00;
     TodoReturn shortenAdTimer(float);
     TodoReturn shouldShowInterstitial(int, int, int);
     void showInterstitial();
@@ -6256,7 +6256,7 @@ class GameManager : GManager {
     TodoReturn tryCacheAd();
     TodoReturn tryShowInterstitial(int, int, int);
     TodoReturn unloadBackground();
-    void unloadIcon(int, int, int) = win 0x17f050, m1 0x30016c, ios 0x3180e4; // prolly
+    void unloadIcon(int, int, int) = win 0x17f050, m1 0x30016c, ios 0x317ea4; // prolly
     void unloadIcons(int);
     TodoReturn unlockColor(int, UnlockType);
     TodoReturn unlockedPremium();
