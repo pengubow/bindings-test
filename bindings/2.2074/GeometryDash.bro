@@ -14665,8 +14665,8 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
     TodoReturn buttonDown(PlayerButton);
     TodoReturn canStickToGround();
     TodoReturn checkSnapJumpToObject(GameObject*);
-    void collidedWithObject(float, GameObject*, cocos2d::CCRect, bool) = win 0x37bb80, imac 0x3f4c90, m1 0x3751b8;
-    void collidedWithObject(float, GameObject*) = imac 0x3fb520, m1 0x37a504;
+    void collidedWithObject(float, GameObject*, cocos2d::CCRect, bool) = win 0x37bb80, imac 0x3f4c90, m1 0x3751b8, ios 0x220ae4; // probably
+    void collidedWithObject(float, GameObject*) = imac 0x3fb520, m1 0x37a504, ios 0x224e30; // probably
     void collidedWithObjectInternal(float, GameObject*, cocos2d::CCRect, bool) = win 0x37bc40, m1 0x376dd8;
     void collidedWithSlope(float dt, GameObject* object, bool forced) = imac 0x3f4d30, ios 0x220b8c;
     void collidedWithSlopeInternal(float dt, GameObject* object, bool forced) = win 0x3799e0;
