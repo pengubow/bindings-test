@@ -5542,7 +5542,7 @@ class GameLevelManager : cocos2d::CCNode {
     void deleteServerLevelList(int);
     void deleteSmartTemplate(GJSmartTemplate*);
     void deleteUserMessages(GJUserMessage* message, cocos2d::CCArray* messages, bool isSender) = win 0x158f20, imac 0x607c40, m1 0x492290;
-    void downloadLevel(int, bool) = win 0x14fde0, imac 0x52dae0, m1 0x4889b0;
+    void downloadLevel(int, bool) = win 0x14fde0, imac 0x52dae0, m1 0x4889b0, ios 0xa337c;
     void downloadUserMessage(int, bool);
     void encodeDataTo(DS_Dictionary*) = win 0x148e00, imac 0x524e30, m1 0x480b48;
     void firstSetup();
@@ -5658,7 +5658,7 @@ class GameLevelManager : cocos2d::CCNode {
     }
     char const* getUploadMessageKey(int);
     char const* getUserInfoKey(int);
-    void getUserList(UserListType) = win 0x15ffa0, imac 0x5402b0, m1 0x499414;
+    void getUserList(UserListType) = win 0x15ffa0, imac 0x5402b0, m1 0x499414, ios 0xacef4;
     void getUserMessages(bool, int, int);
     void getUsers(GJSearchObject*) = win 0x1571c0;
     void gotoLevelPage(GJGameLevel*) = win 0x1473c0, m1 0x47dd44;
