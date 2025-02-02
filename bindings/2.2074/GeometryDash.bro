@@ -14717,7 +14717,7 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
     TodoReturn hardFlipGravity();
     void hitGround(GameObject*, bool) = win 0x3861a0, ios 0x224188;
     TodoReturn hitGroundNoJump(GameObject*, bool);
-    void incrementJumps() = win 0x376e10, imac 0x3f1bf0, m1 0x3728d8;
+    void incrementJumps() = win 0x376e10, imac 0x3f1bf0, m1 0x3728d8, ios 0x21eaf8;
     bool init(int, int, GJBaseGameLayer*, cocos2d::CCLayer*, bool) = win 0x370a00, imac 0x3e8970, m1 0x36a954, ios 0x218410;
     bool isBoostValid(float);
     bool isFlying() = win inline, imac 0x3efb00, ios 0x21d2cc {
@@ -14858,7 +14858,7 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
     }
     void updateGlowColor() = win 0x3876a0, m1 0x386264, imac 0x4088a0, ios 0x22ca94;
     TodoReturn updateInternalActions(float) = win 0x38d0c0, imac 0x40b720, ios 0x22ea40;
-    void updateJump(float) = win 0x375b90, imac 0x3ec410, m1 0x36ddf4;
+    void updateJump(float) = win 0x375b90, imac 0x3ec410, m1 0x36ddf4, ios 0x21afa8;
     TodoReturn updateJumpVariables();
     TodoReturn updateLastGroundObject(GameObject*);
     TodoReturn updateMove(float) = win 0x374350;
@@ -15244,9 +15244,9 @@ class PlayLayer : GJBaseGameLayer, CCCircleWaveDelegate, CurrencyRewardDelegate,
     TodoReturn compareStateSnapshot();
     CheckpointObject* createCheckpoint() = win 0x39e150, imac 0xbbd00, ios 0x123594;
     void createObjectsFromSetupFinished() = win 0x396a10, imac 0xb7490, m1 0xa6fc4, ios 0x11fdcc;
-    void delayedFullReset();
+    void delayedFullReset() = m1 0xad4a0, ios 0x125614;
     void delayedResetLevel() = win 0x3a1de0, m1 0xaa970, imac 0xbb590, ios 0x122f20;
-    void fullReset() = win 0x3a1ce0, m1 0xad514;
+    void fullReset() = win 0x3a1ce0, m1 0xad514, ios 0x125688;
     float getCurrentPercent() = win 0x39ca70, imac 0xba2f0, m1 0xa9848, ios 0x121fd8;
     int getCurrentPercentInt() = win inline, ios inline, imac 0xba9f0, m1 0xa9f18 {
         return static_cast<int>(this->getCurrentPercent());
