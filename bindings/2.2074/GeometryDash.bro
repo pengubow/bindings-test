@@ -996,7 +996,7 @@ class CCAnimatedSprite : cocos2d::CCSprite {
     void runAnimationForced(gd::string);
     void stopTween() = m1 0x2d359c;
     void switchToMode(spriteMode) = win 0x40b10, imac 0x33cb00, m1 0x2d2f4c;
-    void tweenToAnimation(gd::string, float) = win 0x40cf0, imac 0x33cd60, m1 0x2d31c4;
+    void tweenToAnimation(gd::string, float) = win 0x40cf0, imac 0x33cd60, m1 0x2d31c4, ios 0x2fde3c;
     void tweenToAnimationFinished() = win 0x40fc0;
     void willPlayAnimation() = m1 0x2d3194;
 
