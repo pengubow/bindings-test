@@ -5541,7 +5541,7 @@ class GameLevelManager : cocos2d::CCNode {
     void deleteServerLevel(int) = win 0x152350;
     void deleteServerLevelList(int);
     void deleteSmartTemplate(GJSmartTemplate*);
-    void deleteUserMessages(GJUserMessage* message, cocos2d::CCArray* messages, bool isSender) = win 0x158f20, imac 0x607c40, m1 0x492290;
+    void deleteUserMessages(GJUserMessage* message, cocos2d::CCArray* messages, bool isSender) = win 0x158f20, imac 0x607c40, m1 0x492290, ios 0xa8ef4;
     void downloadLevel(int, bool) = win 0x14fde0, imac 0x52dae0, m1 0x4889b0, ios 0xa337c;
     void downloadUserMessage(int, bool);
     void encodeDataTo(DS_Dictionary*) = win 0x148e00, imac 0x524e30, m1 0x480b48;
@@ -5843,7 +5843,7 @@ class GameLevelManager : cocos2d::CCNode {
     void uploadLevel(GJGameLevel*);
     void uploadLevelComment(int, gd::string, int);
     void uploadLevelList(GJLevelList*);
-    void uploadUserMessage(int, gd::string, gd::string) = win 0x1588b0, m1 0x491cac;
+    void uploadUserMessage(int, gd::string, gd::string) = win 0x1588b0, m1 0x491cac, ios 0xa8ba4;
     int userIDForAccountID(int);
     GJUserScore* userInfoForAccountID(int) = imac 0x518ac0;
     gd::string userNameForUserID(int) = win 0x143e80, m1 0x475748, ios 0x9735c;
@@ -11225,8 +11225,8 @@ class GJUserCell : TableViewCell, FLAlertLayerProtocol, UploadPopupDelegate, Upl
 class GJUserMessage : cocos2d::CCNode {
     // virtual ~GJUserMessage();
 
-    static GJUserMessage* create() = win 0x170ec0, imac 0x549f70;
-    static GJUserMessage* create(cocos2d::CCDictionary*) = win 0x170380, m1 0x490df0;
+    static GJUserMessage* create() = win 0x170ec0, imac 0x549f70, m1 0x4a264c, ios 0xb3540;
+    static GJUserMessage* create(cocos2d::CCDictionary*) = win 0x170380, m1 0x490df0, ios 0xa8330;
 
     virtual bool init() = m1 0x4a26e8, imac 0x54a010, ios 0xb35d0;
 
