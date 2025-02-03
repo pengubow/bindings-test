@@ -525,9 +525,9 @@ class cocos2d::CCParticleSystem {
     static cocos2d::CCParticleSystem* createWithTotalParticles(unsigned int);
 
     void initParticle(cocos2d::sCCParticle*) = imac 0x7b3670, m1 0x6c4620;
-    bool initWithDictionary(cocos2d::CCDictionary*, char const*, bool);
+    bool initWithDictionary(cocos2d::CCDictionary*, char const*, bool) = m1 0x6c29f0, ios 0x196b0c;
     bool initWithDictionary(cocos2d::CCDictionary*, bool) = imac 0x7b31f0;
-    bool initWithFile(char const*, bool) = m1 0x6c26d8;
+    bool initWithFile(char const*, bool) = m1 0x6c26d8, ios 0x196990;
 
     unsigned int getAtlasIndex() const;
     bool getDontCleanupOnFinish() const;
@@ -1123,7 +1123,7 @@ class cocos2d::CCNode {
     cocos2d::CCPoint convertToWindowSpace(cocos2d::CCPoint const&);
     cocos2d::CCPoint convertToWorldSpace(cocos2d::CCPoint const&) = imac 0x262c80, m1 0x20e994, ios 0x23cd00;
     cocos2d::CCPoint convertToWorldSpaceAR(cocos2d::CCPoint const&);
-    cocos2d::CCPoint convertTouchToNodeSpace(cocos2d::CCTouch*) = m1 0x20eaf8;
+    cocos2d::CCPoint convertTouchToNodeSpace(cocos2d::CCTouch*) = m1 0x20eaf8, ios 0x23cd48;
     cocos2d::CCPoint convertTouchToNodeSpaceAR(cocos2d::CCTouch*);
     char const* description();
     void detachChild(cocos2d::CCNode*, bool);
@@ -1276,13 +1276,13 @@ class cocos2d::CCScheduler {
     void resumeTargets(cocos2d::CCSet*);
     unsigned int scheduleScriptFunc(unsigned int, float, bool);
     void scheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*, float, unsigned int, float, bool) = imac 0x42e250, m1 0x3a8f7c, ios 0x1ad808;
-    void scheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*, float, bool) = imac 0x42e230;
+    void scheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*, float, bool) = imac 0x42e230, m1 0x3a8f6c, ios 0x1ad7f8;
     void scheduleUpdateForTarget(cocos2d::CCObject*, int, bool) = imac 0x42ee60, m1 0x3a9bec;
     void unscheduleAll();
     void unscheduleAllForTarget(cocos2d::CCObject*) = imac 0x42f420;
     void unscheduleAllWithMinPriority(int);
     void unscheduleScriptEntry(unsigned int);
-    void unscheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*) = imac 0x42dd60, m1 0x3a8a88;
+    void unscheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*) = imac 0x42dd60, m1 0x3a8a88, ios 0x1ad400;
     void unscheduleUpdateForTarget(cocos2d::CCObject const*);
 
     virtual void update(float) = imac 0x42fea0, m1 0x3aac3c, ios 0x1aef78;
@@ -1580,13 +1580,13 @@ class cocos2d::CCTextureCache {
     // CCTextureCache();
     cocos2d::CCTexture2D* addETCImage(char const*);
     cocos2d::CCTexture2D* addImage(char const*, bool) = imac 0x5d58c0, m1 0x509308, ios 0x116a94;
-    void addImageAsync(char const*, cocos2d::CCObject*, cocos2d::SEL_MenuHandler, int, cocos2d::CCTexture2DPixelFormat) = imac 0x5d4b00;
+    void addImageAsync(char const*, cocos2d::CCObject*, cocos2d::SEL_MenuHandler, int, cocos2d::CCTexture2DPixelFormat) = imac 0x5d4b00, m1 0x5085b8, ios 0x11603c;
     void addImageAsyncCallBack(float);
     cocos2d::CCTexture2D* addPVRImage(char const*);
     cocos2d::CCTexture2D* addUIImage(cocos2d::CCImage*, char const*) = imac 0x5d6700, m1 0x50a210, ios 0x117460;
     char const* description();
     void dumpCachedTextureInfo();
-    void prepareAsyncLoading();
+    void prepareAsyncLoading() = m1 0x508584, ios 0x116008;
     bool reloadTexture(char const*);
     void removeAllTextures();
     void removeTexture(cocos2d::CCTexture2D*);
@@ -2380,7 +2380,7 @@ class cocos2d::CCArray {
 [[link(win, android)]]
 class cocos2d::CCDictionary {
     static cocos2d::CCDictionary* create() = m1 0x294464, imac 0x2fc010, ios 0x41c0c4;
-    static cocos2d::CCDictionary* createWithContentsOfFile(char const*);
+    static cocos2d::CCDictionary* createWithContentsOfFile(char const*) = m1 0x294600, ios 0x41c1e0;
     static cocos2d::CCDictionary* createWithContentsOfFileThreadSafe(char const*) = m1 0x2944e8, ios 0x41c148;
     static cocos2d::CCDictionary* createWithDictionary(cocos2d::CCDictionary*);
 
@@ -2986,7 +2986,7 @@ class cocos2d::CCSpriteFrameCache {
     // CCSpriteFrameCache();
     // CCSpriteFrameCache(cocos2d::CCSpriteFrameCache const&);
     void addSpriteFrame(cocos2d::CCSpriteFrame*, char const*);
-    void addSpriteFramesWithDictionary(cocos2d::CCDictionary*, cocos2d::CCTexture2D*);
+    void addSpriteFramesWithDictionary(cocos2d::CCDictionary*, cocos2d::CCTexture2D*) = m1 0x29ee50, ios 0x3b47bc;
     void addSpriteFramesWithFile(char const*, char const*);
     void addSpriteFramesWithFile(char const*) = imac 0x308940, m1 0x29f998, ios 0x3b5070;
     void addSpriteFramesWithFile(char const*, cocos2d::CCTexture2D*);
