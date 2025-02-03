@@ -5935,7 +5935,7 @@ class GameLevelOptionsLayer : GJOptionsLayer {
 
     static GameLevelOptionsLayer* create(GJGameLevel*) = win 0x2993c0;
 
-    bool init(GJGameLevel*) = imac 0x29ee50, m1 0x246350, ios 0x3b47bc;
+    bool init(GJGameLevel*) = imac 0x29ee50, m1 0x246350;
 
     virtual void setupOptions() = win 0x299520, imac 0x29eeb0, m1 0x2463b8, ios 0x2e2200;
     virtual void didToggle(int) = win 0x2995a0, imac 0x29ef20, m1 0x246424, ios 0x2e226c;
