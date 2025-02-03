@@ -6183,7 +6183,7 @@ class GameManager : GManager {
     TodoReturn rewardedVideoHidden();
     TodoReturn rewardedVideoHiddenDelayed();
     // partially inlined on windows
-    void safePopScene() = win 0x1873e0, m1 0x309298;
+    void safePopScene() = win 0x1873e0, m1 0x309298, ios 0x31dab8;
     TodoReturn saveAdTimer();
     TodoReturn saveDPadLayout(int, bool);
     void setGameVariable(char const*, bool) = win 0x17fe90, imac 0x370550, m1 0x3018c0, ios 0x318f14;
@@ -12450,7 +12450,7 @@ class LevelInfoLayer : cocos2d::CCLayer, LevelDownloadDelegate, LevelUpdateDeleg
     bool init(GJGameLevel* level, bool challenge) = win 0x2e2a90, imac 0x2a98e0, m1 0x24fa08, ios 0x287d0;
     void loadLevelStep() = win 0x2e8a00, imac 0x2b07d0, m1 0x2566dc;
     void onAddToList(cocos2d::CCObject* sender) = win 0x2e5160, imac 0x2aee40, m1 0x254e2c, ios 0x2d668;
-    void onBack(cocos2d::CCObject* sender) = win 0x2ebce0, imac 0x2ae6d0, m1 0x254684;
+    void onBack(cocos2d::CCObject* sender) = win 0x2ebce0, imac 0x2ae6d0, m1 0x254684, ios 0x2d078;
     void onClone(cocos2d::CCObject* sender);
     void onDelete(cocos2d::CCObject* sender);
     void onFavorite(cocos2d::CCObject* sender) = win 0x2e5430, imac 0x2aeab0, m1 0x254a40;
