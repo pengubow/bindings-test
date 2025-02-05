@@ -4078,7 +4078,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void onGoToLayer(cocos2d::CCObject* sender) = win 0x112de0;
     void onGroupDown(cocos2d::CCObject* sender) = win 0x11da90;
     void onGroupIDFilter(cocos2d::CCObject* sender) = win 0xe5a80;
-    void onGroupSticky(cocos2d::CCObject* sender) = win 0x1110f0;
+    void onGroupSticky(cocos2d::CCObject* sender) = win 0x1110f0, m1 0xe2d4, ios 0x3bff98;
     void onGroupUp(cocos2d::CCObject* sender) = win 0x11da70;
     void onLockLayer(cocos2d::CCObject* sender) = win 0x11dc00, m1 0x31bec;
     void onNewCustomItem(cocos2d::CCObject* sender) = win 0xe2990, m1 0x304d0, ios 0x3e073c;
@@ -4092,7 +4092,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void onResetSpecialFilter(cocos2d::CCObject* sender);
     void onSelectBuildTab(cocos2d::CCObject* sender) = imac 0x34310;
     void onSettings(cocos2d::CCObject* sender) = win 0xe0350;
-    void onStopPlaytest(cocos2d::CCObject* sender) = win 0x110d40, m1 0xe134;
+    void onStopPlaytest(cocos2d::CCObject* sender) = win 0x110d40, m1 0xe134, ios 0x3bfea8;
     TodoReturn onTargetIDChange(int);
     void onToggleGuide(EffectGameObject*);
     TodoReturn onToggleSelectedOrder(EffectGameObject*);
@@ -4148,7 +4148,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void showMaxBasicError();
     void showMaxCoinError();
     void showMaxError() = win 0x111170;
-    void showUI(bool) = win 0x110200;
+    void showUI(bool) = win 0x110200, m1 0x388f4, ios 0x3e6770;
     void sliderChanged(cocos2d::CCObject*) = win 0xe13a0, imac 0xbd50;
     TodoReturn smartTypeForKey(int);
     cocos2d::CCSprite* spriteFromObjectString(gd::string str, bool, bool, int objLimit, cocos2d::CCArray*, cocos2d::CCArray*, GameObject*) = win 0x10c790;
@@ -4161,7 +4161,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     TodoReturn toggleObjectInfoLabel() = win 0xe1730;
     void toggleSnap(cocos2d::CCObject*) = win 0x10ea20;
     TodoReturn toggleSpecialEditButtons();
-    void toggleStickyControls(bool enable) = win inline, imac 0x2d590, m1 0x2d020 {
+    void toggleStickyControls(bool enable) = win inline, imac 0x2d590, m1 0x2d020, ios 0x3de424 {
         m_stickyControlsEnabled = enable;
         m_linkBtn->setEnabled(enable);
               m_linkBtn->setVisible(enable);
