@@ -4191,7 +4191,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void updateEditMenu() {
         m_editButtonBar->setVisible(m_selectedMode == 3);
     }
-    void updateGridNodeSize() = win 0xe1560, imac 0x2f620, m1 0x2f000;
+    void updateGridNodeSize() = win 0xe1560, imac 0x2f620, m1 0x2f000, ios 0x3df914;
     TodoReturn updateGridNodeSize(int);
     TodoReturn updateGroupIDBtn2();
     void updateGroupIDLabel() = imac 0x2ccd0;
@@ -14230,7 +14230,7 @@ class ObjectToolbox : cocos2d::CCNode {
     static ObjectToolbox* sharedState() = win 0x332f90, ios 0x276bd8;
 
     TodoReturn allKeys();
-    float gridNodeSizeForKey(int key) = win 0x35ae80, imac 0x704100, m1 0x6282d0;
+    float gridNodeSizeForKey(int key) = win 0x35ae80, imac 0x704100, m1 0x6282d0, ios 0x2aa858;
     const char* intKeyToFrame(int key) = ios 0x2aa804 {
         return m_allKeys[key].c_str();
     }
