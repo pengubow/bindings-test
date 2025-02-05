@@ -3993,9 +3993,9 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void deselectObjectsColor();
     TodoReturn deselectTargetPortals() = imac 0x32e10;
     TodoReturn disableButton(CreateMenuItem*);
-    void doCopyObjects(bool) = win 0x111900, imac 0x3e700;
+    void doCopyObjects(bool) = win 0x111900, imac 0x3e700, m1 0x391d4, ios 0x3e6d64;
     TodoReturn doPasteInPlace(bool);
-    void doPasteObjects(bool) = win 0x111a90;
+    void doPasteObjects(bool) = win 0x111a90, m1 0x392cc, ios 0x3e6e5c;
     void dynamicGroupUpdate(bool) = win 0x117000, imac 0x44e10;
     TodoReturn edgeForObject(int, int);
     TodoReturn editButton2Usable() = imac 0x492e0;
