@@ -2762,9 +2762,11 @@ class CreateMenuItem : CCMenuItemSpriteExtra {
 class CreateParticlePopup : FLAlertLayer, TextInputDelegate, ColorSelectDelegate, SliderDelegate {
     // virtual ~CreateParticlePopup();
 
-    static CreateParticlePopup* create(gd::string);
-    static CreateParticlePopup* create(ParticleGameObject*, cocos2d::CCArray*, gd::string);
-    static CreateParticlePopup* create(ParticleGameObject*, cocos2d::CCArray*) = win 0x414180, imac 0x45bb50;
+    static CreateParticlePopup* create(gd::string p0) = m1 0x3ccc68, ios inline {
+        return CreateParticlePopup::create(0, 0, p0);
+    };
+    static CreateParticlePopup* create(ParticleGameObject*, cocos2d::CCArray*, gd::string) = m1 0x3cca7c, ios 0x2cae0c;
+    static CreateParticlePopup* create(ParticleGameObject*, cocos2d::CCArray*) = win 0x414180, imac 0x45bb50, m1 0x3cca54, ios 0x2cad90;
 
     TodoReturn centerAlignParticle(cocos2d::CCObject*);
     TodoReturn createParticleSlider(gjParticleValue, int, bool, cocos2d::CCPoint, cocos2d::CCArray*);
@@ -2774,13 +2776,13 @@ class CreateParticlePopup : FLAlertLayer, TextInputDelegate, ColorSelectDelegate
     TodoReturn getPageInputNodes(int);
     TodoReturn getPageMenu(int);
     TodoReturn getPageSliders(int);
-    bool init(ParticleGameObject*, cocos2d::CCArray*, gd::string) = win 0x414370;
+    bool init(ParticleGameObject*, cocos2d::CCArray*, gd::string) = win 0x414370, m1 0x3ccd08, ios 0x2caef4;
     TodoReturn maxSliderValueForType(gjParticleValue);
     TodoReturn minSliderValueForType(gjParticleValue);
     void onAnimateActiveOnly(cocos2d::CCObject* sender);
     void onAnimateOnTrigger(cocos2d::CCObject* sender);
     void onCalcEmission(cocos2d::CCObject* sender);
-    void onClose(cocos2d::CCObject* sender) = win 0x41cf20, imac 0x460450, m1 0x3d0ad8;
+    void onClose(cocos2d::CCObject* sender) = win 0x41cf20, imac 0x460450, m1 0x3d0ad8, ios 0x2ce250;
     void onCopySettings(cocos2d::CCObject* sender);
     void onDuplicateColor(cocos2d::CCObject* sender);
     void onDurationForever(cocos2d::CCObject* sender);
@@ -7390,7 +7392,7 @@ class GameToolbox {
     static void postClipVisit() = ios 0x47a90;
     static void preVisitWithClippingRect(cocos2d::CCNode*, cocos2d::CCRect) = win 0x645c0, imac 0x4dbc50, m1 0x43ed28, ios 0x479ac;
     static TodoReturn preVisitWithClipRect(cocos2d::CCRect);
-    static gd::string saveParticleToString(cocos2d::CCParticleSystemQuad*) = win 0x662d0, imac 0x4deb00, m1 0x4418f4;
+    static gd::string saveParticleToString(cocos2d::CCParticleSystemQuad*) = win 0x662d0, imac 0x4deb00, m1 0x4418f4, ios 0x495bc;
     static TodoReturn saveStringToFile(gd::string const&, gd::string const&);
     static TodoReturn stringFromHSV(cocos2d::ccHSVValue, char const*);
     static cocos2d::CCDictionary* stringSetupToDict(gd::string const&, char const*) = win 0x65c30, m1 0x440d54;
@@ -11000,7 +11002,7 @@ class GJSpecialColorSelect : FLAlertLayer {
 
     ButtonSprite* getButtonByTag(int);
     void highlightSelected(ButtonSprite*);
-    bool init(int, GJSpecialColorSelectDelegate*, ColorSelectType) = win 0x2b0780, imac 0x60deb0, m1 0x53aa54;
+    bool init(int, GJSpecialColorSelectDelegate*, ColorSelectType) = win 0x2b0780, imac 0x60deb0, m1 0x53aa54, ios 0x1b2268;
     void onClose(cocos2d::CCObject* sender) = win 0x2b1320;
     void onSelectColor(cocos2d::CCObject* sender) = win 0x2b1240, imac 0x610140, m1 0x53c6ac;
 
@@ -14383,7 +14385,7 @@ class ParticleGameObject : EnhancedGameObject {
     TodoReturn applyParticleSettings(cocos2d::CCParticleSystemQuad*);
     TodoReturn createAndAddCustomParticle();
     TodoReturn createParticlePreviewArt();
-    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24;
+    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24, ios 0x37a4ac;
     void updateParticle() = win 0x488140, imac 0x1a1530;
     TodoReturn updateParticleAngle(float, cocos2d::CCParticleSystemQuad*) = imac 0x1a11d0;
     TodoReturn updateParticlePreviewArtOpacity(float);
