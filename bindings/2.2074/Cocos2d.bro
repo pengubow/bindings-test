@@ -524,7 +524,7 @@ class cocos2d::CCParticleSystem {
     static cocos2d::CCParticleSystem* create(char const*) = imac 0x7b1480, m1 0x6c2654;
     static cocos2d::CCParticleSystem* createWithTotalParticles(unsigned int);
 
-    void initParticle(cocos2d::sCCParticle*) = imac 0x7b3670, m1 0x6c4620;
+    void initParticle(cocos2d::sCCParticle*) = imac 0x7b3670, m1 0x6c4620, ios 0x197e0c;
     bool initWithDictionary(cocos2d::CCDictionary*, char const*, bool) = m1 0x6c29f0, ios 0x196b0c;
     bool initWithDictionary(cocos2d::CCDictionary*, bool) = imac 0x7b31f0;
     bool initWithFile(char const*, bool) = m1 0x6c26d8, ios 0x196990;
