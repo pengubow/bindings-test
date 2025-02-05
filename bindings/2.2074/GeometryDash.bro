@@ -15235,7 +15235,7 @@ class PlayLayer : GJBaseGameLayer, CCCircleWaveDelegate, CurrencyRewardDelegate,
     void applyCustomEnterEffect(GameObject*, bool) = win 0x399aa0;
 
     void applyEnterEffect(GameObject*, int, bool) = win 0x39a790;
-    bool canPauseGame() = win inline, imac 0xbf270, m1 0xadc4c {
+    bool canPauseGame() = win inline, imac 0xbf270, m1 0xadc4c, ios 0x125b68 {
         return !m_hasCompletedLevel && !m_levelEndAnimationStarted;
     }
     TodoReturn checkpointWithID(int);
