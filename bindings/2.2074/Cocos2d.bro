@@ -294,7 +294,7 @@ class cocos2d::CCMoveTo {
 
 [[link(win, android)]]
 class cocos2d::CCRemoveSelf {
-    static cocos2d::CCRemoveSelf* create(bool);
+    static cocos2d::CCRemoveSelf* create(bool) = m1 0x6a9d38;
 
     bool init(bool);
 
