@@ -3556,21 +3556,21 @@ class DialogLayer : cocos2d::CCLayerColor, TextAreaDelegate {
         return DialogLayer::createDialogLayer(object, nullptr, background);
     }
     static DialogLayer* createDialogLayer(DialogObject* object, cocos2d::CCArray* objects, int background) = win 0xd1f60, imac 0x3b4280, m1 0x33f928;
-    static DialogLayer* createWithObjects(cocos2d::CCArray* objects, int background) = win inline, imac 0x3b43c0 {
+    static DialogLayer* createWithObjects(cocos2d::CCArray* objects, int background) = win inline, imac 0x3b43c0, m1 0x33fa38, ios 0x8a934 {
         return DialogLayer::createDialogLayer(nullptr, objects, background);
     }
 
     void addToMainScene() = win 0xd2a70, m1 0x340748;
-    void animateIn(DialogAnimationType) = imac 0x3b5560, m1 0x340b4c;
+    void animateIn(DialogAnimationType) = imac 0x3b5560, m1 0x340b4c, ios 0x8b61c;
     void animateInDialog() = imac 0x3b57a0;
-    void animateInRandomSide() = win 0xd2c40, m1 0x340aec, imac 0x3b5510;
+    void animateInRandomSide() = win 0xd2c40, m1 0x340aec, imac 0x3b5510, ios 0x8b5c4;
     void displayDialogObject(DialogObject*) = win 0xd2570;
     void displayNextObject() = win 0xd2510, m1 0x33ff28;
     void finishCurrentAnimation() = imac 0x3b4ff0, m1 0x340620;
     void handleDialogTap() = win 0xd2940, m1 0x3404c4;
     bool init(DialogObject*, cocos2d::CCArray*, int) = win 0xd20b0, imac 0x3b43e0, m1 0x33fa48;
     void onClose() = win 0xd2ae0;
-    void updateChatPlacement(DialogChatPlacement placement) = win inline, m1 0x340408, imac 0x3b4de0 {
+    void updateChatPlacement(DialogChatPlacement placement) = win inline, m1 0x340408, imac 0x3b4de0, ios 0x8b158 {
         auto winSize = cocos2d::CCDirector::sharedDirector()->getWinSize();
             switch (placement) {
                 case DialogChatPlacement::Center:
@@ -3616,7 +3616,7 @@ class DialogLayer : cocos2d::CCLayerColor, TextAreaDelegate {
 class DialogObject : cocos2d::CCObject {
     // virtual ~DialogObject();
 
-    static DialogObject* create(gd::string character, gd::string text, int characterFrame, float textScale, bool skippable, cocos2d::ccColor3B color) = win 0xd1da0;
+    static DialogObject* create(gd::string character, gd::string text, int characterFrame, float textScale, bool skippable, cocos2d::ccColor3B color) = win 0xd1da0, m1 0x33f4ac, ios 0x8a650;
 
     bool init(gd::string character, gd::string text, int characterFrame, float textScale, bool skippable, cocos2d::ccColor3B color) = win inline, imac 0x3b3eb0, m1 0x33f664 {
         m_character = character;
@@ -11968,7 +11968,7 @@ class LevelAreaInnerLayer : cocos2d::CCLayer, DialogDelegate {
     void onNextFloor(cocos2d::CCObject* sender);
     void onOnlineVault(cocos2d::CCObject* sender);
     bool playStep1() = ios 0x3466a8;
-    cocos2d::CCAction* showFloor1CompleteDialog();
+    cocos2d::CCAction* showFloor1CompleteDialog() = m1 0x214c58, ios 0x346294;
     TodoReturn tryResumeTowerMusic();
     TodoReturn tryShowAd();
 
