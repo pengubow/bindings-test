@@ -1180,7 +1180,7 @@ class CCLightFlash : cocos2d::CCNode {
     }
     // virtual ~CCLightFlash();
 
-    static CCLightFlash* create() = win inline, imac 0x4f0560, m1 0x451614 {
+    static CCLightFlash* create() = win inline, imac 0x4f0560, m1 0x451614, ios 0x34fb8 {
         auto ret = new CCLightFlash();
         if (ret->init()) {
             ret->autorelease();
@@ -1192,7 +1192,7 @@ class CCLightFlash : cocos2d::CCNode {
 
     void cleanupFlash() = win 0x43c80, imac 0x4f0e50;
     void fadeAndRemove() = m1 0x451c20;
-    void playEffect(cocos2d::CCPoint, cocos2d::ccColor3B, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, bool, bool, float) = win 0x433a0, imac 0x4f05e0, m1 0x451680;
+    void playEffect(cocos2d::CCPoint, cocos2d::ccColor3B, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, bool, bool, float) = win 0x433a0, imac 0x4f05e0, m1 0x451680, ios 0x35024;
     void removeLights() = win 0x43c20;
     void showFlash() = win 0x438e0, imac 0x4f0b30, m1 0x451af4;
 
