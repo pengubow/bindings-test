@@ -5639,7 +5639,7 @@ class GameLevelManager : cocos2d::CCNode {
     GJGameLevel* getSavedDailyLevelFromLevelID(int) = imac 0x521600, m1 0x47d650;
     GJMapPack* getSavedGauntlet(int);
     GJGameLevel* getSavedGauntletLevel(int);
-    GJGameLevel* getSavedLevel(GJGameLevel*);
+    GJGameLevel* getSavedLevel(GJGameLevel*) = m1 0x4780e4, ios 0x98f70;
     GJGameLevel* getSavedLevel(int) = win 0x146ad0, m1 0x47d54c, imac 0x521500, ios 0x9c74c;
     GJLevelList* getSavedLevelList(int);
     cocos2d::CCArray* getSavedLevelLists(int);
@@ -7206,10 +7206,10 @@ class GameStatsManager : cocos2d::CCNode {
     bool hasCompletedMapPack(int);
     bool hasCompletedOnlineLevel(int) = win 0x1db070, m1 0x60ecc, imac 0x6d330, ios 0x330b64;
     bool hasCompletedStarLevel(GJGameLevel*) = imac 0x6d570;
-    bool hasPendingUserCoin(char const*);
+    bool hasPendingUserCoin(char const*) = m1 0x636cc, ios 0x331ee0;
     bool hasRewardBeenCollected(GJRewardType, int);
     bool hasSecretCoin(char const*) = win 0x1dcf50;
-    bool hasUserCoin(char const*);
+    bool hasUserCoin(char const*) = m1 0x637c4, ios 0x331f50;
     TodoReturn incrementActivePath(int);
     TodoReturn incrementChallenge(GJChallengeType, int) = win 0x1df0f0;
     void incrementStat(char const*, int) = win 0x1d1500, imac 0x66960, m1 0x5afdc, ios 0x32c170;
@@ -7423,7 +7423,7 @@ class GauntletLayer : cocos2d::CCLayer, LevelManagerDelegate {
     void onBack(cocos2d::CCObject* sender) = win 0x1f4f00;
     void onLevel(cocos2d::CCObject* sender) = win 0x1f4880, imac 0x381320, m1 0x3116ec;
     void setupGauntlet(cocos2d::CCArray*) = win 0x1f3850, imac 0x37fea0, m1 0x310394;
-    void unlockActiveItem() = win 0x1f48f0, imac 0x381360, m1 0x311730;
+    void unlockActiveItem() = win 0x1f48f0, imac 0x381360, m1 0x311730, ios 0x233898;
 
     virtual void keyBackClicked() = win 0x1f4f50, imac 0x381960, m1 0x311db0, ios 0x233c90;
     virtual void loadLevelsFinished(cocos2d::CCArray*, char const*, int) = win 0x1f3440, imac 0x380f10, m1 0x311274, ios 0x2335f0;
