@@ -1819,7 +1819,7 @@ class CCSpriteWithHue : cocos2d::CCSprite {
         m_luminance[1] = g;
         m_luminance[2] = b;
     }
-    void setEvenLuminance(float luminance) = win inline, imac 0x5d90d0, m1 0x50c6d8 {
+    void setEvenLuminance(float luminance) = win inline, imac 0x5d90d0, m1 0x50c6d8, ios 0x1a6e94 {
         m_luminance[0] = luminance * 0.33f;
         m_luminance[1] = luminance * 0.33f;
         m_luminance[2] = luminance * 0.33f;
