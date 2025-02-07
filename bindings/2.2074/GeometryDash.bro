@@ -992,7 +992,7 @@ class CCAnimatedSprite : cocos2d::CCSprite {
     void cleanupSprite() = imac 0x33ca60, m1 0x2d2ebc;
     bool initWithType(char const*, cocos2d::CCTexture2D*, bool) = win 0x3ffc0, imac 0x33c100, m1 0x2d2594;
     void loadType(char const*, cocos2d::CCTexture2D*, bool) = win 0x401e0, m1 0x2d2790;
-    void runAnimation(gd::string) = win 0x40c80;
+    void runAnimation(gd::string) = win 0x40c80, m1 0x2d3058, ios 0x2fdcf0;
     void runAnimationForced(gd::string);
     void stopTween() = m1 0x2d359c;
     void switchToMode(spriteMode) = win 0x40b10, imac 0x33cb00, m1 0x2d2f4c;
