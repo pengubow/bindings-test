@@ -3937,7 +3937,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
         return lel->m_editorUI;
     }
 
-    void activateRotationControl(cocos2d::CCObject*) = win 0x121420;
+    void activateRotationControl(cocos2d::CCObject*) = win 0x121420, m1 0x3878c, ios 0x3e6664;
     void activateScaleControl(cocos2d::CCObject*) = win 0x113280;
     void activateTransformControl(cocos2d::CCObject*) = win 0x1138d0;
     TodoReturn addObjectsToSmartTemplate(GJSmartTemplate*, cocos2d::CCArray*);
@@ -4054,7 +4054,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     CreateMenuItem* menuItemFromObjectString(gd::string, int) = win 0x10d090, m1 0x315a4;
     cocos2d::CCPoint moveForCommand(EditCommand command) = win 0x11de20, imac 0x4a7d0, m1 0x435fc;
     void moveGamelayer(cocos2d::CCPoint) = win 0xe16b0, imac 0x2f800, m1 0x2f18c, ios 0x3dfa64;
-    void moveObject(GameObject*, cocos2d::CCPoint) = win 0x11e290;
+    void moveObject(GameObject*, cocos2d::CCPoint) = win 0x11e290, m1 0x399d4, ios 0x3e7270;
     void moveObjectCall(cocos2d::CCObject*) = win 0x11e000, imac 0x49970;
     void moveObjectCall(EditCommand) = win 0x11e000, imac 0x4a9d0, m1 0x437a8, ios 0x3ee190;
     cocos2d::CCPoint offsetForKey(int) = win 0x124bf0;
@@ -4126,7 +4126,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void resetObjectEditorValues(cocos2d::CCArray*);
     TodoReturn resetSelectedObjectsColor();
     void resetUI() = win 0xe36d0, imac 0x2ac40, m1 0x2aeac, ios 0x3dc538;
-    void rotateObjects(cocos2d::CCArray*, float, cocos2d::CCPoint) = win 0x11f4b0, imac 0x3c3d0;
+    void rotateObjects(cocos2d::CCArray*, float, cocos2d::CCPoint) = win 0x11f4b0, imac 0x3c3d0, m1 0x37044, ios 0x3e5484;
     TodoReturn rotationforCommand(EditCommand);
     void scaleObjects(cocos2d::CCArray*, float, float, cocos2d::CCPoint, ObjectScaleType, bool) = win 0x11f8d0;
     void selectAll();
@@ -10514,8 +10514,8 @@ class GJScaleControl : cocos2d::CCLayer {
 
     void finishTouch();
     void loadValues(GameObject*, cocos2d::CCArray*, gd::unordered_map<int, GameObjectEditorState>&) = win 0x128190, imac 0x3f670, ios 0x3e76f0;
-    void onToggleLockScale(cocos2d::CCObject* sender);
-    float scaleFromValue(float value) = win inline, imac 0x52860, m1 0x49c44 {
+    void onToggleLockScale(cocos2d::CCObject* sender) = m1 0x49a6c, ios 0x3f2ff4;
+    float scaleFromValue(float value) = win inline, imac 0x52860, m1 0x49c44, ios inline { // maybe ti doesnt exist
         return (m_upperBound - m_lowerBound) * value + m_lowerBound;
     }
     float skewFromValue(float) = imac 0x528a0;
@@ -10535,7 +10535,7 @@ class GJScaleControl : cocos2d::CCLayer {
         m_scaleYLabel->setString(str->getCString());
         m_scaleYLabel->limitLabelWidth(100.0f, 0.0f, 0.0f);
     }
-    float valueFromScale(float scale) = win inline {
+    float valueFromScale(float scale) = win inline, m1 0x49c98, ios inline {
         auto value = (scale - m_lowerBound) / (m_upperBound - m_lowerBound);
         return value < 0 ? 0 : (value > 1 ? 1 : value);
     }
