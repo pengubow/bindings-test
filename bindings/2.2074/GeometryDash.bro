@@ -4165,7 +4165,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void toggleEnableRotate(cocos2d::CCObject*) = win 0x10eb00;
     void toggleFreeMove(cocos2d::CCObject*);
     TodoReturn toggleLockUI(bool);
-    void toggleMode(cocos2d::CCObject*) = win 0xe37f0, imac 0x2af00, m1 0x2b140;
+    void toggleMode(cocos2d::CCObject*) = win 0xe37f0, imac 0x2af00, m1 0x2b140, ios 0x3dc7b8;
     TodoReturn toggleObjectInfoLabel() = win 0xe1730;
     void toggleSnap(cocos2d::CCObject*) = win 0x10ea20;
     TodoReturn toggleSpecialEditButtons();
@@ -16610,7 +16610,7 @@ class SetGroupIDLayer : FLAlertLayer, TextInputDelegate {
     void onNextFreeEditorLayer1(cocos2d::CCObject* sender);
     void onNextFreeEditorLayer2(cocos2d::CCObject* sender);
     void onNextFreeOrderChannel(cocos2d::CCObject* sender);
-    void onNextGroupID1(cocos2d::CCObject* sender) = m1 0x298c40;
+    void onNextGroupID1(cocos2d::CCObject* sender) = m1 0x298c40, ios 0x411d4;
     void onPaste(cocos2d::CCObject* sender);
     void onRemoveFromGroup(cocos2d::CCObject* sender) = m1 0x29ae48, ios 0x42ac8;
     void onSmoothEase(cocos2d::CCObject* sender);
