@@ -13073,7 +13073,7 @@ class LevelSettingsObject : cocos2d::CCNode {
 class LevelTools {
     static int artistForAudio(int) = win 0x314320;
     static gd::string base64DecodeString(gd::string);
-    static gd::string base64EncodeString(gd::string);
+    static gd::string base64EncodeString(gd::string) = m1 0x44fd1c, ios 0x1ac7f4;
     static cocos2d::CCDictionary* createStarPackDict();
     static gd::string fbURLForArtist(int) = win 0x316430;
     static int getAudioBPM(int);
