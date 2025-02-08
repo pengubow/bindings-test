@@ -4041,8 +4041,8 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     TodoReturn getSnapAngle(GameObject*, cocos2d::CCArray*) = imac 0x4ad60;
     CCMenuItemSpriteExtra* getSpriteButton(char const* spriteFrameName, cocos2d::SEL_MenuHandler selector, cocos2d::CCMenu* menu, float scale, int buttonKind, cocos2d::CCPoint offset) = win 0xe11d0, ios inline {
         auto s = cocos2d::CCSprite::createWithSpriteFrameName(spriteFrameName);
-        auto b = cocos2d::ButtonSprite::create(s, 32.f, 1, 32.f, scale, true, "GJ_button_01.png", true);
-        auto i = cocos2d::CCMenuItemSpriteExtra::init(b, nullptr, nullptr, selector);
+        auto b = ButtonSprite::create(s, 32.f, 1, 32.f, scale, true, "GJ_button_01.png", true);
+        auto i = CCMenuItemSpriteExtra::create(b, nullptr, nullptr, selector);
         b->updateSpriteOffset(offset);
         return i;
     }
