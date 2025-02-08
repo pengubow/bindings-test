@@ -3763,7 +3763,7 @@ class EditLevelLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtocol
     EditLevelLayer() {}
     virtual ~EditLevelLayer() = win 0xd3c10;
 
-    static EditLevelLayer* create(GJGameLevel* level) = win inline {
+    static EditLevelLayer* create(GJGameLevel* level) = win inline, m1 0x19f878, ios 0xebdfc {
         auto ret = new EditLevelLayer();
         if (ret && ret->init(level)) {
             ret->autorelease();
