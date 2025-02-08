@@ -4731,11 +4731,33 @@ class EndTriggerGameObject : EffectGameObject {
 [[link(android)]]
 class EnhancedGameObject : GameObject {
     // virtual ~EnhancedGameObject();
-    // EnhancedGameObject();
+    EnhancedGameObject() = win 0x188580;
 
     static EnhancedGameObject* create(char const*);
 
-    TodoReturn createRotateAction(float, int);
+    virtual void customSetup() = win 0x1a1ff0, imac 0x5b42e0, m1 0x4ec86c, ios 0x262680;
+    virtual void resetObject() = win 0x1a19b0, imac 0x5b3b10, m1 0x4ec1fc, ios 0x2620bc;
+    virtual void deactivateObject(bool) = win 0x1a3af0, imac 0x5b7190, m1 0x4ed9e8, ios 0x26389c;
+    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = win 0x1a1cc0, imac 0x5b3df0, m1 0x4ec4b0, ios 0x26234c;
+    virtual gd::string getSaveString(GJBaseGameLayer*) = win 0x1a3c50, imac 0x5b71f0, m1 0x4eda50, ios 0x263904;
+    virtual void triggerActivated(float) = win 0x1a1b00, m1 0x4ec328, imac 0x5b3c80, ios 0x2621e8;
+    virtual void restoreObject() = win 0x1a1a60, imac 0x5b3bb0, m1 0x4ec278, ios 0x262138;
+    virtual void animationTriggered() = win 0x1a1bf0, m1 0x4ec428, imac 0x5b3d50, ios 0x2622c8;
+    virtual void activatedByPlayer(PlayerObject*) = win 0x1a1b10, imac 0x5b3c90, m1 0x4ec334, ios 0x2621f4;
+    virtual bool hasBeenActivatedByPlayer(PlayerObject*) = win 0x1a1b70, imac 0x5b3ce0, m1 0x4ec394, ios 0x26224c;
+    virtual bool hasBeenActivated() = win 0x1a1bd0, m1 0x4ec408, imac 0x5b3d30, ios 0x2622a8;
+    virtual void saveActiveColors() = win 0x1a1c50, imac 0x5b3d70, m1 0x4ec438, ios 0x2622d8;
+    virtual bool canAllowMultiActivate() = win 0x1a1850, imac 0x5b3810, m1 0x4ec104, ios 0x261f88;
+    virtual bool getHasSyncedAnimation() = win 0x188660, m1 0x199ae8, imac 0x1e1cd0, ios 0x26466c;
+    virtual bool getHasRotateAction() = win 0x188670, m1 0x199af0, imac 0x1e1ce0, ios 0x264674;
+    virtual bool canMultiActivate(bool) = win 0x1a1ae0, imac 0x5b3c60, m1 0x4ec304, ios 0x2621c4;
+    virtual void powerOnObject(int) = win 0x1a1aa0, imac 0x5b3bf0, m1 0x4ec2b0, ios 0x262170;
+    virtual void powerOffObject() = win 0x1a1ac0, imac 0x5b3c10, m1 0x4ec2c4, ios 0x262184;
+    virtual void stateSensitiveOff(GJBaseGameLayer*) = m1 0x8fb0, imac 0x7150, ios 0xd590 {}
+    virtual void updateSyncedAnimation(float, int) = win 0x1a4e30, imac 0x2499e0, m1 0x1f7c7c, ios 0x347598;
+    virtual void updateAnimateOnTrigger(bool) = win 0x1a6af0, imac 0x24b920, m1 0x1f903c, ios 0x348938;
+
+    void createRotateAction(float angle, int clockwiseDirection);
     bool init(char const*) = win 0x1a1800;
     TodoReturn previewAnimateOnTrigger();
     TodoReturn refreshRotateAction();
@@ -4746,43 +4768,36 @@ class EnhancedGameObject : GameObject {
     TodoReturn triggerAnimation();
     TodoReturn updateRotateAction(float);
     TodoReturn updateState(int);
-    void updateUserCoin() = win 0x1a3970, imac 0x5a9770, ios 0x25e724;
+    void updateUserCoin() = win 0x1a3970, imac 0x5a9770, m1 0x4e3b94;
     TodoReturn waitForAnimationTrigger();
 
-    virtual void customSetup() = win 0x1a1ff0, imac 0x5b42e0, m1 0x4ec86c, ios 0x262680;
-    virtual void resetObject() = win 0x1a19b0, imac 0x5b3b10, m1 0x4ec1fc, ios 0x2620bc;
-    virtual void deactivateObject(bool) = imac 0x5b7190, m1 0x4ed9e8, ios 0x26389c;
-    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = imac 0x5b3df0, m1 0x4ec4b0, ios 0x26234c;
-    virtual gd::string getSaveString(GJBaseGameLayer*) = imac 0x5b71f0, m1 0x4eda50, ios 0x263904;
-    virtual void triggerActivated(float) = m1 0x4ec328, imac 0x5b3c80, ios 0x2621e8;
-    virtual void restoreObject() = imac 0x5b3bb0, m1 0x4ec278, ios 0x262138;
-    virtual void animationTriggered() = m1 0x4ec428, imac 0x5b3d50, ios 0x2622c8;
-    virtual void activatedByPlayer(PlayerObject*) = imac 0x5b3c90, m1 0x4ec334, ios 0x2621f4;
-    virtual bool hasBeenActivatedByPlayer(PlayerObject*) = imac 0x5b3ce0, m1 0x4ec394, ios 0x26224c;
-    virtual bool hasBeenActivated() = m1 0x4ec408, imac 0x5b3d30, ios 0x2622a8;
-    virtual void saveActiveColors() = imac 0x5b3d70, m1 0x4ec438, ios 0x2622d8;
-    virtual bool canAllowMultiActivate() = imac 0x5b3810, m1 0x4ec104, ios 0x261f88;
-    virtual bool getHasSyncedAnimation() = m1 0x199ae8, imac 0x1e1cd0, ios 0x26466c;
-    virtual bool getHasRotateAction() = m1 0x199af0, imac 0x1e1ce0, ios 0x264674;
-    virtual bool canMultiActivate(bool) = imac 0x5b3c60, m1 0x4ec304, ios 0x2621c4;
-    virtual TodoReturn powerOnObject(int) = imac 0x5b3bf0, m1 0x4ec2b0, ios 0x262170;
-    virtual TodoReturn powerOffObject() = imac 0x5b3c10, m1 0x4ec2c4, ios 0x262184;
-    virtual TodoReturn stateSensitiveOff(GJBaseGameLayer*) = m1 0x8fb0, imac 0x7150, ios 0xd590;
-    virtual void updateSyncedAnimation(float, int) = win 0x1a4e30, imac 0x2499e0, m1 0x1f7c7c, ios 0x347598;
-    virtual TodoReturn updateAnimateOnTrigger(bool) = imac 0x24b920, m1 0x1f903c, ios 0x348938;
-
-    PAD = android32 0x25, win 0x2a, android64 0x22, mac 0x22;
-
+    // Everyone loves itanium padding
+    bool m_unknownPadding;
+    bool m_poweredOn;
+    int m_state;
+    int m_animationRandomizedStartValue;
+    float m_animationStart;
+    // No idea what these 3 fields are supposed to be. But we know what types they are...
+    float field4_0xd;
+    int field5_0x11;
+    bool field6_0x15;
+    float m_frameTime;
+    bool m_visible;
+    bool m_shouldNotHideAnimFreeze;
+    bool m_usesSpecialAnimation;
+    short m_frames;
     bool m_hasCustomAnimation;
     bool m_hasCustomRotation;
     // property 98
     bool m_disableRotation;
-    PAD = android32 0x3, win 0x3, android64 0x3, mac 0x3;
 
     // property 97
     float m_rotationSpeed;
-    PAD = android32 0xc, win 0xc, android64 0xc, mac 0xc;
 
+    float m_rotationAngle; 
+    float m_rotationDelta;
+    float m_rotationAnimationSpeed;
+    
     // property 106
     bool m_animationRandomizedStart;
     // property 107
@@ -4799,15 +4814,20 @@ class EnhancedGameObject : GameObject {
     int m_singleFrame;
     // property 592
     bool m_animationOffset;
-    PAD = android32 0xf, win 0xf, android64 0xf, mac 0xf;
-
+    bool m_animationTriggered;
+    int m_unkAnimationInt;
+    int m_maybeAnimationVariableXInt;
+    int m_maybeAnimationVariableYInt;
     // property 214
     bool m_animateOnlyWhenActive;
     // property 444
     bool m_isNoMultiActivate;
     // property 99
     bool m_isMultiActivate;
-    PAD = android32 0x4, win 0x4, android64 0x8, mac 0x8;
+    bool m_activated;
+    bool m_activatedByPlayer1;
+    bool m_activatedByPlayer2;
+    bool m_hasUniqueCoin;
 }
 
 [[link(android)]]
