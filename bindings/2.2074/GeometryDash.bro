@@ -4413,7 +4413,7 @@ class EffectGameObject : EnhancedGameObject {
     float m_duration;
     // property 35
     float m_opacity;
-    PAD = android32 0x4, android64 0x4, win 0x4, mac 0x4;
+    PAD = android32 0x4, android64 0x4, win 0x4, mac 0x4, ios 0x4;
     // property 51
     int m_targetGroupID;
     // property 71
@@ -4472,7 +4472,7 @@ class EffectGameObject : EnhancedGameObject {
     bool m_isDynamicMode;
     // property 544
     bool m_isSilent;
-    PAD = android 0x6, win 0x6, mac 0x6;
+    PAD = android 0x6, win 0x6, mac 0x6, ios 0x6;
     // property 68
     float m_rotationDegrees;
     // property 69
@@ -4533,17 +4533,17 @@ class EffectGameObject : EnhancedGameObject {
     bool m_isDualMode;
     // property 76
     int m_animationID;
-    PAD = android 0x8, win 0x8, mac 0x8;
+    PAD = android 0x8, win 0x8, mac 0x8, ios 0x8;
     // property 87
     bool m_isMultiTriggered;
-    PAD = android 0x2, win 0x2, mac 0x2;
+    PAD = android 0x2, win 0x2, mac 0x2, ios 0x2;
     // property 93
     bool m_triggerOnExit;
     // property 95
     int m_itemID2;
     // property 534
     int m_property534;
-    PAD = android 0x1, win 0x1, mac 0x1;
+    PAD = android 0x1, win 0x1, mac 0x1, ios 0x1;
     // property 94
     bool m_isDynamicBlock;
     // property 80
@@ -4566,7 +4566,7 @@ class EffectGameObject : EnhancedGameObject {
     int m_collectiblePoints;
     // property 463
     bool m_hasNoAnimation;
-    PAD = android32 0x1f, android64 0x23, win 0x23, mac 0x23;
+    PAD = android32 0x1f, android64 0x23, win 0x23, mac 0x23, ios 0x23;
     // property 148
     float m_gravityValue;
     // property 284
@@ -4596,10 +4596,10 @@ class EffectGameObject : EnhancedGameObject {
     int m_channelValue;
     // property 117
     bool m_isReverse;
-    PAD = android 0xb, win 0xb, mac 0xb;
+    PAD = android 0xb, win 0xb, mac 0xb, ios 0xb;
     // property 12
     int m_secretCoinID;
-    PAD = android32 0x1c, android64 0x24, win 0x24, mac 0x24;
+    PAD = android32 0x1c, android64 0x24, win 0x24, mac 0x24, ios 0x24;
     // property 280
     bool m_ignoreGroupParent;
     // property 281
