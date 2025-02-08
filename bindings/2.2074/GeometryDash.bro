@@ -15871,7 +15871,7 @@ class RingObject : EffectGameObject {
     virtual void setRScale(float) = m1 0x165cd8, imac 0x1a3550, ios 0x37b60c;
     virtual void triggerActivated(float) = m1 0x165b30, imac 0x1a33a0, ios 0x37b46c;
     virtual bool shouldDrawEditorHitbox() = imac 0x1a3590, m1 0x165d0c, ios 0x37b638;
-    virtual TodoReturn powerOnObject(int) = m1 0x165b3c, imac 0x1a33b0, ios 0x37b478;
+    virtual void powerOnObject(int) = m1 0x165b3c, imac 0x1a33b0, ios 0x37b478;
 
     bool m_claimTouch;
     // property 504
