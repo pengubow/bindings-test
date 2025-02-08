@@ -3735,8 +3735,8 @@ class EditButtonBar : cocos2d::CCNode {
     void goToPage(int);
     bool init(cocos2d::CCArray* objects, cocos2d::CCPoint size, int unk, bool unkBool, int columns, int rows) = imac 0x5c9ad0, m1 0x4fe3bc;
     void loadFromItems(cocos2d::CCArray*, int, int, bool) = win 0xd30a0, imac 0x5c9b80, m1 0x4fe468, ios 0x418d0c;
-    void onLeft(cocos2d::CCObject* sender) = win 0xd3a90;
-    void onRight(cocos2d::CCObject* sender) = win 0xd3a20;
+    void onLeft(cocos2d::CCObject* sender) = win 0xd3a90, m1 0x4fea94, ios 0x419330;
+    void onRight(cocos2d::CCObject* sender) = win 0xd3a20, m1 0x4feadc, ios 0x419340;
     void reloadItems(int rowCount, int columnCount) = win inline, imac 0x5ca140, m1 0x4fe998, ios 0x419234 {
         if (m_buttonArray) this->loadFromItems(m_buttonArray, rowCount, columnCount, false);
     }
@@ -3870,7 +3870,7 @@ class EditorPauseLayer : CCBlockLayer, FLAlertLayerProtocol {
     void onCreateLoop(cocos2d::CCObject* sender);
     void onCreateTemplate(cocos2d::CCObject* sender);
     void onExitEditor(cocos2d::CCObject* sender) = win 0xdcd60, m1 0x22c7fc, ios 0x3975d8;
-    void onExitNoSave(cocos2d::CCObject* sender) = imac 0x281ad0;
+    void onExitNoSave(cocos2d::CCObject* sender) = imac 0x281ad0, m1 0x22b51c, ios 0x396a80;
     void onHelp(cocos2d::CCObject* sender);
     void onKeybindings(cocos2d::CCObject* sender);
     void onNewGroupX(cocos2d::CCObject* sender);
