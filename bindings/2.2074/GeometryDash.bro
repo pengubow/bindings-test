@@ -3953,7 +3953,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     TodoReturn changeSelectedObjects(cocos2d::CCArray*, bool);
     TodoReturn checkDiffAfterTransformAnchor(cocos2d::CCPoint, cocos2d::CCArray*) = win 0x1140e0;
     TodoReturn checkLiveColorSelect();
-    void clickOnPosition(cocos2d::CCPoint) = win 0xe1040, imac 0x2dfa0, m1 0x2d9d4;
+    void clickOnPosition(cocos2d::CCPoint) = win 0xe1040, imac 0x2dfa0, m1 0x2d9d4, ios 0x3dea18;
     TodoReturn closeLiveColorSelect();
     TodoReturn closeLiveHSVSelect();
     void colorSelectClosed(cocos2d::ccColor3B) = win 0x11dcd0;
@@ -4058,7 +4058,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     bool isSpecialSnapObject(int) = win 0x1272b0, imac 0x4c2f0;
     TodoReturn liveEditColorUsable();
     CreateMenuItem* menuItemFromObjectString(gd::string, int) = win 0x10d090, m1 0x315a4;
-    cocos2d::CCPoint moveForCommand(EditCommand command) = win 0x11de20, imac 0x4a7d0, m1 0x435fc;
+    cocos2d::CCPoint moveForCommand(EditCommand command) = win 0x11de20, imac 0x4a7d0, m1 0x435fc, ios 0x3ee010;
     void moveGamelayer(cocos2d::CCPoint) = win 0xe16b0, imac 0x2f800, m1 0x2f18c, ios 0x3dfa64;
     void moveObject(GameObject*, cocos2d::CCPoint) = win 0x11e290, m1 0x399d4, ios 0x3e7270;
     void moveObjectCall(cocos2d::CCObject*) = win 0x11e000, imac 0x49970;
