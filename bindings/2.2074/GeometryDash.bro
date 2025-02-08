@@ -1922,7 +1922,7 @@ class CCTextInputNode : cocos2d::CCLayer, cocos2d::CCIMEDelegate, cocos2d::CCTex
     void setDelegate(TextInputDelegate* delegate) {
         m_delegate = delegate;
     }
-    void setLabelNormalColor(cocos2d::ccColor3B color) = win inline, imac 0x9eb20 {
+    void setLabelNormalColor(cocos2d::ccColor3B color) = win inline, imac 0x9eb20, m1 0x91408, ios inline {
         m_textColor = color;
         this->refreshLabel();
     }
