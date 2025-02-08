@@ -14434,7 +14434,7 @@ class ParticleGameObject : EnhancedGameObject {
     TodoReturn applyParticleSettings(cocos2d::CCParticleSystemQuad*);
     TodoReturn createAndAddCustomParticle();
     TodoReturn createParticlePreviewArt() = m1 0x164140, imac 0x1a16c0;
-    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24;
+    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24, ios 0x37a4ac;
     void updateParticle() = win 0x488140, imac 0x1a1530;
     TodoReturn updateParticleAngle(float, cocos2d::CCParticleSystemQuad*) = imac 0x1a11d0;
     TodoReturn updateParticlePreviewArtOpacity(float);
