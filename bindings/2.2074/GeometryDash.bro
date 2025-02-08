@@ -4039,8 +4039,14 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     TodoReturn getSmartNeighbor(SmartGameObject*, cocos2d::CCPoint, GJSmartDirection, cocos2d::CCArray*);
     TodoReturn getSmartObjectKey(int, GJSmartDirection);
     TodoReturn getSnapAngle(GameObject*, cocos2d::CCArray*) = imac 0x4ad60;
-    CCMenuItemSpriteExtra* getSpriteButton(char const* spriteFrameName, cocos2d::SEL_MenuHandler selector, cocos2d::CCMenu* menu, float scale, int buttonKind, cocos2d::CCPoint offset) = win 0xe11d0;
-    CCMenuItemSpriteExtra* getSpriteButton(char const* spriteFrameName, cocos2d::SEL_MenuHandler selector, cocos2d::CCMenu* menu, float scale) = win inline, imac 0xc2d0, m1 0xd6b0 {
+    CCMenuItemSpriteExtra* getSpriteButton(char const* spriteFrameName, cocos2d::SEL_MenuHandler selector, cocos2d::CCMenu* menu, float scale, int buttonKind, cocos2d::CCPoint offset) = win 0xe11d0, ios inline {
+        auto s = cocos2d::CCSprite::createWithSpriteFrameName(spriteFrameName);
+        auto b = cocos2d::ButtonSprite::create(s, 32.f, 1, 32.f, scale, true, "GJ_button_01.png", true);
+        auto i = cocos2d::CCMenuItemSpriteExtra::init(b, nullptr, nullptr, selector);
+        b->updateSpriteOffset(offset);
+        return i;
+    }
+    CCMenuItemSpriteExtra* getSpriteButton(char const* spriteFrameName, cocos2d::SEL_MenuHandler selector, cocos2d::CCMenu* menu, float scale) = win inline, imac 0xc2d0, m1 0xd6b0, ios inline {
         return this->getSpriteButton(spriteFrameName, selector, menu, scale, 1, {0, 0});
     }
     CCMenuItemSpriteExtra* getSpriteButton(cocos2d::CCSprite* sprite, cocos2d::SEL_MenuHandler selector, cocos2d::CCMenu* menu, float scale, int buttonKind, cocos2d::CCPoint offset) = win 0xe1260;
