@@ -4372,30 +4372,12 @@ class EditTriggersPopup : SetupTriggerPopup {
 [[link(android)]]
 class EffectGameObject : EnhancedGameObject {
     // virtual ~EffectGameObject();
-    EffectGameObject() = win 0x47d040, m1 0x199d84, imac 0x1e2030, ios 0x3925fc;
+    EffectGameObject() = imac 0x1e2030, m1 0x199d84, ios 0x3925fc;
 
     static EffectGameObject* create(char const*) = m1 0x16a0d4;
 
-    virtual void setOpacity(unsigned char) = win 0x48d790, m1 0x16a470, imac 0x1a8550, ios 0x37e130;
-    virtual void firstSetup() = win 0x48ffb0, imac 0x1aa2d0, m1 0x16b8dc, ios 0x37f594;
-    virtual void customSetup() = win 0x48ffd0, m1 0x14e098, imac 0x186600, ios 0x370000;
-    virtual void triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*) = win 0x48d7d0, imac 0x1a85d0, m1 0x16a4f4, ios 0x37e1b4;
-    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = win 0x490230, imac 0x187840, m1 0x14f5b0, ios 0x371028;
-    virtual gd::string getSaveString(GJBaseGameLayer*) = win 0x4932b0, imac 0x17c180, m1 0x1463d0, ios 0x36b454;
-    virtual void setRScaleX(float) = win 0x48d210, m1 0x16a178, imac 0x1a81e0, ios 0x37df18;
-    virtual void setRScaleY(float) = win 0x48d260, m1 0x16a188, imac 0x1a8200, ios 0x37df28;
-    virtual void triggerActivated(float) = win 0x48ff90, imac 0x1aa260, m1 0x16b854, ios 0x37f520;
-    virtual void restoreObject() = win 0x48fd80, imac 0x1aa020, m1 0x16b604, ios 0x37f2ec;
-    virtual float spawnXPosition() = win 0x48ff50, imac 0x1aa220, m1 0x16b814, ios 0x37f4e8;
-    virtual bool canReverse() = win 0x493160, imac 0x1aa3b0, m1 0x16ba58, ios 0x37f680;
-    virtual bool isSpecialSpawnObject() = m1 0x16bae4, imac 0x1aa420, ios 0x37f70c { return false; }
-    virtual bool canBeOrdered() = win 0x493240, imac 0x1aa430, m1 0x16baec, ios 0x37f714;
-    virtual cocos2d::CCLabelBMFont* getObjectLabel() = win 0x47d2b0, m1 0x199b10, imac 0x1e1d20, ios 0x3922c0;
-    virtual void setObjectLabel(cocos2d::CCLabelBMFont*) = win 0x47d2c0, m1 0x199b18, imac 0x1e1d30, ios 0x3922c8;
-    virtual void stateSensitiveOff(GJBaseGameLayer*) = win 0x48fcd0, imac 0x1a9f90, m1 0x16b578, ios 0x37f260;
-
     TodoReturn getTargetColorIndex();
-    bool init(char const*) = win 0x48d1a0;
+    bool init(char const*);
     TodoReturn playTriggerEffect() = win 0x48d2b0;
     TodoReturn resetSpawnTrigger();
     void setTargetID(int);
@@ -4404,6 +4386,24 @@ class EffectGameObject : EnhancedGameObject {
     TodoReturn updateInteractiveHover(float);
     TodoReturn updateSpecialColor();
     TodoReturn updateSpeedModType() = win 0x493010;
+
+    virtual void setOpacity(unsigned char) = win 0x48d790, m1 0x16a470, imac 0x1a8550, ios 0x37e130;
+    virtual void firstSetup() = win 0x48ffb0, imac 0x1aa2d0, m1 0x16b8dc, ios 0x37f594;
+    virtual void customSetup() = win 0x48ffd0, m1 0x14e098, imac 0x186600, ios 0x370000;
+    virtual void triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*) = win 0x48d7d0, imac 0x1a85d0, m1 0x16a4f4, ios 0x37e1b4;
+    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = win 0x490230, imac 0x187840, m1 0x14f5b0, ios 0x371028;
+    virtual gd::string getSaveString(GJBaseGameLayer*) = win 0x4932b0, imac 0x17c180, m1 0x1463d0, ios 0x36b454;
+    virtual void setRScaleX(float) = m1 0x16a178, imac 0x1a81e0, ios 0x37df18;
+    virtual void setRScaleY(float) = m1 0x16a188, imac 0x1a8200, ios 0x37df28;
+    virtual void triggerActivated(float) = imac 0x1aa260, m1 0x16b854, ios 0x37f520;
+    virtual void restoreObject() = imac 0x1aa020, m1 0x16b604, ios 0x37f2ec;
+    virtual float spawnXPosition() = imac 0x1aa220, m1 0x16b814, ios 0x37f4e8;
+    virtual bool canReverse() = imac 0x1aa3b0, m1 0x16ba58, ios 0x37f680;
+    virtual bool isSpecialSpawnObject() = m1 0x16bae4, imac 0x1aa420, ios 0x37f70c;
+    virtual bool canBeOrdered() = imac 0x1aa430, m1 0x16baec, ios 0x37f714;
+    virtual cocos2d::CCLabelBMFont* getObjectLabel() = m1 0x199b10, imac 0x1e1d20, ios 0x3922c0;
+    virtual void setObjectLabel(cocos2d::CCLabelBMFont*) = m1 0x199b18, imac 0x1e1d30, ios 0x3922c8;
+    virtual TodoReturn stateSensitiveOff(GJBaseGameLayer*) = imac 0x1a9f90, m1 0x16b578, ios 0x37f260;
 
     // this is probably pretty wrong :D
 
@@ -4536,16 +4536,13 @@ class EffectGameObject : EnhancedGameObject {
     PAD = android 0x8, win 0x8, mac 0x8;
     // property 87
     bool m_isMultiTriggered;
-    // property 102
-    bool m_previewDisable;
-    // property 441
-    bool m_spawnOrdered;
+    PAD = android 0x2, win 0x2, mac 0x2;
     // property 93
     bool m_triggerOnExit;
     // property 95
     int m_itemID2;
     // property 534
-    int m_controlID;
+    int m_property534;
     PAD = android 0x1, win 0x1, mac 0x1;
     // property 94
     bool m_isDynamicBlock;
@@ -4731,33 +4728,11 @@ class EndTriggerGameObject : EffectGameObject {
 [[link(android)]]
 class EnhancedGameObject : GameObject {
     // virtual ~EnhancedGameObject();
-    EnhancedGameObject() = win 0x188580;
+    // EnhancedGameObject();
 
     static EnhancedGameObject* create(char const*);
 
-    virtual void customSetup() = win 0x1a1ff0, imac 0x5b42e0, m1 0x4ec86c, ios 0x262680;
-    virtual void resetObject() = win 0x1a19b0, imac 0x5b3b10, m1 0x4ec1fc, ios 0x2620bc;
-    virtual void deactivateObject(bool) = win 0x1a3af0, imac 0x5b7190, m1 0x4ed9e8, ios 0x26389c;
-    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = win 0x1a1cc0, imac 0x5b3df0, m1 0x4ec4b0, ios 0x26234c;
-    virtual gd::string getSaveString(GJBaseGameLayer*) = win 0x1a3c50, imac 0x5b71f0, m1 0x4eda50, ios 0x263904;
-    virtual void triggerActivated(float) = win 0x1a1b00, m1 0x4ec328, imac 0x5b3c80, ios 0x2621e8;
-    virtual void restoreObject() = win 0x1a1a60, imac 0x5b3bb0, m1 0x4ec278, ios 0x262138;
-    virtual void animationTriggered() = win 0x1a1bf0, m1 0x4ec428, imac 0x5b3d50, ios 0x2622c8;
-    virtual void activatedByPlayer(PlayerObject*) = win 0x1a1b10, imac 0x5b3c90, m1 0x4ec334, ios 0x2621f4;
-    virtual bool hasBeenActivatedByPlayer(PlayerObject*) = win 0x1a1b70, imac 0x5b3ce0, m1 0x4ec394, ios 0x26224c;
-    virtual bool hasBeenActivated() = win 0x1a1bd0, m1 0x4ec408, imac 0x5b3d30, ios 0x2622a8;
-    virtual void saveActiveColors() = win 0x1a1c50, imac 0x5b3d70, m1 0x4ec438, ios 0x2622d8;
-    virtual bool canAllowMultiActivate() = win 0x1a1850, imac 0x5b3810, m1 0x4ec104, ios 0x261f88;
-    virtual bool getHasSyncedAnimation() = win 0x188660, m1 0x199ae8, imac 0x1e1cd0, ios 0x26466c;
-    virtual bool getHasRotateAction() = win 0x188670, m1 0x199af0, imac 0x1e1ce0, ios 0x264674;
-    virtual bool canMultiActivate(bool) = win 0x1a1ae0, imac 0x5b3c60, m1 0x4ec304, ios 0x2621c4;
-    virtual void powerOnObject(int) = win 0x1a1aa0, imac 0x5b3bf0, m1 0x4ec2b0, ios 0x262170;
-    virtual void powerOffObject() = win 0x1a1ac0, imac 0x5b3c10, m1 0x4ec2c4, ios 0x262184;
-    virtual void stateSensitiveOff(GJBaseGameLayer*) = m1 0x8fb0, imac 0x7150, ios 0xd590 {}
-    virtual void updateSyncedAnimation(float, int) = win 0x1a4e30, imac 0x2499e0, m1 0x1f7c7c, ios 0x347598;
-    virtual void updateAnimateOnTrigger(bool) = win 0x1a6af0, imac 0x24b920, m1 0x1f903c, ios 0x348938;
-
-    void createRotateAction(float angle, int clockwiseDirection);
+    TodoReturn createRotateAction(float, int);
     bool init(char const*) = win 0x1a1800;
     TodoReturn previewAnimateOnTrigger();
     TodoReturn refreshRotateAction();
@@ -4768,36 +4743,43 @@ class EnhancedGameObject : GameObject {
     TodoReturn triggerAnimation();
     TodoReturn updateRotateAction(float);
     TodoReturn updateState(int);
-    void updateUserCoin() = win 0x1a3970, imac 0x5a9770, m1 0x4e3b94;
+    void updateUserCoin() = win 0x1a3970, imac 0x5a9770, ios 0x25e724;
     TodoReturn waitForAnimationTrigger();
 
-    // Everyone loves itanium padding
-    bool m_unknownPadding;
-    bool m_poweredOn;
-    int m_state;
-    int m_animationRandomizedStartValue;
-    float m_animationStart;
-    // No idea what these 3 fields are supposed to be. But we know what types they are...
-    float field4_0xd;
-    int field5_0x11;
-    bool field6_0x15;
-    float m_frameTime;
-    bool m_visible;
-    bool m_shouldNotHideAnimFreeze;
-    bool m_usesSpecialAnimation;
-    short m_frames;
+    virtual void customSetup() = win 0x1a1ff0, imac 0x5b42e0, m1 0x4ec86c, ios 0x262680;
+    virtual void resetObject() = win 0x1a19b0, imac 0x5b3b10, m1 0x4ec1fc, ios 0x2620bc;
+    virtual void deactivateObject(bool) = imac 0x5b7190, m1 0x4ed9e8, ios 0x26389c;
+    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = imac 0x5b3df0, m1 0x4ec4b0, ios 0x26234c;
+    virtual gd::string getSaveString(GJBaseGameLayer*) = imac 0x5b71f0, m1 0x4eda50, ios 0x263904;
+    virtual void triggerActivated(float) = m1 0x4ec328, imac 0x5b3c80, ios 0x2621e8;
+    virtual void restoreObject() = imac 0x5b3bb0, m1 0x4ec278, ios 0x262138;
+    virtual void animationTriggered() = m1 0x4ec428, imac 0x5b3d50, ios 0x2622c8;
+    virtual void activatedByPlayer(PlayerObject*) = imac 0x5b3c90, m1 0x4ec334, ios 0x2621f4;
+    virtual bool hasBeenActivatedByPlayer(PlayerObject*) = imac 0x5b3ce0, m1 0x4ec394, ios 0x26224c;
+    virtual bool hasBeenActivated() = m1 0x4ec408, imac 0x5b3d30, ios 0x2622a8;
+    virtual void saveActiveColors() = imac 0x5b3d70, m1 0x4ec438, ios 0x2622d8;
+    virtual bool canAllowMultiActivate() = imac 0x5b3810, m1 0x4ec104, ios 0x261f88;
+    virtual bool getHasSyncedAnimation() = m1 0x199ae8, imac 0x1e1cd0, ios 0x26466c;
+    virtual bool getHasRotateAction() = m1 0x199af0, imac 0x1e1ce0, ios 0x264674;
+    virtual bool canMultiActivate(bool) = imac 0x5b3c60, m1 0x4ec304, ios 0x2621c4;
+    virtual TodoReturn powerOnObject(int) = imac 0x5b3bf0, m1 0x4ec2b0, ios 0x262170;
+    virtual TodoReturn powerOffObject() = imac 0x5b3c10, m1 0x4ec2c4, ios 0x262184;
+    virtual TodoReturn stateSensitiveOff(GJBaseGameLayer*) = m1 0x8fb0, imac 0x7150, ios 0xd590;
+    virtual void updateSyncedAnimation(float, int) = win 0x1a4e30, imac 0x2499e0, m1 0x1f7c7c, ios 0x347598;
+    virtual TodoReturn updateAnimateOnTrigger(bool) = imac 0x24b920, m1 0x1f903c, ios 0x348938;
+
+    PAD = android32 0x25, win 0x2a, android64 0x22, mac 0x22;
+
     bool m_hasCustomAnimation;
     bool m_hasCustomRotation;
     // property 98
     bool m_disableRotation;
+    PAD = android32 0x3, win 0x3, android64 0x3, mac 0x3;
 
     // property 97
     float m_rotationSpeed;
+    PAD = android32 0xc, win 0xc, android64 0xc, mac 0xc;
 
-    float m_rotationAngle; 
-    float m_rotationDelta;
-    float m_rotationAnimationSpeed;
-    
     // property 106
     bool m_animationRandomizedStart;
     // property 107
@@ -4814,20 +4796,15 @@ class EnhancedGameObject : GameObject {
     int m_singleFrame;
     // property 592
     bool m_animationOffset;
-    bool m_animationTriggered;
-    int m_unkAnimationInt;
-    int m_maybeAnimationVariableXInt;
-    int m_maybeAnimationVariableYInt;
+    PAD = android32 0xf, win 0xf, android64 0xf, mac 0xf;
+
     // property 214
     bool m_animateOnlyWhenActive;
     // property 444
     bool m_isNoMultiActivate;
     // property 99
     bool m_isMultiActivate;
-    bool m_activated;
-    bool m_activatedByPlayer1;
-    bool m_activatedByPlayer2;
-    bool m_hasUniqueCoin;
+    PAD = android32 0x4, win 0x4, android64 0x8, mac 0x8;
 }
 
 [[link(android)]]
@@ -14405,6 +14382,16 @@ class ParticleGameObject : EnhancedGameObject {
 
     static ParticleGameObject* create();
 
+    TodoReturn applyParticleSettings(cocos2d::CCParticleSystemQuad*);
+    TodoReturn createAndAddCustomParticle();
+    TodoReturn createParticlePreviewArt();
+    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24, ios 0x37a4ac;
+    void updateParticle() = win 0x488140, imac 0x1a1530;
+    TodoReturn updateParticleAngle(float, cocos2d::CCParticleSystemQuad*) = imac 0x1a11d0;
+    TodoReturn updateParticlePreviewArtOpacity(float);
+    TodoReturn updateParticleScale(float);
+    TodoReturn updateParticleStruct() = imac 0x1a0d10;
+
     virtual bool init() = m1 0x1633a0, imac 0x1a08c0, ios 0x379a74;
     virtual void setScaleX(float) = m1 0x164424, imac 0x1a1960, ios 0x37a8d4;
     virtual void setScaleY(float) = m1 0x164494, imac 0x1a19d0, ios 0x37a920;
@@ -14429,17 +14416,7 @@ class ParticleGameObject : EnhancedGameObject {
     virtual void updateMainParticleOpacity(unsigned char) = imac 0x1a1c90, m1 0x16475c, ios 0x37aba0;
     virtual void updateSecondaryParticleOpacity(unsigned char) = imac 0x1a1cf0, m1 0x1647a8, ios 0x37abec;
     virtual void updateSyncedAnimation(float, int) = imac 0x1a1df0, m1 0x16489c, ios 0x37acd4;
-    virtual void updateAnimateOnTrigger(bool) = imac 0x1a1f40, m1 0x1649d8, ios 0x37adfc;
-
-    TodoReturn applyParticleSettings(cocos2d::CCParticleSystemQuad*);
-    TodoReturn createAndAddCustomParticle();
-    TodoReturn createParticlePreviewArt() = m1 0x164140, imac 0x1a16c0;
-    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24, ios 0x37a4ac;
-    void updateParticle() = win 0x488140, imac 0x1a1530;
-    TodoReturn updateParticleAngle(float, cocos2d::CCParticleSystemQuad*) = imac 0x1a11d0;
-    TodoReturn updateParticlePreviewArtOpacity(float);
-    TodoReturn updateParticleScale(float);
-    TodoReturn updateParticleStruct() = imac 0x1a0d10;
+    virtual TodoReturn updateAnimateOnTrigger(bool) = imac 0x1a1f40, m1 0x1649d8, ios 0x37adfc;
 
     gd::string m_particleData;
     bool m_updatedParticleData;
@@ -15871,7 +15848,7 @@ class RingObject : EffectGameObject {
     virtual void setRScale(float) = m1 0x165cd8, imac 0x1a3550, ios 0x37b60c;
     virtual void triggerActivated(float) = m1 0x165b30, imac 0x1a33a0, ios 0x37b46c;
     virtual bool shouldDrawEditorHitbox() = imac 0x1a3590, m1 0x165d0c, ios 0x37b638;
-    virtual void powerOnObject(int) = m1 0x165b3c, imac 0x1a33b0, ios 0x37b478;
+    virtual TodoReturn powerOnObject(int) = m1 0x165b3c, imac 0x1a33b0, ios 0x37b478;
 
     bool m_claimTouch;
     // property 504
