@@ -2435,7 +2435,7 @@ class ColorSelectPopup : SetupTriggerPopup, cocos2d::extension::ColorPickerDeleg
 
     void closeColorSelect(cocos2d::CCObject*) = win 0x914a0, imac 0x711290;
     cocos2d::ccColor3B const& getColorValue();
-    bool init(EffectGameObject*, cocos2d::CCArray*, ColorAction*) = win 0x8dc20, imac 0x70eb40, m1 0x62d8e4;
+    bool init(EffectGameObject*, cocos2d::CCArray*, ColorAction*) = win 0x8dc20, imac 0x70eb40, m1 0x62d8e4, ios 0x414324;
     void onCopy(cocos2d::CCObject* sender) = win 0x90d60;
     void onCopyOpacity(cocos2d::CCObject* sender) = win 0x90b00;
     void onDefault(cocos2d::CCObject* sender) = win 0x90e60;
@@ -2447,7 +2447,7 @@ class ColorSelectPopup : SetupTriggerPopup, cocos2d::extension::ColorPickerDeleg
     void onTintGround(cocos2d::CCObject* sender);
     void onToggleHSVMode(cocos2d::CCObject* sender) = win 0x93500;
     void onToggleTintMode(cocos2d::CCObject* sender) = win 0x909b0;
-    void onUpdateCopyColor(cocos2d::CCObject* sender) = win 0x93420;
+    void onUpdateCopyColor(cocos2d::CCObject* sender) = win 0x93420, m1 0x6309c0, ios 0x416e98;
     void onUpdateCustomColor(cocos2d::CCObject* sender) = win 0x92c50;
     void selectColor(cocos2d::ccColor3B);
     void sliderChanged(cocos2d::CCObject* sender);
@@ -2627,8 +2627,8 @@ class ConfigureHSVWidget : cocos2d::CCNode, TextInputDelegate {
     void onToggleSConst(cocos2d::CCObject* sender);
     void onToggleVConst(cocos2d::CCObject* sender);
     void sliderChanged(cocos2d::CCObject* sender) = m1 0x399748;
-    void updateLabels() = win 0x97b90, imac 0x41e170, m1 0x3999f0;
-    void updateSliders() = win 0x97820, imac 0x41e750, m1 0x399f4c;
+    void updateLabels() = win 0x97b90, imac 0x41e170, m1 0x3999f0, ios 0x102df4;
+    void updateSliders() = win 0x97820, imac 0x41e750, m1 0x399f4c, ios 0x103180;
 
     virtual void textInputOpened(CCTextInputNode*) = m1 0x39a008, imac 0x41e810, ios 0x10323c {}
     virtual void textInputClosed(CCTextInputNode*) = win 0x8b790, m1 0x39a010, imac 0x41e830, ios 0x103244;
@@ -3044,7 +3044,7 @@ class CustomizeObjectLayer : FLAlertLayer, TextInputDelegate, HSVWidgetDelegate,
     void onClose(cocos2d::CCObject* sender) = win 0xa9900, m1 0x19c978, ios 0x52e0c;
     void onCopy(cocos2d::CCObject* sender);
     void onEditColor(cocos2d::CCObject* sender);
-    void onHSV(cocos2d::CCObject* sender) = win 0xa8470;
+    void onHSV(cocos2d::CCObject* sender) = win 0xa8470, m1 0x19cd5c, ios 0x53190;
     void onLiveEdit(cocos2d::CCObject* sender);
     void onNextColorChannel(cocos2d::CCObject* sender);
     void onPaste(cocos2d::CCObject* sender);
@@ -4372,7 +4372,7 @@ class EditTriggersPopup : SetupTriggerPopup {
 [[link(android)]]
 class EffectGameObject : EnhancedGameObject {
     // virtual ~EffectGameObject();
-    // EffectGameObject() = imac 0x1edce0;
+    EffectGameObject() = imac 0x1e2030, m1 0x199d84, ios 0x3925fc;
 
     static EffectGameObject* create(char const*) = m1 0x16a0d4;
 
@@ -7399,7 +7399,7 @@ class GameToolbox {
     static gd::map<gd::string,gd::string> stringSetupToMap(gd::string const&, char const*, gd::map<gd::string, gd::string>&) = win 0x65890;
     static TodoReturn strongColor(cocos2d::ccColor3B);
     static TodoReturn timestampToHumanReadable(long);
-    static cocos2d::ccColor3B transformColor(cocos2d::ccColor3B const&, cocos2d::ccHSVValue) = win 0x65290;
+    static cocos2d::ccColor3B transformColor(cocos2d::ccColor3B const&, cocos2d::ccHSVValue) = win 0x65290, m1 0x43fbfc, ios 0x4854c;
     static TodoReturn transformColor(cocos2d::ccColor3B const&, float, float, float);
 }
 
@@ -11600,7 +11600,7 @@ class HSVWidgetPopup : FLAlertLayer {
 
     static HSVWidgetPopup* create(cocos2d::ccHSVValue, HSVWidgetDelegate*, gd::string) = win 0x96410;
 
-    bool init(cocos2d::ccHSVValue, HSVWidgetDelegate*, gd::string) = win 0x96530, imac 0x41cb40, m1 0x398494;
+    bool init(cocos2d::ccHSVValue, HSVWidgetDelegate*, gd::string) = win 0x96530, imac 0x41cb40, m1 0x398494, ios 0x101c80;
     void onClose(cocos2d::CCObject* sender) = win 0x96860;
 
     virtual void keyBackClicked() = win 0x96940, m1 0x398990, imac 0x41d0a0, ios 0x1020a8;
