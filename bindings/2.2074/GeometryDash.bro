@@ -3669,9 +3669,9 @@ class DrawGridLayer : cocos2d::CCLayer {
     virtual void update(float) = win 0x2db6f0, imac 0xf5c30, m1 0xd9cd8, ios 0x3657b8;
     virtual void draw() = win 0x2db8f0, imac 0xf5dc0, m1 0xd9de8, ios 0x3658c8;
 
-    PAD = win 0x70, android32 0x40, android64 0x68, mac 0x58;
+    PAD = win 0x70, android32 0x40, android64 0x68, mac 0x58, ios 0x58; // random guess considering that mac and ios basically the same
     LevelEditorLayer* m_editorLayer;
-    PAD = win 0x6c, android32 0x3c, android64 0x54, mac 0x64;
+    PAD = win 0x6c, android32 0x3c, android64 0x54, mac 0x64, ios 0x64;
     float m_gridSize;
 }
 
@@ -3729,7 +3729,7 @@ class DynamicScrollDelegate {
 class EditButtonBar : cocos2d::CCNode {
     // virtual ~EditButtonBar();
 
-    static EditButtonBar* create(cocos2d::CCArray* objects, cocos2d::CCPoint size, int unk, bool unkBool, int columns, int rows) = win 0xd2f40, imac 0x5c99e0, m1 0x4fe2c0;
+    static EditButtonBar* create(cocos2d::CCArray* objects, cocos2d::CCPoint size, int unk, bool unkBool, int columns, int rows) = win 0xd2f40, imac 0x5c99e0, m1 0x4fe2c0, ios 0x418b98;
 
     int getPage();
     void goToPage(int);
@@ -3903,7 +3903,7 @@ class EditorPauseLayer : CCBlockLayer, FLAlertLayerProtocol {
     TodoReturn toggleHideInvisible(cocos2d::CCObject*);
     TodoReturn toggleIgnoreDamage(cocos2d::CCObject*);
     TodoReturn togglePlaytestMusic(cocos2d::CCObject*);
-    void togglePreviewAnim(cocos2d::CCObject*) = win 0xdbc10;
+    void togglePreviewAnim(cocos2d::CCObject*) = win 0xdbc10, m1 0x22bba4, ios 0x397000;
     TodoReturn togglePreviewParticles(cocos2d::CCObject*);
     TodoReturn togglePreviewShaders(cocos2d::CCObject*);
     TodoReturn toggleRecordOrder(cocos2d::CCObject*);
@@ -4088,7 +4088,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void onGroupIDFilter(cocos2d::CCObject* sender) = win 0xe5a80;
     void onGroupSticky(cocos2d::CCObject* sender) = win 0x1110f0, m1 0xe2d4, ios 0x3bff98;
     void onGroupUp(cocos2d::CCObject* sender) = win 0x11da70;
-    void onLockLayer(cocos2d::CCObject* sender) = win 0x11dc00, m1 0x31bec;
+    void onLockLayer(cocos2d::CCObject* sender) = win 0x11dc00, m1 0x31bec, ios 0x3e16e8;
     void onNewCustomItem(cocos2d::CCObject* sender) = win 0xe2990, m1 0x304d0, ios 0x3e073c;
     void onPaste(cocos2d::CCObject* sender);
     void onPasteColor(cocos2d::CCObject* sender) = win 0x112cd0;
@@ -4138,8 +4138,8 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void selectAll();
     void selectAllWithDirection(bool) = imac 0x3d960;
     void selectBuildTab(int) = win 0x112f90, imac 0x34340, m1 0x33974, ios 0x3e29c0;
-    void selectObject(GameObject*, bool) = win 0x10ee50, imac 0x2ec30, m1 0x2e5c8;
-    void selectObjects(cocos2d::CCArray*, bool) = win 0x10f140, imac 0x3c830, m1 0x3749c;
+    void selectObject(GameObject*, bool) = win 0x10ee50, imac 0x2ec30, m1 0x2e5c8, ios 0x3df140;
+    void selectObjects(cocos2d::CCArray*, bool) = win 0x10f140, imac 0x3c830, m1 0x3749c, ios 0x3e58c4;
     void selectObjectsInRect(cocos2d::CCRect);
     void setupCreateMenu() = win 0xe6910, imac 0xdf10, m1 0xf170, ios 0x3c09dc;
     void setupDeleteMenu() = win 0xe38d0, m1 0xe35c, ios 0x3c0020;
