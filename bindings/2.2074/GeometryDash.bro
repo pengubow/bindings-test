@@ -12182,7 +12182,7 @@ class LevelEditorLayer : GJBaseGameLayer, LevelSettingsDelegate {
     TodoReturn addPlayer2Point(cocos2d::CCPoint, bool);
     TodoReturn addPlayerCollisionBlock();
     TodoReturn addPlayerPoint(cocos2d::CCPoint);
-    void addSpecial(GameObject*) = win 0x2cf4a0, m1 0xc7674;
+    void addSpecial(GameObject*) = win 0x2cf4a0, m1 0xc7674, ios 0x3595d8;
     TodoReturn addToRedoList(UndoObject*);
     TodoReturn addTouchPoint(cocos2d::CCPoint);
     TodoReturn addToUndoList(UndoObject*, bool) = imac 0xe0210;
@@ -12232,7 +12232,7 @@ class LevelEditorLayer : GJBaseGameLayer, LevelSettingsDelegate {
     TodoReturn getSFXIDs();
     TodoReturn getSongIDs(bool&);
     TodoReturn getTriggerGroup(int);
-    void handleAction(bool, cocos2d::CCArray*) = win 0x2cde30, imac 0xe3140, m1 0xca1b0;
+    void handleAction(bool, cocos2d::CCArray*) = win 0x2cde30, imac 0xe3140, m1 0xca1b0, ios 0x35b654;
     bool hasAction(bool);
     bool init(GJGameLevel*, bool) = win 0x2c96e0, m1 0xc3124, imac 0xdb280, ios 0x35643c;
     bool isLayerLocked(int layer) {
@@ -12264,7 +12264,7 @@ class LevelEditorLayer : GJBaseGameLayer, LevelSettingsDelegate {
     TodoReturn removeAllObjectsOfType(int) = win 0x2cdbb0;
     TodoReturn removeObject(GameObject*, bool) = imac 0xe27e0;
     TodoReturn removePlayerCollisionBlock();
-    void removeSpecial(GameObject*) = win 0x2cfbb0, imac 0xe28a0, m1 0xc99a4;
+    void removeSpecial(GameObject*) = win 0x2cfbb0, imac 0xe28a0, m1 0xc99a4, ios 0x35af54;
     TodoReturn resetDelayedSpawnNodes();
     TodoReturn resetEffectTriggerOptim(GameObject*, cocos2d::CCArray*);
     void resetMovingObjects();
