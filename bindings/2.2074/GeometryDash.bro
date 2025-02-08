@@ -4571,7 +4571,7 @@ class EffectGameObject : EnhancedGameObject {
     float m_gravityValue;
     // property 284
     bool m_isSinglePTouch;
-    PAD = android 0x3, win 0x3, mac 0x3;
+    PAD = android 0x3, win 0x3, mac 0x3, ios 0x3;
     // property 371
     float m_zoomValue;
     // property 111
