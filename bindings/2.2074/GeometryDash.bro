@@ -14405,16 +14405,6 @@ class ParticleGameObject : EnhancedGameObject {
 
     static ParticleGameObject* create();
 
-    TodoReturn applyParticleSettings(cocos2d::CCParticleSystemQuad*);
-    TodoReturn createAndAddCustomParticle();
-    TodoReturn createParticlePreviewArt();
-    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24, ios 0x37a4ac;
-    void updateParticle() = win 0x488140, imac 0x1a1530;
-    TodoReturn updateParticleAngle(float, cocos2d::CCParticleSystemQuad*) = imac 0x1a11d0;
-    TodoReturn updateParticlePreviewArtOpacity(float);
-    TodoReturn updateParticleScale(float);
-    TodoReturn updateParticleStruct() = imac 0x1a0d10;
-
     virtual bool init() = m1 0x1633a0, imac 0x1a08c0, ios 0x379a74;
     virtual void setScaleX(float) = m1 0x164424, imac 0x1a1960, ios 0x37a8d4;
     virtual void setScaleY(float) = m1 0x164494, imac 0x1a19d0, ios 0x37a920;
@@ -14439,7 +14429,17 @@ class ParticleGameObject : EnhancedGameObject {
     virtual void updateMainParticleOpacity(unsigned char) = imac 0x1a1c90, m1 0x16475c, ios 0x37aba0;
     virtual void updateSecondaryParticleOpacity(unsigned char) = imac 0x1a1cf0, m1 0x1647a8, ios 0x37abec;
     virtual void updateSyncedAnimation(float, int) = imac 0x1a1df0, m1 0x16489c, ios 0x37acd4;
-    virtual TodoReturn updateAnimateOnTrigger(bool) = imac 0x1a1f40, m1 0x1649d8, ios 0x37adfc;
+    virtual void updateAnimateOnTrigger(bool) = imac 0x1a1f40, m1 0x1649d8, ios 0x37adfc;
+
+    TodoReturn applyParticleSettings(cocos2d::CCParticleSystemQuad*);
+    TodoReturn createAndAddCustomParticle();
+    TodoReturn createParticlePreviewArt() = m1 0x164140, imac 0x1a16c0;
+    void setParticleString(gd::string) = win 0x4880b0, imac 0x1a14a0, m1 0x163f24;
+    void updateParticle() = win 0x488140, imac 0x1a1530;
+    TodoReturn updateParticleAngle(float, cocos2d::CCParticleSystemQuad*) = imac 0x1a11d0;
+    TodoReturn updateParticlePreviewArtOpacity(float);
+    TodoReturn updateParticleScale(float);
+    TodoReturn updateParticleStruct() = imac 0x1a0d10;
 
     gd::string m_particleData;
     bool m_updatedParticleData;
