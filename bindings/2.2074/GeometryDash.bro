@@ -3737,7 +3737,7 @@ class EditButtonBar : cocos2d::CCNode {
     void loadFromItems(cocos2d::CCArray*, int, int, bool) = win 0xd30a0, imac 0x5c9b80, m1 0x4fe468, ios 0x418d0c;
     void onLeft(cocos2d::CCObject* sender) = win 0xd3a90;
     void onRight(cocos2d::CCObject* sender) = win 0xd3a20;
-    void reloadItems(int rowCount, int columnCount) = win inline, imac 0x5ca140, m1 0x4fe998 {
+    void reloadItems(int rowCount, int columnCount) = win inline, imac 0x5ca140, m1 0x4fe998, ios 0x419234 {
         if (m_buttonArray) this->loadFromItems(m_buttonArray, rowCount, columnCount, false);
     }
 
@@ -16626,7 +16626,7 @@ class SetGroupIDLayer : FLAlertLayer, TextInputDelegate {
     void updateEditorOrder();
     void updateEditorOrderLabel();
     TodoReturn updateGroupIDButtons();
-    void updateGroupIDLabel();
+    void updateGroupIDLabel() = m1 0x29950c, ios 0x418c4;
     void updateOrderChannel();
     void updateOrderChannelLabel();
     TodoReturn updateZLayerButtons();
