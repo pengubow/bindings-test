@@ -4372,12 +4372,30 @@ class EditTriggersPopup : SetupTriggerPopup {
 [[link(android)]]
 class EffectGameObject : EnhancedGameObject {
     // virtual ~EffectGameObject();
-    EffectGameObject() = imac 0x1e2030, m1 0x199d84, ios 0x3925fc;
+    EffectGameObject() = win 0x47d040, m1 0x199d84, imac 0x1e2030, ios 0x3925fc;
 
     static EffectGameObject* create(char const*) = m1 0x16a0d4;
 
+    virtual void setOpacity(unsigned char) = win 0x48d790, m1 0x16a470, imac 0x1a8550, ios 0x37e130;
+    virtual void firstSetup() = win 0x48ffb0, imac 0x1aa2d0, m1 0x16b8dc, ios 0x37f594;
+    virtual void customSetup() = win 0x48ffd0, m1 0x14e098, imac 0x186600, ios 0x370000;
+    virtual void triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*) = win 0x48d7d0, imac 0x1a85d0, m1 0x16a4f4, ios 0x37e1b4;
+    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = win 0x490230, imac 0x187840, m1 0x14f5b0, ios 0x371028;
+    virtual gd::string getSaveString(GJBaseGameLayer*) = win 0x4932b0, imac 0x17c180, m1 0x1463d0, ios 0x36b454;
+    virtual void setRScaleX(float) = win 0x48d210, m1 0x16a178, imac 0x1a81e0, ios 0x37df18;
+    virtual void setRScaleY(float) = win 0x48d260, m1 0x16a188, imac 0x1a8200, ios 0x37df28;
+    virtual void triggerActivated(float) = win 0x48ff90, imac 0x1aa260, m1 0x16b854, ios 0x37f520;
+    virtual void restoreObject() = win 0x48fd80, imac 0x1aa020, m1 0x16b604, ios 0x37f2ec;
+    virtual float spawnXPosition() = win 0x48ff50, imac 0x1aa220, m1 0x16b814, ios 0x37f4e8;
+    virtual bool canReverse() = win 0x493160, imac 0x1aa3b0, m1 0x16ba58, ios 0x37f680;
+    virtual bool isSpecialSpawnObject() = m1 0x16bae4, imac 0x1aa420, ios 0x37f70c { return false; }
+    virtual bool canBeOrdered() = win 0x493240, imac 0x1aa430, m1 0x16baec, ios 0x37f714;
+    virtual cocos2d::CCLabelBMFont* getObjectLabel() = win 0x47d2b0, m1 0x199b10, imac 0x1e1d20, ios 0x3922c0;
+    virtual void setObjectLabel(cocos2d::CCLabelBMFont*) = win 0x47d2c0, m1 0x199b18, imac 0x1e1d30, ios 0x3922c8;
+    virtual void stateSensitiveOff(GJBaseGameLayer*) = win 0x48fcd0, imac 0x1a9f90, m1 0x16b578, ios 0x37f260;
+
     TodoReturn getTargetColorIndex();
-    bool init(char const*);
+    bool init(char const*) = win 0x48d1a0;
     TodoReturn playTriggerEffect() = win 0x48d2b0;
     TodoReturn resetSpawnTrigger();
     void setTargetID(int);
@@ -4386,24 +4404,6 @@ class EffectGameObject : EnhancedGameObject {
     TodoReturn updateInteractiveHover(float);
     TodoReturn updateSpecialColor();
     TodoReturn updateSpeedModType() = win 0x493010;
-
-    virtual void setOpacity(unsigned char) = win 0x48d790, m1 0x16a470, imac 0x1a8550, ios 0x37e130;
-    virtual void firstSetup() = win 0x48ffb0, imac 0x1aa2d0, m1 0x16b8dc, ios 0x37f594;
-    virtual void customSetup() = win 0x48ffd0, m1 0x14e098, imac 0x186600, ios 0x370000;
-    virtual void triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*) = win 0x48d7d0, imac 0x1a85d0, m1 0x16a4f4, ios 0x37e1b4;
-    virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = win 0x490230, imac 0x187840, m1 0x14f5b0, ios 0x371028;
-    virtual gd::string getSaveString(GJBaseGameLayer*) = win 0x4932b0, imac 0x17c180, m1 0x1463d0, ios 0x36b454;
-    virtual void setRScaleX(float) = m1 0x16a178, imac 0x1a81e0, ios 0x37df18;
-    virtual void setRScaleY(float) = m1 0x16a188, imac 0x1a8200, ios 0x37df28;
-    virtual void triggerActivated(float) = imac 0x1aa260, m1 0x16b854, ios 0x37f520;
-    virtual void restoreObject() = imac 0x1aa020, m1 0x16b604, ios 0x37f2ec;
-    virtual float spawnXPosition() = imac 0x1aa220, m1 0x16b814, ios 0x37f4e8;
-    virtual bool canReverse() = imac 0x1aa3b0, m1 0x16ba58, ios 0x37f680;
-    virtual bool isSpecialSpawnObject() = m1 0x16bae4, imac 0x1aa420, ios 0x37f70c;
-    virtual bool canBeOrdered() = imac 0x1aa430, m1 0x16baec, ios 0x37f714;
-    virtual cocos2d::CCLabelBMFont* getObjectLabel() = m1 0x199b10, imac 0x1e1d20, ios 0x3922c0;
-    virtual void setObjectLabel(cocos2d::CCLabelBMFont*) = m1 0x199b18, imac 0x1e1d30, ios 0x3922c8;
-    virtual TodoReturn stateSensitiveOff(GJBaseGameLayer*) = imac 0x1a9f90, m1 0x16b578, ios 0x37f260;
 
     // this is probably pretty wrong :D
 
@@ -4536,13 +4536,16 @@ class EffectGameObject : EnhancedGameObject {
     PAD = android 0x8, win 0x8, mac 0x8;
     // property 87
     bool m_isMultiTriggered;
-    PAD = android 0x2, win 0x2, mac 0x2;
+    // property 102
+    bool m_previewDisable;
+    // property 441
+    bool m_spawnOrdered;
     // property 93
     bool m_triggerOnExit;
     // property 95
     int m_itemID2;
     // property 534
-    int m_property534;
+    int m_controlID;
     PAD = android 0x1, win 0x1, mac 0x1;
     // property 94
     bool m_isDynamicBlock;
