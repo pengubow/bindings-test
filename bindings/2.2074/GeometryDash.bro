@@ -4017,7 +4017,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void flipObjectsX(cocos2d::CCArray*);
     void flipObjectsY(cocos2d::CCArray*);
     TodoReturn getButton(char const*, int, cocos2d::SEL_MenuHandler, cocos2d::CCMenu*);
-    CreateMenuItem* getCreateBtn(int id, int bg) = win 0x10d2a0, m1 0x332f0;
+    CreateMenuItem* getCreateBtn(int id, int bg) = win 0x10d2a0, m1 0x332f0, ios 0x3e24b8;
     TodoReturn getCreateMenuItemButton(cocos2d::CCSprite*, cocos2d::SEL_MenuHandler, cocos2d::CCMenu*, float, int, cocos2d::CCPoint) = imac 0x2f190, ios 0x3df54c;
     TodoReturn getCycledObject(cocos2d::CCArray*, bool);
     TodoReturn getEditColorTargets(ColorAction*&, ColorAction*&, EffectGameObject*&) = imac 0x4a120;
@@ -4057,7 +4057,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     bool isLiveColorSelectTrigger(GameObject*);
     bool isSpecialSnapObject(int) = win 0x1272b0, imac 0x4c2f0;
     TodoReturn liveEditColorUsable();
-    CreateMenuItem* menuItemFromObjectString(gd::string, int) = win 0x10d090, m1 0x315a4;
+    CreateMenuItem* menuItemFromObjectString(gd::string, int) = win 0x10d090, m1 0x315a4, ios 0x3e1170;
     cocos2d::CCPoint moveForCommand(EditCommand command) = win 0x11de20, imac 0x4a7d0, m1 0x435fc, ios 0x3ee010;
     void moveGamelayer(cocos2d::CCPoint) = win 0xe16b0, imac 0x2f800, m1 0x2f18c, ios 0x3dfa64;
     void moveObject(GameObject*, cocos2d::CCPoint) = win 0x11e290, m1 0x399d4, ios 0x3e7270;
@@ -4069,7 +4069,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void onCopy(cocos2d::CCObject* sender);
     void onCopyState(cocos2d::CCObject* sender) = win 0x112ac0;
     bool onCreate() = win 0x10dd10, imac 0x2e600;
-    void onCreateButton(cocos2d::CCObject* sender) = win 0x10d880;
+    void onCreateButton(cocos2d::CCObject* sender) = win 0x10d880, m1 0x342c0, ios 0x3e32f0;
     void onCreateObject(int) = win 0x10df10;
     void onDelete(cocos2d::CCObject* sender) = win 0xe4760;
     void onDeleteAll(cocos2d::CCObject* sender);
