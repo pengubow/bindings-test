@@ -415,6 +415,18 @@ class cocos2d::CCAction {
 }
 
 [[link(win, android)]]
+class cocos2d::CCActionInstant {
+    // CCActionInstant(cocos2d::CCActionInstant const&);
+    CCActionInstant() = m1 0x6a9794, imac 0x796640;
+
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x6a97dc, imac 0x7966a0, ios 0x1b0e04;
+    virtual void update(float) = m1 0x6a98b8, imac 0x796780, ios 0x1b0ec4;
+    virtual bool isDone() = m1 0x6a98a0, imac 0x796750, ios 0x1b0eac;
+    virtual void step(float) = m1 0x6a98a8, imac 0x796760, ios 0x1b0eb4;
+    virtual cocos2d::CCFiniteTimeAction* reverse() = m1 0x6a98bc, imac 0x796790, ios 0x1b0ec8;
+}
+
+[[link(win, android)]]
 class cocos2d::CCActionInterval {
 	static cocos2d::CCActionInterval* create(float);
 
