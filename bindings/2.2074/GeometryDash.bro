@@ -3742,8 +3742,8 @@ class EditButtonBar : cocos2d::CCNode {
     }
 
     cocos2d::CCPoint m_position;
-    int m_unknown;
-    bool m_unknownBool;
+    int m_tabIndex;
+    bool m_hasCreateItems;
     cocos2d::CCArray* m_buttonArray;
     BoomScrollLayer* m_scrollLayer;
     cocos2d::CCArray* m_pagesArray;
