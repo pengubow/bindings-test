@@ -427,10 +427,10 @@ class cocos2d::CCActionInstant {
 }
 
 [[link(win, android)]]
-class cocos2d::CCActionInterval {
-	static cocos2d::CCActionInterval* create(float);
+class cocos2d::CCActionInterval : cocos2d::CCFiniteTimeAction {
+    static cocos2d::CCActionInterval* create(float);
 
-	bool initWithDuration(float d) = ios inline {
+    bool initWithDuration(float d) = m1 0x32f224, imac 0x3a22c0, ios inline {
         m_fDuration = d;
 
         // prevent division by 0
@@ -447,21 +447,29 @@ class cocos2d::CCActionInterval {
         return true;
     }
 
-	float getAmplitudeRate();
-	float getElapsed();
-	bool getM_bFirstTick() const;
+    float getAmplitudeRate();
+    float getElapsed();
+    bool getM_bFirstTick() const;
 
-	void setAmplitudeRate(float);
+    void setAmplitudeRate(float);
 
-	// CCActionInterval(cocos2d::CCActionInterval const&);
-	// CCActionInterval();
+    // CCActionInterval(cocos2d::CCActionInterval const&);
+    // CCActionInterval();
     // ~CCActionInterval() = ios 0x264838;
 
-	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*);
-	virtual bool isDone() = ios 0x18d8f0;
-	virtual void startWithTarget(cocos2d::CCNode*) = ios 0x18d968;
-	virtual void step(float) = ios 0x18d900;
-	virtual cocos2d::CCActionInterval* reverse() = ios 0x18d994;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x32f248, imac 0x3a2300, ios 0x18d818;
+    virtual bool isDone() = m1 0x32f32c, imac 0x3a2400, ios 0x18d8f0,;
+    virtual void startWithTarget(cocos2d::CCNode*) = m1 0x32f3b0, imac 0x3a24a0, ios 0x18d968;
+    virtual void step(float) = m1 0x32f33c, imac 0x3a2420, ios 0x18d900;
+    virtual cocos2d::CCActionInterval* reverse() = m1 0x32f3dc, imac 0x3a24c0, ios 0x18d994;
+}
+
+[[link(win, android)]]
+class cocos2d::CCFiniteTimeAction : cocos2d::CCAction {
+    // CCFiniteTimeAction(cocos2d::CCFiniteTimeAction const&);
+    // CCFiniteTimeAction();
+
+    virtual cocos2d::CCFiniteTimeAction* reverse() = m1 0x50fb68, imac 0x5dcc40;
 }
 
 [[link(win, android)]]
@@ -1043,29 +1051,6 @@ class cocos2d::CCFileUtils {
     virtual bool shouldUseHD() = imac 0x4273c0, m1 0x3a21d0, ios 0x154578;
     virtual bool writeToFile(cocos2d::CCDictionary*, gd::string const&) = m1 0x3a1a68, imac 0x426ce0, ios 0x153f78;
 }
-
-// this is literally already in sdk, and adding it here breaks building sdk
-// [[link(win, android)]]
-// class cocos2d::CCFiniteTimeAction {
-	// float getDuration() = ios inline {
-    //     return m_fDuration;
-    // }
-
-	// void setDuration(float duration) = ios inline {
-    //     m_fDuration = duration;
-    // }
-
-	// CCFiniteTimeAction(cocos2d::CCFiniteTimeAction const&);
-	// CCFiniteTimeAction() = ios inline {
-    //     m_fDuration = 0;
-    // }
-    // ~CCFiniteTimeAction() = ios inline {}
-
-	// virtual cocos2d::CCFiniteTimeAction* reverse() = ios inline {
-    //     CCLOG("cocos2d: FiniteTimeAction#reverse: Implement me");
-    //     return NULL;
-    // }
-// }
 
 [[link(win, android)]]
 class cocos2d::CCGLProgram {
