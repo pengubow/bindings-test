@@ -6124,7 +6124,7 @@ class GameLevelManager : cocos2d::CCNode {
     void updateLevelRewards(GJGameLevel*) = win 0x144380, m1 0x475db4;
     void updateSavedLevelList(GJLevelList*) = win 0x14ef40, m1 0x487790, ios 0xa2948, imac 0x52c630;
     void updateUsernames() = imac 0x523ed0;
-    void updateUserScore() = win 0x153790, m1 0x48c508, imac 0x531c80;
+    void updateUserScore() = win 0x153790, m1 0x48c508, imac 0x531c80, ios 0xa5620;
     void uploadAccountComment(gd::string);
     void uploadComment(gd::string, CommentType, int, int) = m1 0x494bec, imac 0x53b480;
     void uploadFriendRequest(int, gd::string) = m1 0x496bfc, imac 0x53d870;
