@@ -2,7 +2,7 @@
 
 #ifdef GEODE_IS_IOS
 
-// GEODE_SIZE_CHECK(PlayLayer, 0x3790);
+GEODE_SIZE_CHECK(PlayLayer, 0x3798);
 GEODE_MEMBER_CHECK(PlayLayer, m_coinArray, 0x3508);
 GEODE_MEMBER_CHECK(PlayLayer, m_unkSomeFloat, 0x35a4);
 GEODE_MEMBER_CHECK(PlayLayer, m_jumps, 0x3680);
@@ -11,6 +11,8 @@ GEODE_MEMBER_CHECK(PlayLayer, m_endLayerStars, 0x3694);
 GEODE_MEMBER_CHECK(PlayLayer, m_isPaused, 0x36FF);
 
 GEODE_MEMBER_CHECK(LevelEditorLayer, m_trailTimer, 0x35b8);
+
+GEODE_SIZE_CHECK(EditorUI, 0x588);
 
 // GEODE_SIZE_CHECK(FMODAudioEngine, 0x648);
 GEODE_MEMBER_CHECK(FMODAudioEngine, m_system, 0x1e8);
@@ -30,6 +32,7 @@ GEODE_MEMBER_CHECK(GJBaseGameLayer, m_sections, 0x32e0);
 GEODE_MEMBER_CHECK(GJBaseGameLayer, m_sectionSizes, 0x3388);
 GEODE_MEMBER_CHECK(GJBaseGameLayer, m_audioVisualizerBG, 0x3420);
 GEODE_MEMBER_CHECK(GJBaseGameLayer, m_loadingLayer, 0x3498);
+
 
 // GEODE_SIZE_CHECK(PlayerObject, 0xbe8); 
 GEODE_MEMBER_CHECK(PlayerObject, m_mainLayer, 0x550);
