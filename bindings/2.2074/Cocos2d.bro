@@ -4166,7 +4166,7 @@ class cocos2d::CCLightning : cocos2d::CCNode, cocos2d::CCRGBAProtocol {
 [[link(win, android)]]
 class cocos2d::CCConfiguration {
 	static void purgeConfiguration();
-	static cocos2d::CCConfiguration* sharedConfiguration() = m1 0x4634e8, imac 0x503d50;
+	static cocos2d::CCConfiguration* sharedConfiguration() = m1 0x4634e8, imac 0x503d50, ios 0x3252e4;
 
 	bool init();
 
