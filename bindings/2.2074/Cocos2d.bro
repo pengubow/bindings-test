@@ -1370,7 +1370,9 @@ class cocos2d::CCNode : cocos2d::CCObject {
     void schedule(cocos2d::SEL_SCHEDULE) = imac 0x2621b0, m1 0x20dee8, ios 0x23c2fc;
     void schedule(cocos2d::SEL_SCHEDULE, float) = imac 0x262210, m1 0x20df28, ios 0x23c320;
     void schedule(cocos2d::SEL_SCHEDULE, float, unsigned int, float) = imac 0x2621e0, m1 0x20df0c;
-    void scheduleOnce(cocos2d::SEL_SCHEDULE, float) = imac 0x262240, m1 0x20df48;
+    void scheduleOnce(cocos2d::SEL_SCHEDULE p0, float p1) = imac 0x262240, m1 0x20df48, ios inline {
+	CCScheduler::get()->scheduleSelector(p0, this, 0, 0, p1, false);
+    }
     void scheduleUpdate() = imac 0x262090, m1 0x20ddf0, ios 0x23c278;
     void scheduleUpdateWithPriority(int) = imac 0x2620c0;
     void scheduleUpdateWithPriorityLua(int, int) = imac 0x2620f0;
