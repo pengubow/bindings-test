@@ -2094,7 +2094,7 @@ class cocos2d::CCDirector : cocos2d::CCObject, cocos2d::TypeInfo {
     cocos2d::CCPoint getVisibleOrigin();
     cocos2d::CCSize getVisibleSize();
     cocos2d::CCSize getWinSize() = imac 0x470920, m1 0x3df874, ios 0x1791c4;
-    cocos2d::CCSize getWinSizeInPixels() = imac 0x471080, m1 0x3dfeb4;
+    cocos2d::CCSize getWinSizeInPixels() = imac 0x471080, m1 0x3dfeb4, ios 0x1794e0;
     float getZEye();
     //getScreenTop = ios 0x18260c, idk if i should add the function
     //getScreenBottom() = ios 0x182614
@@ -2669,7 +2669,7 @@ class cocos2d::CCRenderTexture : cocos2d::CCNode {
 
     // CCRenderTexture(cocos2d::CCRenderTexture const&);
     CCRenderTexture();
-    void begin() = imac 0x5de080, m1 0x510e4c;
+    void begin() = imac 0x5de080, m1 0x510e4c, ios 0x3b8cac;
     void beginWithClear(float, float, float, float, float, int, unsigned int) = imac 0x5de350, m1 0x5110d8;
     void beginWithClear(float, float, float, float) = imac 0x5de2b0, m1 0x511038;
     void beginWithClear(float, float, float, float, float) = imac 0x5de4f0, m1 0x511220;
