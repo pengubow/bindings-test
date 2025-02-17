@@ -1119,7 +1119,7 @@ class cocos2d::CCParticleSystemQuad : cocos2d::CCParticleSystem {
     static cocos2d::CCParticleSystemQuad* create(char const*, bool) = imac 0x5eb190, m1 0x51c418, ios 0x252a98;
     static cocos2d::CCParticleSystemQuad* create() = m1 0x51d1bc, imac 0x5ec500, ios inline { // this is very correct trust
         auto pRet = new cocos2d::CCParticleSystemQuad();
-        if (pRet && pRet->initWithTotalParticles(150))
+        if (pRet && pRet->initWithTotalParticles(150, false))
         {
             pRet->autorelease();
             return pRet;
@@ -3184,11 +3184,11 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
 
     	if (once)
     	{
-    		glGetIntegerv(GL_STENCIL_BITS, &g_sStencilBits);
-    		if (g_sStencilBits <= 0)
-    		{
+    		// glGetIntegerv(GL_STENCIL_BITS, &g_sStencilBits);
+    		// if (g_sStencilBits <= 0)
+    		// {
     		//	CCLOG("Stencil buffer is not enabled.");
-    		}
+    		// }
     		once = false;
     	}
 
@@ -3213,14 +3213,6 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     }
 
     virtual void visit() = ios inline, imac 0x709030, m1 0x628894 {
-    	// if stencil buffer disabled
-    	if (g_sStencilBits < 1)
-    	{
-    	    // draw everything, as if there where no stencil
-    	    CCNode::visit();
-    	    return;
-    	}
-
     	// return fast (draw nothing, or draw everything if in inverted mode) if:
     	// - nil stencil node
     	// - or stencil node invisible:
@@ -3352,7 +3344,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     		program->setUniformLocationWith1f(alphaValueLocation, m_fAlphaThreshold);
     		// we need to recursively apply this shader to all the nodes in the stencil node
     		// XXX: we should have a way to apply shader to all nodes without having to do this
-    		setProgram(m_pStencil, program); // this causes fail
+    		// setProgram(m_pStencil, program); // this causes fail
     	}
 
     	// draw the stencil node as if it was one of our child
