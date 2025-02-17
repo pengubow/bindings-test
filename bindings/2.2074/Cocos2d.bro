@@ -736,7 +736,9 @@ class cocos2d::CCParticleSystem : cocos2d::CCNode, cocos2d::CCTextureProtocol {
 
     void initParticle(cocos2d::sCCParticle*) = imac 0x7b3670, m1 0x6c4620, ios 0x197e0c;
     bool initWithDictionary(cocos2d::CCDictionary*, char const*, bool) = imac 0x7b1800, m1 0x6c29f0, ios 0x196b0c;
-    bool initWithDictionary(cocos2d::CCDictionary* p0, bool p1) = imac 0x7b31f0, m1 0x6c425c;
+    bool initWithDictionary(cocos2d::CCDictionary* p0, bool p1) = imac 0x7b31f0, m1 0x6c425c, ios inline {
+        return cocos2d::CCParticleSystem::initWithDictionary(p0, "", p1);
+    }
     bool initWithFile(char const*, bool) = m1 0x6c26d8, ios 0x196990;
 
     unsigned int getAtlasIndex() const;
@@ -1115,15 +1117,8 @@ class cocos2d::CCParticleRain : cocos2d::CCParticleSystemQuad {
 [[link(win, android)]]
 class cocos2d::CCParticleSystemQuad : cocos2d::CCParticleSystem {
     static cocos2d::CCParticleSystemQuad* create(char const*, bool) = imac 0x5eb190, m1 0x51c418, ios 0x252a98;
-    static cocos2d::CCParticleSystemQuad* create() = m1 0x51d1bc, imac 0x5ec500, ios inline { // straight from cocos2d-x
-	    auto pRet = new cocos2d::CCParticleSystemQuad();
-	    if (pRet && pRet->init())
-	    {
-	        pRet->autorelease();
-	        return pRet;
-	    }
-	    CC_SAFE_DELETE(pRet);
-	    return nullptr;
+    static cocos2d::CCParticleSystemQuad* create() = m1 0x51d1bc, imac 0x5ec500, ios inline {
+        return cocos2d::CCParticleSystemQuad::create("dragEffect.plist", false);
     }
     static cocos2d::CCParticleSystemQuad* createWithTotalParticles(unsigned int, bool) = m1 0x51c500, imac 0x5eb270;
     
