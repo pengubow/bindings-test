@@ -736,9 +736,7 @@ class cocos2d::CCParticleSystem : cocos2d::CCNode, cocos2d::CCTextureProtocol {
 
     void initParticle(cocos2d::sCCParticle*) = imac 0x7b3670, m1 0x6c4620, ios 0x197e0c;
     bool initWithDictionary(cocos2d::CCDictionary*, char const*, bool) = imac 0x7b1800, m1 0x6c29f0, ios 0x196b0c;
-    bool initWithDictionary(cocos2d::CCDictionary* p0, bool p1) = imac 0x7b31f0, m1 0x6c425c, ios inline {
-	return cocos2d::CCParticleSystem::initWithDictionary(p0, "", p1);
-    }
+    bool initWithDictionary(cocos2d::CCDictionary* p0, bool p1) = imac 0x7b31f0, m1 0x6c425c;
     bool initWithFile(char const*, bool) = m1 0x6c26d8, ios 0x196990;
 
     unsigned int getAtlasIndex() const;
