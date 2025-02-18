@@ -5975,7 +5975,7 @@ class GameLevelManager : cocos2d::CCNode {
     int likeFromLikeKey(char const*);
     void likeItem(LikeItemType, int, bool, int) = win 0x161270, m1 0x499d68, imac 0x540b40;
     void limitSavedLevels() = win 0x148090, imac 0x5236b0, m1 0x47f58c;
-    void makeTimeStamp(char const*) = win 0x147b90, imac 0x522290, m1 0x47e18c;
+    void makeTimeStamp(char const*) = win 0x147b90, imac 0x522290, m1 0x47e18c, ios 0x9cf68;
     void markItemAsLiked(LikeItemType, int, bool, int);
     void markLevelAsDownloaded(int) = win 0x151510;
     void markLevelAsRatedDemon(int id) = win inline, m1 0x48b1c8, imac 0x530870 {
@@ -15737,7 +15737,7 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
     void toggleSwingMode(bool, bool) = win 0x384d90, imac 0x405d60, m1 0x383a5c, ios 0x22ab80;
     void toggleVisibility(bool) = win 0x3756d0, ios 0x21e598, imac 0x3f1460, m1 0x37219c;
     TodoReturn touchedObject(GameObject*) = imac 0x40ad70, ios 0x22e4ec;
-    void tryPlaceCheckpoint() = m1 0x371f50;
+    void tryPlaceCheckpoint() = m1 0x371f50, ios 0x21e35c;
     TodoReturn unrotateGameplayObject(GameObject*) = win 0x37b8b0;
     TodoReturn unrotatePreSlopeObjects();
     TodoReturn updateCheckpointMode(bool) = ios 0x21a034;
