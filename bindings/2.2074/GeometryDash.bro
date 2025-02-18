@@ -4273,9 +4273,9 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void onColorFilter(cocos2d::CCObject* sender);
     void onCopy(cocos2d::CCObject* sender);
     void onCopyState(cocos2d::CCObject* sender) = win 0x112ac0;
-    bool onCreate() = win 0x10dd10, m1 0x2dfac, imac 0x2e600;
+    bool onCreate() = win 0x10dd10, m1 0x2dfac, imac 0x2e600, ios 0x3dee84;
     void onCreateButton(cocos2d::CCObject* sender) = win 0x10d880, imac 0x34d30, m1 0x342c0, ios 0x3e32f0;
-    void onCreateObject(int) = win 0x10df10, m1 0x34758, imac 0x35170;
+    void onCreateObject(int) = win 0x10df10, m1 0x34758, imac 0x35170, ios 0x3e35c0;
     void onDelete(cocos2d::CCObject* sender) = win 0xe4760;
     void onDeleteAll(cocos2d::CCObject* sender);
     void onDeleteCustomItem(cocos2d::CCObject* sender) = win 0xe2e80;
@@ -6989,8 +6989,8 @@ class GameObject : CCSpritePlus {
     void spawnDefaultPickupParticle(GJBaseGameLayer*) = imac 0x24c390;
     void updateBlendMode();
     void updateCustomColorType(short);
-    void updateCustomScaleX(float) = win 0x1956d0;
-    void updateCustomScaleY(float) = win 0x195760;
+    void updateCustomScaleX(float) = win 0x1956d0, m1 0x4d922c, ios 0x25529c;
+    void updateCustomScaleY(float) = win 0x195760, m1 0x4d928c, ios 0x2552fc;
     void updateHSVState();
     void updateIsOriented() = win 0x19e7b0, imac 0x5b1730, m1 0x4ea58c, ios 0x260be4;
     void updateMainColor();
@@ -13033,7 +13033,7 @@ class LevelEditorLayer : GJBaseGameLayer, LevelSettingsDelegate {
     TodoReturn clearTouchPoints();
     void copyObjectState(GameObject*) = win 0x2d8bc0;
     TodoReturn copyParticleState(ParticleGameObject*);
-    GameObject* createObject(int, cocos2d::CCPoint, bool) = win 0x2cbf90, m1 0xc7be8, imac 0xe0940;
+    GameObject* createObject(int, cocos2d::CCPoint, bool) = win 0x2cbf90, m1 0xc7be8, imac 0xe0940, ios 0x359a70;
     void createObjectsFromSetup(gd::string&);
     cocos2d::CCArray* createObjectsFromString(gd::string const&, bool, bool) = win 0x2cb920, m1 0xc6e60, imac 0xdf9e0;
     void dirtifyTriggers() = win 0x22b740;
