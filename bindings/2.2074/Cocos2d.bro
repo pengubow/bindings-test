@@ -519,7 +519,7 @@ class cocos2d::CCRemoveSelf : cocos2d::CCActionInstant {
     bool init(bool isNeedCleanUp) = ios inline {
 	m_bIsNeedCleanUp = isNeedCleanUp;
 	return true;
-    };
+    }
 
     // CCRemoveSelf(cocos2d::CCRemoveSelf const&);
     // CCRemoveSelf();
