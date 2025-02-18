@@ -59,7 +59,7 @@ class cocos2d::CCEaseInOut : cocos2d::CCEaseRateAction {
 
 [[link(win, android)]]
 class cocos2d::CCEaseBackIn : cocos2d::CCActionEase {
-    static cocos2d::CCEaseBackIn* create(cocos2d::CCActionInterval*) = m1 0x460c04, imac 0x501240;
+    static cocos2d::CCEaseBackIn* create(cocos2d::CCActionInterval*) = m1 0x460c04, imac 0x501240, ios 0x26c2b0;
 
     // CCEaseBackIn(cocos2d::CCEaseBackIn const&);
     // CCEaseBackIn();
@@ -95,7 +95,7 @@ class cocos2d::CCEaseBackInOut : cocos2d::CCActionEase {
 
 [[link(win, android)]]
 class cocos2d::CCEaseBounceIn : cocos2d::CCEaseBounce {
-    static cocos2d::CCEaseBounceIn* create(cocos2d::CCActionInterval*) = m1 0x4602b4, imac 0x5009b0;
+    static cocos2d::CCEaseBounceIn* create(cocos2d::CCActionInterval*) = m1 0x4602b4, imac 0x5009b0, ios 0x26bf54;
 
     // CCEaseBounceIn(cocos2d::CCEaseBounceIn const&);
     // CCEaseBounceIn();
@@ -131,8 +131,10 @@ class cocos2d::CCEaseBounceInOut : cocos2d::CCEaseBounce {
 
 [[link(win, android)]]
 class cocos2d::CCEaseElasticIn : cocos2d::CCEaseElastic {
-    static cocos2d::CCEaseElasticIn* create(cocos2d::CCActionInterval*) = m1 0x45f804, imac 0x4ffe70;
-    static cocos2d::CCEaseElasticIn* create(cocos2d::CCActionInterval*, float) = m1 0x45f814, imac 0x4ffe90;
+    static cocos2d::CCEaseElasticIn* create(cocos2d::CCActionInterval* pAction) = m1 0x45f804, imac 0x4ffe70, ios inline {
+	return cocos2d::CCEaseElasticIn::create(pAction, 0.3f);
+    }
+    static cocos2d::CCEaseElasticIn* create(cocos2d::CCActionInterval*, float) = m1 0x45f814, imac 0x4ffe90, ios 0x26ba20;
 
     // CCEaseElasticIn(cocos2d::CCEaseElasticIn const&);
     // CCEaseElasticIn();
@@ -183,19 +185,66 @@ class cocos2d::CCEaseExponentialIn : cocos2d::CCActionEase {
 
 [[link(win, android)]]
 class cocos2d::CCEaseExponentialInOut : cocos2d::CCActionEase {
-    static cocos2d::CCEaseExponentialInOut* create(cocos2d::CCActionInterval*) = m1 0x45ede8, imac 0x4ff400, ios 0x26ba20; //if this is not it im gonna lose it fr trust
+    static cocos2d::CCEaseExponentialInOut* create(cocos2d::CCActionInterval* pAction) = m1 0x45ede8, imac 0x4ff400, ios inline {
+	CCEaseExponentialInOut *pRet = new CCEaseExponentialInOut();
+	if (pRet)
+	{
+	    if (pRet->initWithAction(pAction))
+	    {
+	        pRet->autorelease();
+	    }
+	    else
+	    {
+	        CC_SAFE_RELEASE_NULL(pRet);
+	    }
+	}
+	
+	return pRet; 
+    }
 
     // CCEaseExponentialInOut(cocos2d::CCEaseExponentialInOut const&);
     // CCEaseExponentialInOut();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x45ee90, imac 0x4ff4a0;
-    virtual void update(float) = imac 0x4ff5a0, m1 0x45ef78;
-    virtual cocos2d::CCActionInterval* reverse() = imac 0x4ff610, m1 0x45efe4;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x45ee90, imac 0x4ff4a0, ios inline {
+	//CCZone* pNewZone = NULL;
+	CCEaseExponentialInOut* pCopy = NULL;
+	if(pZone && pZone->m_pCopyObject) 
+	{
+	    //in case of being called at sub class
+	    pCopy = (CCEaseExponentialInOut*)(pZone->m_pCopyObject);
+	}
+	else
+	{
+	    pCopy = new CCEaseExponentialInOut();
+	    //pNewZone = new CCZone(pCopy);
+	}
+	
+	pCopy->initWithAction((CCActionInterval *)(m_pInner->copy()->autorelease()));
+	    
+	//CC_SAFE_DELETE(pNewZone);
+	return pCopy;
+    }
+    virtual void update(float) = imac 0x4ff5a0, m1 0x45ef78, ios inline {
+	time /= 0.5f;
+	if (time < 1)
+	{
+	    time = 0.5f * powf(2, 10 * (time - 1));
+	}
+	else
+	{
+	    time = 0.5f * (-powf(2, -10 * (time - 1)) + 2);
+	}
+	
+	m_pInner->update(time);
+    }
+    virtual cocos2d::CCActionInterval* reverse() = imac 0x4ff610, m1 0x45efe4, ios inline {
+	return CCEaseExponentialInOut::create(m_pInner->reverse());
+    }
 }
 
 [[link(win, android)]]
 class cocos2d::CCEaseExponentialOut : cocos2d::CCActionEase {
-    static cocos2d::CCEaseExponentialOut* create(cocos2d::CCActionInterval*) = m1 0x45ebd4, imac 0x4ff1f0, ios 0x26b85c; // ???
+    static cocos2d::CCEaseExponentialOut* create(cocos2d::CCActionInterval*) = m1 0x45ebd4, imac 0x4ff1f0, ios 0x26b85c;
 
     // CCEaseExponentialOut(cocos2d::CCEaseExponentialOut const&);
     // CCEaseExponentialOut();
