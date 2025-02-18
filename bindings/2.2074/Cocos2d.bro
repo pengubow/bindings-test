@@ -205,7 +205,7 @@ class cocos2d::CCEaseExponentialInOut : cocos2d::CCActionEase {
     // CCEaseExponentialInOut(cocos2d::CCEaseExponentialInOut const&);
     // CCEaseExponentialInOut();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x45ee90, imac 0x4ff4a0, ios inline {
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x45ee90, imac 0x4ff4a0, ios inline {
 	//CCZone* pNewZone = NULL;
 	CCEaseExponentialInOut* pCopy = NULL;
 	if(pZone && pZone->m_pCopyObject) 
@@ -224,7 +224,7 @@ class cocos2d::CCEaseExponentialInOut : cocos2d::CCActionEase {
 	//CC_SAFE_DELETE(pNewZone);
 	return pCopy;
     }
-    virtual void update(float) = imac 0x4ff5a0, m1 0x45ef78, ios inline {
+    virtual void update(float time) = imac 0x4ff5a0, m1 0x45ef78, ios inline {
 	time /= 0.5f;
 	if (time < 1)
 	{
