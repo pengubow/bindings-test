@@ -508,15 +508,18 @@ class cocos2d::CCMoveTo : cocos2d::CCMoveBy {
 class cocos2d::CCRemoveSelf : cocos2d::CCActionInstant {
     static cocos2d::CCRemoveSelf* create(bool isNeedCleanUp) = m1 0x6a9d38, imac 0x796bc0, ios inline {
 	CCRemoveSelf *pRet = new CCRemoveSelf();
-	pRet->m_bIsNeedCleanUp = isNeedCleanUp;
-	if (pRet) {
+
+	if (pRet && pRet->init(isNeedCleanUp)) {
 		pRet->autorelease();
 	}
 
 	return pRet;
     }
 
-    bool init(bool);
+    bool init(bool isNeedCleanUp) = ios inline {
+	m_bIsNeedCleanUp = isNeedCleanUp;
+	return true;
+    };
 
     // CCRemoveSelf(cocos2d::CCRemoveSelf const&);
     // CCRemoveSelf();
@@ -542,7 +545,7 @@ class cocos2d::CCRemoveSelf : cocos2d::CCActionInstant {
 	m_pTarget->removeFromParentAndCleanup(m_bIsNeedCleanUp);
     }
     virtual cocos2d::CCFiniteTimeAction* reverse() = imac 0x796c50, m1 0x6a9dbc, ios inline {
-	return cocos2d::CCRemoveSelf::reverse();
+	return (CCFiniteTimeAction*)(cocos2d::CCRemoveSelf::create(m_bIsNeedCleanUp));
     }
 }
 
@@ -684,7 +687,7 @@ class cocos2d::CCAction : cocos2d::CCObject {
 [[link(win, android)]]
 class cocos2d::CCActionInstant : cocos2d::CCFiniteTimeAction {
     // CCActionInstant(cocos2d::CCActionInstant const&);
-    CCActionInstant() = m1 0x6a9794, imac 0x796640;
+    CCActionInstant() = m1 0x6a9794, imac 0x796640, ios inline {}
 
     virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x6a97dc, imac 0x7966a0, ios 0x1b0e04;
     virtual void update(float) = m1 0x6a98b8, imac 0x796780, ios 0x1b0ec4;
