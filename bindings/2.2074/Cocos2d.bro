@@ -508,7 +508,7 @@ class cocos2d::CCMoveTo : cocos2d::CCMoveBy {
 class cocos2d::CCRemoveSelf : cocos2d::CCActionInstant {
     static cocos2d::CCRemoveSelf* create(bool isNeedCleanUp) = m1 0x6a9d38, imac 0x796bc0, ios inline {
 	CCRemoveSelf *pRet = new CCRemoveSelf();
-	m_bIsNeedCleanUp = isNeedCleanUp;
+	pRet->m_bIsNeedCleanUp = isNeedCleanUp;
 	if (pRet) {
 		pRet->autorelease();
 	}
@@ -526,7 +526,7 @@ class cocos2d::CCRemoveSelf : cocos2d::CCActionInstant {
 	CCRemoveSelf *pRet = NULL;
 
 	if (pZone && pZone->m_pCopyObject) {
-		pRet = pZone->m_pCopyObject;
+		pRet = (CCRemoveSelf*)(pZone->m_pCopyObject);
 	} else {
 		pRet = new CCRemoveSelf();
 		// pZone = pNewZone = new cocos2d::CCZone(pRet);
