@@ -506,16 +506,44 @@ class cocos2d::CCMoveTo : cocos2d::CCMoveBy {
 
 [[link(win, android)]]
 class cocos2d::CCRemoveSelf : cocos2d::CCActionInstant {
-    static cocos2d::CCRemoveSelf* create(bool) = m1 0x6a9d38, imac 0x796bc0;
+    static cocos2d::CCRemoveSelf* create(bool isNeedCleanUp) = m1 0x6a9d38, imac 0x796bc0, ios inline {
+	CCRemoveSelf *pRet = new CCRemoveSelf();
+	m_bIsNeedCleanUp = isNeedCleanUp;
+	if (pRet) {
+		pRet->autorelease();
+	}
+
+	return pRet;
+    }
 
     bool init(bool);
 
     // CCRemoveSelf(cocos2d::CCRemoveSelf const&);
     // CCRemoveSelf();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = imac 0x796cb0, m1 0x6a9e1c;
-    virtual void update(float) = imac 0x796c30, m1 0x6a9da4;
-    virtual cocos2d::CCFiniteTimeAction* reverse() = imac 0x796c50, m1 0x6a9dbc;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = imac 0x796cb0, m1 0x6a9e1c, ios inline {
+	// CCZone *pNewZone = NULL;
+	CCRemoveSelf *pRet = NULL;
+
+	if (pZone && pZone->m_pCopyObject) {
+		pRet = pZone->m_pCopyObject;
+	} else {
+		pRet = new CCRemoveSelf();
+		// pZone = pNewZone = new cocos2d::CCZone(pRet);
+	}
+
+	// cocos2d::CCActionInstant::copyWithZone(pZone);
+	pRet->init(m_bIsNeedCleanUp);
+	// CC_SAFE_DELETE(pNewZone);
+	return pRet;
+    }
+    virtual void update(float time) = imac 0x796c30, m1 0x6a9da4, ios inline {
+	CC_UNUSED_PARAM(time);
+	m_pTarget->removeFromParentAndCleanup(m_bIsNeedCleanUp);
+    }
+    virtual cocos2d::CCFiniteTimeAction* reverse() = imac 0x796c50, m1 0x6a9dbc, ios inline {
+	return cocos2d::CCRemoveSelf::reverse();
+    }
 }
 
 [[link(win, android)]]
