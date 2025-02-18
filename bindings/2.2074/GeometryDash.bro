@@ -4299,11 +4299,11 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void onPasteColor(cocos2d::CCObject* sender) = win 0x112cd0;
     void onPasteInPlace(cocos2d::CCObject* sender);
     void onPasteState(cocos2d::CCObject* sender) = win 0x112b40;
-    void onPause(cocos2d::CCObject* sender) = win 0xe03d0, imac 0x2ad50, m1 0x2afc0;
+    void onPause(cocos2d::CCObject* sender) = win 0xe03d0, imac 0x2ad50, m1 0x2afc0, ios 0x3dc64c;
     void onPlayback(cocos2d::CCObject* sender) = win 0x110390, imac 0xc930, m1 0xdce0, ios 0x3bfb28;
     void onPlaytest(cocos2d::CCObject* sender) = win 0x1109a0, imac 0xcb90, m1 0xdef4, ios 0x3bfd14;
     void onResetSpecialFilter(cocos2d::CCObject* sender) = m1 0x31bec;
-    void onSelectBuildTab(cocos2d::CCObject* sender) = win 0x112f60, imac 0x34310, m1 0x33940;
+    void onSelectBuildTab(cocos2d::CCObject* sender) = win 0x112f60, imac 0x34310, m1 0x33940, ios 0x3e298c;
     void onSettings(cocos2d::CCObject* sender) = win 0xe0350, m1 0x2b46c, imac 0x2b270;
     void onStopPlaytest(cocos2d::CCObject* sender) = win 0x110d40, m1 0xe134, imac 0xcdd0, ios 0x3bfea8;
     void onTargetIDChange(int) = win 0x120860;
@@ -4393,7 +4393,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void undoLastAction(cocos2d::CCObject*) = win 0x110120;
     void updateButtons() = win 0xe07e0, m1 0x2c954, imac 0x2cdd0;
     void updateCreateMenu(bool) = win 0x10d8c0, imac 0x2e710, m1 0x2e0e4, ios 0x3def70;
-    void updateDeleteButtons() = win 0xe5fb0, m1 0x31c94, imac 0x325d0;
+    void updateDeleteButtons() = win 0xe5fb0, m1 0x31c94, imac 0x325d0, ios 0x3e1790;
     void updateDeleteMenu() {
         m_deleteMenu->setVisible(m_selectedMode == 1);
     }
