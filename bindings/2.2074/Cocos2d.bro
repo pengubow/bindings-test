@@ -3506,7 +3506,25 @@ class cocos2d::CCDrawNode : cocos2d::CCNodeRGBA {
     void clear() = imac 0x5fb240, m1 0x52a0ec, ios 0x46a20;
     void drawCircle(cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&, float, cocos2d::_ccColor4F const&, unsigned int) = imac 0x5fb090, m1 0x529f50, ios 0x46890;
     void drawCubicBezier(cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, unsigned int, cocos2d::_ccColor4F const&);
-    void drawDot(cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&) = imac 0x5f99d0, m1 0x528ae8;
+    void drawDot(cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&) = imac 0x5f99d0, m1 0x528ae8, ios inline {
+	unsigned int vertex_count = 2*3;
+        cocos2d::CCDrawNode::ensureCapacity(vertex_count);
+	
+	cocos2d::ccV2F_C4B_T2F a = {{pos.x - radius, pos.y - radius}, cocos2d::ccc4BFromccc4F(color), {-1.0, -1.0} };
+	cocos2d::ccV2F_C4B_T2F b = {{pos.x - radius, pos.y + radius}, cocos2d::ccc4BFromccc4F(color), {-1.0,  1.0} };
+	cocos2d::ccV2F_C4B_T2F c = {{pos.x + radius, pos.y + radius}, cocos2d::ccc4BFromccc4F(color), { 1.0,  1.0} };
+	cocos2d::ccV2F_C4B_T2F d = {{pos.x + radius, pos.y - radius}, cocos2d::ccc4BFromccc4F(color), { 1.0, -1.0} };
+	
+	cocos2d::ccV2F_C4B_T2F_Triangle *triangles = (cocos2d::ccV2F_C4B_T2F_Triangle *)(m_pBuffer + m_nBufferCount);
+        cocos2d::ccV2F_C4B_T2F_Triangle triangle0 = {a, b, c};
+        cocos2d::ccV2F_C4B_T2F_Triangle triangle1 = {a, c, d};
+	triangles[0] = triangle0;
+	triangles[1] = triangle1;
+	
+	m_nBufferCount += vertex_count;
+	
+	m_bDirty = true;
+    }
     bool drawLines(cocos2d::CCPoint*, unsigned int, float, cocos2d::_ccColor4F const&) = imac 0x5fb010, m1 0x529ed0, ios 0x46810;
     bool drawPolygon(cocos2d::CCPoint*, unsigned int, cocos2d::ccColor4F const&, float, cocos2d::ccColor4F const&) = imac 0x5fa0e0, m1 0x5290cc, ios 0x45dcc;
     void drawPreciseCubicBezier(cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, unsigned int, cocos2d::_ccColor4F const&) = imac 0x5f9bb0, m1 0x528ce8;
