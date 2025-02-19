@@ -3506,7 +3506,7 @@ class cocos2d::CCDrawNode : cocos2d::CCNodeRGBA {
     void clear() = imac 0x5fb240, m1 0x52a0ec, ios 0x46a20;
     void drawCircle(cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&, float, cocos2d::_ccColor4F const&, unsigned int) = imac 0x5fb090, m1 0x529f50, ios 0x46890;
     void drawCubicBezier(cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, unsigned int, cocos2d::_ccColor4F const&);
-    void drawDot(cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&) = imac 0x5f99d0, m1 0x528ae8, ios inline {
+    void drawDot(cocos2d::CCPoint const& pos, float radius, cocos2d::_ccColor4F const& color) = imac 0x5f99d0, m1 0x528ae8, ios inline {
 	unsigned int vertex_count = 2*3;
         cocos2d::CCDrawNode::ensureCapacity(vertex_count);
 	
