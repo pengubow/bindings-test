@@ -4340,8 +4340,8 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
     void rotateObjects(cocos2d::CCArray*, float, cocos2d::CCPoint) = win 0x11f4b0, m1 0x37044, imac 0x3c3d0, ios 0x3e5484;
     TodoReturn rotationforCommand(EditCommand);
     void scaleObjects(cocos2d::CCArray*, float, float, cocos2d::CCPoint, ObjectScaleType, bool) = win 0x11f8d0;
-    void selectAll();
-    void selectAllWithDirection(bool) = imac 0x3d960;
+    void selectAll() = m1 0x38178, ios 0x3e6388;
+    void selectAllWithDirection(bool) = imac 0x3d960, m1 0x38480, ios 0x3e651c;
     void selectBuildTab(int) = win 0x112f90, imac 0x34340, m1 0x33974, ios 0x3e29c0;
     void selectObject(GameObject*, bool) = win 0x10ee50, imac 0x2ec30, m1 0x2e5c8, ios 0x3df140;
     void selectObjects(cocos2d::CCArray*, bool) = win 0x10f140, imac 0x3c830, m1 0x3749c, ios 0x3e58c4;
@@ -5368,11 +5368,12 @@ class FMODAudioEngine : cocos2d::CCNode {
     TodoReturn lengthForSound(gd::string path);
     TodoReturn loadAndPlayMusic(gd::string, unsigned int, int);
     TodoReturn loadAudioState(FMODAudioState&);
-    void loadMusic(gd::string path, float speed, float p2, float volume, bool shouldLoop, int p5, int p6) = win 0x5a280, imac 0x3ced40, m1 0x356464;
+    void loadMusic(gd::string path, float speed, float p2, float volume, bool shouldLoop, int p5, int p6) = win 0x5a280, imac 0x3ced40, m1 0x356464, ios 0x13d3f4;
     void loadMusic(gd::string path) {
         this->loadMusic(path, 1.f, 0.f, 1.f, false, 0, 0);
     }
-    TodoReturn loadMusic(gd::string, float, float, float, bool, int, int, bool) = ios 0x13d3f4;
+    // TodoReturn loadMusic(gd::string path, float speed, float p2, float volume, bool shouldLoop, int p5, int p6, bool) = ios 0x13d3f4; i mean like... the references say that m1 and ios matches in terms of args too
+    // so it should be the same loadMusic as the one that is on m1.
     void pauseAllAudio() = win inline, imac 0x3cb290, m1 0x353afc {
         if (m_allAudioPaused) return;
         m_allAudioPaused = true;
