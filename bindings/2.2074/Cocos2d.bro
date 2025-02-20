@@ -3698,11 +3698,11 @@ class cocos2d::CCMenuItemSprite : cocos2d::CCMenuItem {
 class cocos2d::CCMenu : cocos2d::CCLayerRGBA {
     // static cocos2d::CCMenu* create(cocos2d::CCMenuItem*, ...) = ios 0x1d8d28, m1 0x6a6d58, imac 0x79e7b0;
     static cocos2d::CCMenu* create() = imac 0x77c950, m1 0x691950, ios 0x1d8d04;
-    static cocos2d::CCMenu* createWithArray(cocos2d::CCArray*) = imac 0x77cb50, m1 0x691aa8;
+    static cocos2d::CCMenu* createWithArray(cocos2d::CCArray*) = imac 0x77cb50, m1 0x691aa8, ios 0x1d8db0;
     static cocos2d::CCMenu* createWithItem(cocos2d::CCMenuItem*) = m1 0x691cf4, imac 0x77cda0;
     // static cocos2d::CCMenu* createWithItems(cocos2d::CCMenuItem*, char*);
 
-    bool initWithArray(cocos2d::CCArray*) = m1 0x691b60, imac 0x77cc20;
+    bool initWithArray(cocos2d::CCArray*) = m1 0x691b60, imac 0x77cc20, ios 0x1d8e5c;
 
     void setHandlerPriority(int);
 
@@ -4303,7 +4303,7 @@ class cocos2d::CCPoolManager {
 	void addObject(cocos2d::CCObject*);
 	void finalize();
 	cocos2d::CCAutoreleasePool* getCurReleasePool();
-	void pop() = m1 0x367288, imac 0x3e4f70;
+	void pop() = m1 0x367288, imac 0x3e4f70, ios 0x1b43d0; // should be
 	static void purgePoolManager();
 	void push();
 	void removeObject(cocos2d::CCObject*);
