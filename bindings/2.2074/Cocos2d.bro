@@ -83,14 +83,62 @@ class cocos2d::CCEaseBackOut : cocos2d::CCActionEase {
 
 [[link(win, android)]]
 class cocos2d::CCEaseBackInOut : cocos2d::CCActionEase {
-    static cocos2d::CCEaseBackInOut* create(cocos2d::CCActionInterval*) = m1 0x460fd8, imac 0x501630;
+    static cocos2d::CCEaseBackInOut* create(cocos2d::CCActionInterval* pAction) = m1 0x460fd8, imac 0x501630, ios inline {
+	CCEaseBackInOut *pRet = new CCEaseBackInOut();
+        if (pRet)
+        {
+            if (pRet->initWithAction(pAction))
+            {
+                pRet->autorelease();
+            }
+            else
+            {
+                CC_SAFE_RELEASE_NULL(pRet);
+            }
+        }
+
+        return pRet;
+    }
 
     // CCEaseBackInOut(cocos2d::CCEaseBackInOut const&);
     // CCEaseBackInOut();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x461080, imac 0x5016d0;
-    virtual void update(float) = m1 0x461168, imac 0x5017d0;
-    virtual cocos2d::CCActionInterval* reverse() = m1 0x4611fc, imac 0x501860;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x461080, imac 0x5016d0, ios inline {
+	// CCZone* pNewZone = NULL;
+        CCEaseBackInOut* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCEaseBackInOut*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCEaseBackInOut();
+            // pNewZone = new CCZone(pCopy);
+        }
+
+        pCopy->initWithAction((CCActionInterval *)(m_pInner->copy()->autorelease()));
+    
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual void update(float time) = m1 0x461168, imac 0x5017d0, ios inline {
+	float overshoot = 1.70158f * 1.525f;
+
+        time = time * 2;
+        if (time < 1)
+        {
+            m_pInner->update((time * time * ((overshoot + 1) * time - overshoot)) / 2);
+        }
+        else
+        {
+            time = time - 2;
+            m_pInner->update((time * time * ((overshoot + 1) * time + overshoot)) / 2 + 1);
+        }
+    }
+    virtual cocos2d::CCActionInterval* reverse() = m1 0x4611fc, imac 0x501860, ios inline {
+	return CCEaseBackInOut::create(m_pInner->reverse());
+    }
 }
 
 [[link(win, android)]]
@@ -1595,7 +1643,7 @@ class cocos2d::CCScheduler : cocos2d::CCObject {
     unsigned int scheduleScriptFunc(unsigned int, float, bool);
     void scheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*, float, unsigned int, float, bool) = imac 0x42e250, m1 0x3a8f7c, ios 0x1ad808;
     void scheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*, float, bool) = imac 0x42e230, m1 0x3a8f6c, ios 0x1ad7f8;
-    void scheduleUpdateForTarget(cocos2d::CCObject*, int, bool) = imac 0x42ee60, m1 0x3a9bec;
+    void scheduleUpdateForTarget(cocos2d::CCObject*, int, bool) = imac 0x42ee60, m1 0x3a9bec, ios 0x1ae428;
     void unscheduleAll();
     void unscheduleAllForTarget(cocos2d::CCObject*) = imac 0x42f420;
     void unscheduleAllWithMinPriority(int);
@@ -3573,11 +3621,17 @@ class cocos2d::CCSpriteFrame : cocos2d::CCObject {
     	return create(filename, rect, false, CCPointZero, rectInPixels.size);
     }
     static cocos2d::CCSpriteFrame* create(char const*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&) = ios 0x24d078; // looks oddly similar to m1 mac, except this one has 5 params while m1 mac has 2 but ig the inline isn't here for nothing
-    static cocos2d::CCSpriteFrame* createWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&) = m1 0x2d94f4, imac 0x343f20;
+    static cocos2d::CCSpriteFrame* createWithTexture(cocos2d::CCTexture2D* pobTexture, cocos2d::CCRect const& rect) = m1 0x2d94f4, imac 0x343f20, ios inline {
+	CCSpriteFrame *pSpriteFrame = new CCSpriteFrame();;
+        pSpriteFrame->initWithTexture(pobTexture, rect);
+        pSpriteFrame->autorelease();
+    
+        return pSpriteFrame;
+    }
     static cocos2d::CCSpriteFrame* createWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&);
 
     bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&);
-    bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&) = imac 0x344270, m1 0x2d97ac;
+    bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&) = imac 0x344270, m1 0x2d97ac, ios 0x24d17c;
     bool initWithTextureFilename(char const* filename, cocos2d::CCRect const& rect) = ios inline {
     	CCRect rectInPixels = CC_RECT_POINTS_TO_PIXELS( rect );
     		return initWithTextureFilename(filename, rectInPixels, false, CCPointZero, rectInPixels.size);
@@ -3666,7 +3720,7 @@ class cocos2d::CCMenuItem : cocos2d::CCNodeRGBA {
 
     // CCMenuItem(cocos2d::CCMenuItem const&);
     // CCMenuItem();
-    cocos2d::CCRect rect() = m1 0x337934, imac 0x3abb30;
+    cocos2d::CCRect rect() = m1 0x337934, imac 0x3abb30, ios 0x50740;
 
     virtual void activate() = imac 0x3abaa0, m1 0x3378a8, ios 0x506b4;
     virtual void selected() = m1 0x337824, imac 0x3aba10, ios 0x50630;
@@ -3738,7 +3792,7 @@ class cocos2d::CCMenu : cocos2d::CCLayerRGBA {
 [[link(win, android)]]
 class cocos2d::CCRotateBy : cocos2d::CCActionInterval {
     static cocos2d::CCRotateBy* create(float, float) = imac 0x3a4bb0, m1 0x33167c, ios 0x18ea00;
-    static cocos2d::CCRotateBy* create(float, float, float) = m1 0x331744, imac 0x3a4cb0;
+    static cocos2d::CCRotateBy* create(float, float, float) = m1 0x331744, imac 0x3a4cb0, ios 0x18ea9c;
 
     bool initWithDuration(float, float);
     bool initWithDuration(float, float, float);
@@ -3755,10 +3809,26 @@ class cocos2d::CCRotateBy : cocos2d::CCActionInterval {
 [[link(win, android)]]
 class cocos2d::CCRotateTo : cocos2d::CCActionInterval {
     static cocos2d::CCRotateTo* create(float, float) = imac 0x3a46d0, m1 0x331280, ios 0x18e6f4;
-    static cocos2d::CCRotateTo* create(float, float, float) = m1 0x33134c, imac 0x3a47d0;
+    static cocos2d::CCRotateTo* create(float fDuration, float fDeltaAngleX, float fDeltaAngleY) = m1 0x33134c, imac 0x3a47d0, ios inline {
+	CCRotateTo* pRotateTo = new CCRotateTo();
+        pRotateTo->initWithDuration(fDuration, fDeltaAngleX, fDeltaAngleY);
+        pRotateTo->autorelease();
+    
+        return pRotateTo;
+    }
 
     bool initWithDuration(float, float);
-    bool initWithDuration(float, float, float);
+    bool initWithDuration(float fDuration, float fDeltaAngleX, float fDeltaAngleY) = ios inline {
+	if (CCActionInterval::initWithDuration(fDuration))
+        {
+            m_fDstAngleX = fDeltaAngleX;
+            m_fDstAngleY = fDeltaAngleY;
+        
+            return true;
+        }
+    
+        return false;
+    }
 
     // CCRotateTo(cocos2d::CCRotateTo const&);
     // CCRotateTo();
