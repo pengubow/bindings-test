@@ -3264,7 +3264,7 @@ class CustomMusicCell : CustomSongCell {
     // virtual ~CustomMusicCell();
     CustomMusicCell(char const*, float, float);
 
-    void loadFromObject(SongInfoObject*) = win 0xb46f0, imac 0x2325a0, m1 0x1e2548;
+    void loadFromObject(SongInfoObject*) = win 0xb46f0, imac 0x2325a0, m1 0x1e2548, ios 0x10544c;
     void updateBGColor(int);
 }
 
@@ -10190,7 +10190,7 @@ class GJLevelScoreCell : TableViewCell {
     virtual bool init() = m1 0x1f2e24, imac 0x243de0, ios 0x11405c;
     virtual void draw() = imac 0x243e30, m1 0x1f2e6c, ios 0x1140a4;
 
-    void loadFromScore(GJUserScore*) = win 0xb93d0, imac 0x238d60, m1 0x1e8cec;
+    void loadFromScore(GJUserScore*) = win 0xb93d0, imac 0x238d60, m1 0x1e8cec, ios 0x10b8d4;
     void onViewProfile(cocos2d::CCObject* sender);
     void updateBGColor(int);
 }
@@ -13290,7 +13290,7 @@ class LevelInfoLayer : cocos2d::CCLayer, LevelDownloadDelegate, LevelUpdateDeleg
     void incrementDislikes();
     void incrementLikes();
     bool init(GJGameLevel* level, bool challenge) = win 0x2e2a90, imac 0x2a98e0, m1 0x24fa08, ios 0x287d0;
-    void loadLevelStep() = win 0x2e8a00, imac 0x2b07d0, m1 0x2566dc;
+    void loadLevelStep() = win 0x2e8a00, imac 0x2b07d0, m1 0x2566dc, ios 0x2ebb0;
     void onAddToList(cocos2d::CCObject* sender) = win 0x2e5160, imac 0x2aee40, m1 0x254e2c, ios 0x2d668;
     void onBack(cocos2d::CCObject* sender) = win 0x2ebce0, imac 0x2ae6d0, m1 0x254684, ios 0x2d078;
     void onClone(cocos2d::CCObject* sender);
@@ -13315,7 +13315,7 @@ class LevelInfoLayer : cocos2d::CCLayer, LevelDownloadDelegate, LevelUpdateDeleg
     void onUpdate(cocos2d::CCObject* sender) = win 0x2ea280, m1 0x253bec, imac 0x2adcb0;
     void onViewProfile(cocos2d::CCObject* sender) = win 0x2ea460, imac 0x2abc20, m1 0x251b4c;
     void playStep2();
-    void playStep3() = m1 0x256650;
+    void playStep3() = m1 0x256650, ios 0x2eb24;
     void playStep4() = win 0x2e8ab0, m1 0x25678c;
     void setupLevelInfo() = win 0x2e65c0, m1 0x252478, imac 0x2ac500;
     void setupPlatformerStats() = win 0x2e5a80, m1 0x252fc8, imac 0x2ad140, ios 0x2bc9c;
