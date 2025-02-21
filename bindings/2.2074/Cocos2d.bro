@@ -3083,27 +3083,7 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval { // there's no way this who
     // CCRepeat(cocos2d::CCRepeat const&);
     // CCRepeat();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x32ffdc, imac 0x3a32a0, ios inline {
-	// CCZone* pNewZone = NULL;
-        CCRepeat* pCopy = NULL;
-        if(pZone && pZone->m_pCopyObject) 
-        {
-            //in case of being called at sub class
-            pCopy = (CCRepeat*)(pZone->m_pCopyObject);
-        }
-        else
-        {
-            pCopy = new CCRepeat();
-            // pZone = pNewZone = new CCZone(pCopy);
-        }
-
-        CCActionInterval::copyWithZone(pZone);
-
-        pCopy->initWithAction((CCFiniteTimeAction*)(m_pInnerAction->copy()->autorelease()), m_uTimes);
-
-        // CC_SAFE_DELETE(pNewZone);
-        return pCopy;
-    }
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x32ffdc, imac 0x3a32a0;
     virtual void update(float dt) = imac 0x3a3540, m1 0x330274, ios inline {
 	if (dt >= m_fNextDt)
         {
