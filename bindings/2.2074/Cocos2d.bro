@@ -841,7 +841,7 @@ class cocos2d::CCSkewTo : cocos2d::CCActionInterval {
         // CC_SAFE_DELETE(pNewZone);
         return pCopy;
     }
-    virtual void update(float) = m1 0x332410, imac 0x3a5b30, ios inline {
+    virtual void update(float t) = m1 0x332410, imac 0x3a5b30, ios inline {
 	m_pTarget->setSkewX(m_fStartSkewX + m_fDeltaX * t);
         m_pTarget->setSkewY(m_fStartSkewY + m_fDeltaY * t);
     }
