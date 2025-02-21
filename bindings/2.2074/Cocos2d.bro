@@ -287,7 +287,7 @@ class cocos2d::CCEaseElasticInOut : cocos2d::CCEaseElastic {
 	// CCEaseElasticInOut(cocos2d::CCEaseElasticInOut const&);
 	// CCEaseElasticInOut();
 
-	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x45fde0, imac 0x5004d0, ios inline {
+	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x45fde0, imac 0x5004d0, ios inline {
 	    // CCZone* pNewZone = NULL;
             CCEaseElasticInOut* pCopy = NULL;
             if(pZone && pZone->m_pCopyObject) 
@@ -325,11 +325,11 @@ class cocos2d::CCEaseElasticInOut : cocos2d::CCEaseElastic {
                 time = time - 1;
                 if (time < 0)
                 {
-                    newT = -0.5f * powf(2, 10 * time) * sinf((time -s) * M_PI_X_2 / m_fPeriod);
+                    newT = -0.5f * powf(2, 10 * time) * sinf((time -s) * (M_PI * 2) / m_fPeriod);
                 }
                 else
                 {
-                    newT = powf(2, -10 * time) * sinf((time - s) * M_PI_X_2 / m_fPeriod) * 0.5f + 1;
+                    newT = powf(2, -10 * time) * sinf((time - s) * (M_PI * 2) / m_fPeriod) * 0.5f + 1;
                 }
             }
 
