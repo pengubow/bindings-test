@@ -7507,7 +7507,7 @@ class GameStatsManager : cocos2d::CCNode {
     bool hasCompletedStarLevel(GJGameLevel*) = imac 0x6d570;
     bool hasPendingUserCoin(char const*) = win 0x1dce90, m1 0x636cc, imac 0x6fcf0, ios 0x331ee0;
     bool hasRewardBeenCollected(GJRewardType, int);
-    bool hasSecretCoin(char const*) = win 0x1dcf50, imac 0x6cdc0, m1 0x60930;
+    bool hasSecretCoin(char const*) = win 0x1dcf50, imac 0x6cdc0, m1 0x60930, ios 0x33078c;
     bool hasUserCoin(char const*) = win 0x1dcd10, m1 0x637c4, imac 0x6fde0, ios 0x331f50;
     TodoReturn incrementActivePath(int);
     TodoReturn incrementChallenge(GJChallengeType, int) = win 0x1df0f0, m1 0x5eb10, imac 0x6b0c0;
@@ -9504,7 +9504,7 @@ class GJGameLevel : cocos2d::CCNode {
     TodoReturn generateSettingsString();
     gd::string getAudioFileName() = win 0x16a3f0, imac 0x545b00, m1 0x49e8d8, ios 0xb0188;
     int getAverageDifficulty() = win 0x16a230, imac 0x545880, m1 0x49e674;
-    char const* getCoinKey(int coinNumber) = win 0x16a2a0, imac 0x535eb0, m1 0x48f96c;
+    char const* getCoinKey(int coinNumber) = win 0x16a2a0, imac 0x535eb0, m1 0x48f96c, ios 0xa76cc;
     TodoReturn getLastBuildPageForTab(int);
     const char* getLengthKey(int length, bool platformer) = imac 0x5457a0, m1 0x49e560;
     TodoReturn getListSnapshot();
