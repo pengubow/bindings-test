@@ -167,14 +167,62 @@ class cocos2d::CCEaseBounceOut : cocos2d::CCEaseBounce {
 
 [[link(win, android)]]
 class cocos2d::CCEaseBounceInOut : cocos2d::CCEaseBounce {
-    static cocos2d::CCEaseBounceInOut* create(cocos2d::CCActionInterval*) = m1 0x46082c, imac 0x500ed0;
+    static cocos2d::CCEaseBounceInOut* create(cocos2d::CCActionInterval* pAction) = m1 0x46082c, imac 0x500ed0, ios inline {
+	CCEaseBounceInOut *pRet = new CCEaseBounceInOut();
+        if (pRet)
+        {
+            if (pRet->initWithAction(pAction))
+            {
+                pRet->autorelease();
+            }
+            else
+            {
+                CC_SAFE_RELEASE_NULL(pRet);
+            }
+        }
+
+        return pRet;
+    }
 
     // CCEaseBounceInOut(cocos2d::CCEaseBounceInOut const&);
     // CCEaseBounceInOut();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x4608d4, imac 0x500f70;
-    virtual void update(float) = m1 0x4609bc, imac 0x501070;
-    virtual cocos2d::CCActionInterval* reverse() = m1 0x460be4, imac 0x501220;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x4608d4, imac 0x500f70, ios inline {
+	// CCZone* pNewZone = NULL;
+        CCEaseBounceInOut* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCEaseBounceInOut*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCEaseBounceInOut();
+            // pNewZone = new CCZone(pCopy);
+        }
+
+        pCopy->initWithAction((CCActionInterval *)(m_pInner->copy()->autorelease()));
+    
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual void update(float time) = m1 0x4609bc, imac 0x501070, ios inline {
+	float newT = 0;
+        if (time < 0.5f)
+        {
+            time = time * 2;
+            newT = (1 - bounceTime(1 - time)) * 0.5f;
+        }
+        else
+        {
+            newT = bounceTime(time * 2 - 1) * 0.5f + 0.5f;
+        }
+
+        m_pInner->update(newT);
+    }
+    virtual cocos2d::CCActionInterval* reverse() = m1 0x460be4, imac 0x501220, ios inline {
+	return CCEaseBounceInOut::create(m_pInner->reverse());
+    }
 }
 
 [[link(win, android)]]
@@ -208,15 +256,54 @@ class cocos2d::CCEaseElasticOut : cocos2d::CCEaseElastic {
 [[link(win, android)]]
 
 class cocos2d::CCEaseElasticInOut : cocos2d::CCEaseElastic {
-	static cocos2d::CCEaseElasticInOut* create(cocos2d::CCActionInterval*) = m1 0x45fd14, imac 0x5003f0;
-	static cocos2d::CCEaseElasticInOut* create(cocos2d::CCActionInterval*, float) = m1 0x45fd24, imac 0x500410;
+	static cocos2d::CCEaseElasticInOut* create(cocos2d::CCActionInterval* pAction) = m1 0x45fd14, imac 0x5003f0, ios inline {
+	    return CCEaseElasticInOut::create(pAction, 0.3f);
+	}
+	static cocos2d::CCEaseElasticInOut* create(cocos2d::CCActionInterval* pAction, float fPeriod) = m1 0x45fd24, imac 0x500410, ios inline {
+	    CCEaseElasticInOut *pRet = new CCEaseElasticInOut();
+            if (pRet)
+            {
+        	if (pRet->initWithAction(pAction, fPeriod))
+        	{
+            	    pRet->autorelease();
+        	}
+                else
+                {
+                    CC_SAFE_RELEASE_NULL(pRet);
+                }
+            }
+
+            return pRet; 
+	}
 
 	// CCEaseElasticInOut(cocos2d::CCEaseElasticInOut const&);
 	// CCEaseElasticInOut();
 
-	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x45fde0, imac 0x5004d0;
-	virtual void update(float) = m1 0x45fed8, imac 0x5005e0;
-	virtual cocos2d::CCActionInterval* reverse() = m1 0x45ffec, imac 0x500700;
+	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x45fde0, imac 0x5004d0, ios inline {
+	    // CCZone* pNewZone = NULL;
+            CCEaseElasticInOut* pCopy = NULL;
+            if(pZone && pZone->m_pCopyObject) 
+    	    {
+                //in case of being called at sub class
+                pCopy = (CCEaseElasticInOut*)(pZone->m_pCopyObject);
+    	    }
+            else
+    	    {
+        	pCopy = new CCEaseElasticInOut();
+                // pNewZone = new CCZone(pCopy);
+            }
+
+            pCopy->initWithAction((CCActionInterval *)(m_pInner->copy()->autorelease()), m_fPeriod);
+
+            // CC_SAFE_DELETE(pNewZone);
+            return pCopy;
+	}
+	virtual void update(float) = m1 0x45fed8, imac 0x5005e0, ios inline {
+	
+	}
+	virtual cocos2d::CCActionInterval* reverse() = m1 0x45ffec, imac 0x500700, ios inline {
+	
+	}
 }
 
 [[link(win, android)]]
@@ -666,27 +753,158 @@ class cocos2d::CCScaleTo : cocos2d::CCActionInterval {
 
 [[link(win, android)]]
 class cocos2d::CCSkewBy : cocos2d::CCSkewTo {
-    static cocos2d::CCSkewBy* create(float, float, float) = m1 0x33249c, imac 0x3a5bd0;
+    static cocos2d::CCSkewBy* create(float t, float sx, float sy) = m1 0x33249c, imac 0x3a5bd0, ios inline {
+	CCSkewBy *pSkewBy = new CCSkewBy();
+        if (pSkewBy)
+        {
+            if (pSkewBy->initWithDuration(t, sx, sy))
+            {
+                pSkewBy->autorelease();
+            }
+            else
+            {
+                CC_SAFE_DELETE(pSkewBy);
+            }
+        }
+
+        return pSkewBy;
+    }
 
     // CCSkewBy(cocos2d::CCSkewBy const&);
     // CCSkewBy();
 
-    virtual void startWithTarget(cocos2d::CCNode*) = m1 0x33257c, imac 0x3a5d00;
-    virtual cocos2d::CCActionInterval* reverse() = m1 0x332658, imac 0x3a5e10;
-    virtual bool initWithDuration(float, float, float) = m1 0x332550, imac 0x3a5cb0;
+    virtual void startWithTarget(cocos2d::CCNode* pTarget) = m1 0x33257c, imac 0x3a5d00, ios inline {
+	CCSkewTo::startWithTarget(pTarget);
+        m_fDeltaX = m_fSkewX;
+        m_fDeltaY = m_fSkewY;
+        m_fEndSkewX = m_fStartSkewX + m_fDeltaX;
+        m_fEndSkewY = m_fStartSkewY + m_fDeltaY;
+    }
+    virtual cocos2d::CCActionInterval* reverse() = m1 0x332658, imac 0x3a5e10, ios inline {
+	return create(m_fDuration, -m_fSkewX, -m_fSkewY);
+    }
+    virtual bool initWithDuration(float t, float deltaSkewX, float deltaSkewY) = m1 0x332550, imac 0x3a5cb0, ios inline {
+	bool bRet = false;
+
+        if (CCSkewTo::initWithDuration(t, deltaSkewX, deltaSkewY))
+        {
+            m_fSkewX = deltaSkewX;
+            m_fSkewY = deltaSkewY;
+
+            bRet = true;
+        }
+
+        return bRet;
+    }
 }
 
 [[link(win, android)]]
 class cocos2d::CCSkewTo : cocos2d::CCActionInterval {
-    static cocos2d::CCSkewTo* create(float, float, float) = m1 0x332154, imac 0x3a57d0;
+    static cocos2d::CCSkewTo* create(float t, float sx, float sy) = m1 0x332154, imac 0x3a57d0, ios inline {
+	CCSkewTo *pSkewTo = new CCSkewTo();
+        if (pSkewTo)
+        {
+            if (pSkewTo->initWithDuration(t, sx, sy))
+            {
+                pSkewTo->autorelease();
+            }
+            else
+            {
+                CC_SAFE_DELETE(pSkewTo);
+            }
+        }
+
+        return pSkewTo;
+    }
 
     // CCSkewTo(cocos2d::CCSkewTo const&);
     // CCSkewTo();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x332248, imac 0x3a5900;
-    virtual void update(float) = m1 0x332410, imac 0x3a5b30;
-    virtual void startWithTarget(cocos2d::CCNode*) = m1 0x332328, imac 0x3a59e0;
-    virtual bool initWithDuration(float, float, float) = m1 0x332220, imac 0x3a58c0;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x332248, imac 0x3a5900, ios inline {
+	// CCZone* pNewZone = NULL;
+        CCSkewTo* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCSkewTo*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCSkewTo();
+            // pZone = pNewZone = new CCZone(pCopy);
+        }
+
+        CCActionInterval::copyWithZone(pZone);
+
+        pCopy->initWithDuration(m_fDuration, m_fEndSkewX, m_fEndSkewY);
+
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual void update(float) = m1 0x332410, imac 0x3a5b30, ios inline {
+	m_pTarget->setSkewX(m_fStartSkewX + m_fDeltaX * t);
+        m_pTarget->setSkewY(m_fStartSkewY + m_fDeltaY * t);
+    }
+    virtual void startWithTarget(cocos2d::CCNode* pTarget) = m1 0x332328, imac 0x3a59e0, ios inline {
+	CCActionInterval::startWithTarget(pTarget);
+
+        m_fStartSkewX = pTarget->getSkewX();
+
+        if (m_fStartSkewX > 0)
+        {
+            m_fStartSkewX = fmodf(m_fStartSkewX, 180.f);
+        }
+        else
+        {
+            m_fStartSkewX = fmodf(m_fStartSkewX, -180.f);
+        }
+
+        m_fDeltaX = m_fEndSkewX - m_fStartSkewX;
+
+        if (m_fDeltaX > 180)
+        {
+            m_fDeltaX -= 360;
+        }
+        if (m_fDeltaX < -180)
+        {
+            m_fDeltaX += 360;
+        }
+
+        m_fStartSkewY = pTarget->getSkewY();
+
+        if (m_fStartSkewY > 0)
+        {
+            m_fStartSkewY = fmodf(m_fStartSkewY, 360.f);
+        }
+        else
+        {
+            m_fStartSkewY = fmodf(m_fStartSkewY, -360.f);
+        }
+
+        m_fDeltaY = m_fEndSkewY - m_fStartSkewY;
+
+        if (m_fDeltaY > 180)
+        {
+            m_fDeltaY -= 360;
+        }
+        if (m_fDeltaY < -180)
+        {
+            m_fDeltaY += 360;
+        }
+    }
+    virtual bool initWithDuration(float t, float sx, float sy) = m1 0x332220, imac 0x3a58c0, ios inline {
+	bool bRet = false;
+
+        if (CCActionInterval::initWithDuration(t))
+        {
+            m_fEndSkewX = sx;
+            m_fEndSkewY = sy;
+
+            bRet = true;
+        }
+
+        return bRet;
+    }
 }
 
 [[link(win, android)]]
@@ -1294,7 +1512,7 @@ class cocos2d::CCProgressTimer : cocos2d::CCNodeRGBA {
     void setPercentage(float) = imac 0x5ec9f0, m1 0x51d61c, ios 0x3f5678;
     void setReverseDirection(bool);
     void setReverseProgress(bool);
-    void setSprite(cocos2d::CCSprite*) = imac 0x5eca70, m1 0x51d68c;
+    void setSprite(cocos2d::CCSprite*) = imac 0x5eca70, m1 0x51d68c, ios 0x3f56c4;
     void setType(cocos2d::CCProgressTimerType) = imac 0x5ecc80, m1 0x51d828;
 
     // CCProgressTimer(cocos2d::CCProgressTimer const&);
@@ -2826,10 +3044,37 @@ class cocos2d::CCRenderTexture : cocos2d::CCNode {
 }
 
 [[link(win, android)]]
-class cocos2d::CCRepeat : cocos2d::CCActionInterval {
-    static cocos2d::CCRepeat* create(cocos2d::CCFiniteTimeAction*, unsigned int) = imac 0x3a3110, m1 0x32fe54;
+class cocos2d::CCRepeat : cocos2d::CCActionInterval { // there's no way this whole thing doesn't exist
+    static cocos2d::CCRepeat* create(cocos2d::CCFiniteTimeAction* pAction, unsigned int times) = imac 0x3a3110, m1 0x32fe54, ios inline {
+	CCRepeat* pRepeat = new CCRepeat();
+        pRepeat->initWithAction(pAction, times);
+        pRepeat->autorelease();
 
-    bool initWithAction(cocos2d::CCFiniteTimeAction*, unsigned int);
+        return pRepeat;
+    }
+
+    bool initWithAction(cocos2d::CCFiniteTimeAction* pAction, unsigned int times) = ios inline {
+	float d = pAction->getDuration() * times;
+
+        if (CCActionInterval::initWithDuration(d))
+        {
+            m_uTimes = times;
+            m_pInnerAction = pAction;
+            pAction->retain();
+
+            m_bActionInstant = dynamic_cast<CCActionInstant*>(pAction) ? true : false;
+            //an instant action needs to be executed one time less in the update method since it uses startWithTarget to execute the action
+            if (m_bActionInstant) 
+            {
+                m_uTimes -=1;
+            }
+            m_uTotal = 0;
+
+            return true;
+        }
+
+        return false;
+    }
 
     cocos2d::CCFiniteTimeAction* getInnerAction();
 
@@ -2838,12 +3083,83 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
     // CCRepeat(cocos2d::CCRepeat const&);
     // CCRepeat();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x32ffdc, imac 0x3a32a0;
-    virtual void update(float) = imac 0x3a3540, m1 0x330274;
-    virtual bool isDone() = imac 0x3a3670, m1 0x3303e4;
-    virtual void startWithTarget(cocos2d::CCNode*) = imac 0x3a34c0, m1 0x3301ec;
-    virtual void stop() = m1 0x330244, imac 0x3a3510;
-    virtual cocos2d::CCActionInterval* reverse() = imac 0x3a3680, m1 0x3303f4;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x32ffdc, imac 0x3a32a0, ios inline {
+	// CCZone* pNewZone = NULL;
+        CCRepeat* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCRepeat*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCRepeat();
+            // pZone = pNewZone = new CCZone(pCopy);
+        }
+
+        CCActionInterval::copyWithZone(pZone);
+
+        pCopy->initWithAction((CCFiniteTimeAction*)(m_pInnerAction->copy()->autorelease()), m_uTimes);
+
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual void update(float dt) = imac 0x3a3540, m1 0x330274, ios inline {
+	if (dt >= m_fNextDt)
+        {
+            while (dt > m_fNextDt && m_uTotal < m_uTimes)
+            {
+
+                m_pInnerAction->update(1.0f);
+                m_uTotal++;
+
+                m_pInnerAction->stop();
+                m_pInnerAction->startWithTarget(m_pTarget);
+                m_fNextDt += m_pInnerAction->getDuration()/m_fDuration;
+            }
+
+            // fix for issue #1288, incorrect end value of repeat
+            if(dt >= 1.0f && m_uTotal < m_uTimes) 
+            {
+                m_uTotal++;
+            }
+
+            // don't set an instant action back or update it, it has no use because it has no duration
+            if (!m_bActionInstant)
+            {
+                if (m_uTotal == m_uTimes)
+                {
+                    m_pInnerAction->update(1);
+                    m_pInnerAction->stop();
+                }
+                else
+                {
+                    // issue #390 prevent jerk, use right update
+                    m_pInnerAction->update(dt - (m_fNextDt - m_pInnerAction->getDuration()/m_fDuration));
+                }
+            }
+        }
+        else
+        {
+            m_pInnerAction->update(fmodf(dt * m_uTimes,1.0f));
+        }
+    }
+    virtual bool isDone() = imac 0x3a3670, m1 0x3303e4, ios inline {
+	return m_uTotal == m_uTimes;
+    }
+    virtual void startWithTarget(cocos2d::CCNode* pTarget) = imac 0x3a34c0, m1 0x3301ec, ios inline {
+	m_uTotal = 0;
+        m_fNextDt = m_pInnerAction->getDuration()/m_fDuration;
+        CCActionInterval::startWithTarget(pTarget);
+        m_pInnerAction->startWithTarget(pTarget);
+    }
+    virtual void stop() = m1 0x330244, imac 0x3a3510, ios inline {
+	m_pInnerAction->stop();
+        CCActionInterval::stop();
+    }
+    virtual cocos2d::CCActionInterval* reverse() = imac 0x3a3680, m1 0x3303f4, ios inline {
+	return CCRepeat::create(m_pInnerAction->reverse(), m_uTimes);
+    }
 }
 
 [[link(win, android)]]
@@ -3630,7 +3946,10 @@ class cocos2d::CCSpriteFrame : cocos2d::CCObject {
     }
     static cocos2d::CCSpriteFrame* createWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&);
 
-    bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&);
+    bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&) = ios inline {
+	CCRect rectInPixels = CC_RECT_POINTS_TO_PIXELS(rect);
+        return initWithTexture(pobTexture, rectInPixels, false, CCPointZero, rectInPixels.size);
+    }
     bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&) = imac 0x344270, m1 0x2d97ac, ios 0x24d17c;
     bool initWithTextureFilename(char const* filename, cocos2d::CCRect const& rect) = ios inline {
     	CCRect rectInPixels = CC_RECT_POINTS_TO_PIXELS( rect );
@@ -4204,7 +4523,30 @@ class cocos2d::extension::CCControlUtils {
 
 [[link(win, android)]]
 class cocos2d::CCSpawn : cocos2d::CCActionInterval {
-    static cocos2d::CCSpawn* create(cocos2d::CCArray*) = m1 0x3309f8, imac 0x3a3db0;
+    static cocos2d::CCSpawn* create(cocos2d::CCArray* arrayOfActions) = m1 0x3309f8, imac 0x3a3db0, ios inline { // seems like it doesn't exist on ios
+	CCSpawn* pRet = NULL;
+        do 
+        {
+            unsigned  int count = arrayOfActions->count();
+            CC_BREAK_IF(count == 0);
+            CCFiniteTimeAction* prev = (CCFiniteTimeAction*)arrayOfActions->objectAtIndex(0);
+            if (count > 1)
+            {
+                for (unsigned int i = 1; i < arrayOfActions->count(); ++i)
+                {
+                prev = createWithTwoActions(prev, (CCFiniteTimeAction*)arrayOfActions->objectAtIndex(i));
+                }
+            }
+            else
+            {
+                // If only one action is added to CCSpawn, make up a CCSpawn by adding a simplest finite time action.
+                prev = createWithTwoActions(prev, ExtraAction::create());
+            }
+            pRet = (CCSpawn*)prev;
+        }while (0);
+
+        return pRet;
+    }
     // static cocos2d::CCSpawn* create(cocos2d::CCFiniteTimeAction*, ...) = m1 0x33e430, imac 0x3b9e30;
     static cocos2d::CCSpawn* create(cocos2d::CCFiniteTimeAction* first, ...) = mac inline {
         va_list args;
@@ -4217,7 +4559,7 @@ class cocos2d::CCSpawn : cocos2d::CCActionInterval {
         va_end(args);
         return cocos2d::CCSpawn::create(array);
     }
-    static cocos2d::CCSpawn* createWithTwoActions(cocos2d::CCFiniteTimeAction*, cocos2d::CCFiniteTimeAction*) = m1 0x33096c, imac 0x3a3d20;
+    static cocos2d::CCSpawn* createWithTwoActions(cocos2d::CCFiniteTimeAction*, cocos2d::CCFiniteTimeAction*) = m1 0x33096c, imac 0x3a3d20, ios 0x18e290; // should be
     // static cocos2d::CCSpawn* createWithVariableList(cocos2d::CCFiniteTimeAction*, char*);
 
     bool initWithTwoActions(cocos2d::CCFiniteTimeAction*, cocos2d::CCFiniteTimeAction*);
