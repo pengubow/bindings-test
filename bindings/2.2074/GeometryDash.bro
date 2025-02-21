@@ -12338,7 +12338,7 @@ class InfoAlertButton : CCMenuItemSpriteExtra {
 class InfoLayer : FLAlertLayer, LevelCommentDelegate, CommentUploadDelegate, FLAlertLayerProtocol {
     // virtual ~InfoLayer();
 
-    static InfoLayer* create(GJGameLevel*, GJUserScore*, GJLevelList*) = win 0x2b3200, imac 0x798c50, m1 0x6ab724;
+    static InfoLayer* create(GJGameLevel*, GJUserScore*, GJLevelList*) = win 0x2b3200, imac 0x798c50, m1 0x6ab724, ios 0x34f230;
 
     virtual void registerWithTouchDispatcher() = m1 0x6af438, imac 0x79ce80, ios 0x3524c0;
     virtual void keyBackClicked() = win 0x2b6b40, m1 0x6af34c, imac 0x79cd70, ios 0x3524b4;
@@ -16371,7 +16371,7 @@ class ProfilePage : FLAlertLayer, FLAlertLayerProtocol, LevelCommentDelegate, Co
     void onBlockUser(cocos2d::CCObject* sender) = win 0x3ad200, m1 0x6b9f98;
     void onClose(cocos2d::CCObject* sender) = win 0x3adfd0, m1 0x6b5db8, imac 0x7a3d60, ios 0x19a8dc;
     void onComment(cocos2d::CCObject* sender) = win 0x3acc50, m1 0x6ba888, imac 0x7a8fa0;
-    void onCommentHistory(cocos2d::CCObject* sender) = win 0x3acbc0, imac 0x7a7830, m1 0x6b92c8;
+    void onCommentHistory(cocos2d::CCObject* sender) = win 0x3acbc0, imac 0x7a7830, m1 0x6b92c8, ios 0x19d948;
     void onCopyName(cocos2d::CCObject* sender) = win 0x3ac290;
     void onFollow(cocos2d::CCObject* sender) = win 0x3ad450, m1 0x6b6028, imac 0x7a3fe0;
     void onFriend(cocos2d::CCObject* sender) = win 0x3ace10, imac 0x7a82f0, ios 0x19e02c, m1 0x6b9c54;
