@@ -1294,7 +1294,7 @@ class cocos2d::CCProgressTimer : cocos2d::CCNodeRGBA {
     void setPercentage(float) = imac 0x5ec9f0, m1 0x51d61c, ios 0x3f5678;
     void setReverseDirection(bool);
     void setReverseProgress(bool);
-    void setSprite(cocos2d::CCSprite*) = imac 0x5eca70, m1 0x51d68c;
+    void setSprite(cocos2d::CCSprite*) = imac 0x5eca70, m1 0x51d68c, ios 0x3f56c4;
     void setType(cocos2d::CCProgressTimerType) = imac 0x5ecc80, m1 0x51d828;
 
     // CCProgressTimer(cocos2d::CCProgressTimer const&);
@@ -3664,7 +3664,9 @@ class cocos2d::CCSpriteFrame : cocos2d::CCObject {
 
     // CCSpriteFrame(cocos2d::CCSpriteFrame const&);
     // CCSpriteFrame();
-    // ~CCSpriteFrame() = ios 0x25de00;
+    ~CCSpriteFrame() = ios inline { // not gonna even try
+	CC_SAFE_RELEASE(m_pobTexture);
+    }
 
     bool isRotated();
 
