@@ -3630,7 +3630,10 @@ class cocos2d::CCSpriteFrame : cocos2d::CCObject {
     }
     static cocos2d::CCSpriteFrame* createWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&);
 
-    bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&);
+    bool initWithTexture(cocos2d::CCTexture2D* pobTexture, cocos2d::CCRect const& rect) = ios inline {
+	CCRect rectInPixels = CC_RECT_POINTS_TO_PIXELS(rect);
+        return initWithTexture(pobTexture, rectInPixels, false, CCPointZero, rectInPixels.size);
+    }
     bool initWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool, cocos2d::CCPoint const&, cocos2d::CCSize const&) = imac 0x344270, m1 0x2d97ac, ios 0x24d17c;
     bool initWithTextureFilename(char const* filename, cocos2d::CCRect const& rect) = ios inline {
     	CCRect rectInPixels = CC_RECT_POINTS_TO_PIXELS( rect );
