@@ -238,6 +238,65 @@ class cocos2d::CCEaseBounceInOut : cocos2d::CCEaseBounce {
 }
 
 [[link(win, android)]]
+class cocos2d::CCEaseElastic : cocos2d::CCActionEase {
+    static cocos2d::CCEaseElastic* create(cocos2d::CCActionInterval* pAction) = ios inline {
+	return cocos2d::CCEaseElastic::create(pAction, 0.3f);
+    }
+    static cocos2d::CCEaseElastic* create(cocos2d::CCActionInterval* pAction, float fPeriod) = ios inline {
+        CCEaseElastic *pRet = new CCEaseElastic();
+        if (pRet)
+        {
+            if (pRet->initWithAction(pAction, fPeriod))
+            {
+                pRet->autorelease();
+            }
+            else
+            {
+                CC_SAFE_RELEASE_NULL(pRet);
+            }
+        }
+
+        return pRet; 
+    }
+
+    bool cocos2d::CCEaseElastic::initWithAction(CCActionInterval* pAction, float fPeriod) = ios inline {
+        if (CCActionEase::initWithAction(pAction))
+        {
+            m_fPeriod = fPeriod;
+            return true;
+        }
+
+        return false;
+    }
+
+    // CCEaseElastic(cocos2d::CCEaseElastic const&);
+    // CCEaseElastic();
+
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = ios inline {
+        // CCZone* pNewZone = NULL;
+        CCEaseElastic* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCEaseElastic*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCEaseElastic();
+            // pNewZone = new CCZone(pCopy);
+        }
+
+        pCopy->initWithAction((CCActionInterval *)(m_pInner->copy()->autorelease()), m_fPeriod);
+
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual cocos2d::CCActionInterval* reverse() = ios inline {
+        return nullptr;
+    }
+}
+
+[[link(win, android)]]
 class cocos2d::CCEaseElasticIn : cocos2d::CCEaseElastic {
     static cocos2d::CCEaseElasticIn* create(cocos2d::CCActionInterval* pAction) = m1 0x45f804, imac 0x4ffe70, ios inline {
 	return cocos2d::CCEaseElasticIn::create(pAction, 0.3f);
