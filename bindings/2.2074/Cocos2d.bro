@@ -167,14 +167,62 @@ class cocos2d::CCEaseBounceOut : cocos2d::CCEaseBounce {
 
 [[link(win, android)]]
 class cocos2d::CCEaseBounceInOut : cocos2d::CCEaseBounce {
-    static cocos2d::CCEaseBounceInOut* create(cocos2d::CCActionInterval*) = m1 0x46082c, imac 0x500ed0;
+    static cocos2d::CCEaseBounceInOut* create(cocos2d::CCActionInterval* pAction) = m1 0x46082c, imac 0x500ed0, ios inline {
+	CCEaseBounceInOut *pRet = new CCEaseBounceInOut();
+        if (pRet)
+        {
+            if (pRet->initWithAction(pAction))
+            {
+                pRet->autorelease();
+            }
+            else
+            {
+                CC_SAFE_RELEASE_NULL(pRet);
+            }
+        }
+
+        return pRet;
+    }
 
     // CCEaseBounceInOut(cocos2d::CCEaseBounceInOut const&);
     // CCEaseBounceInOut();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x4608d4, imac 0x500f70;
-    virtual void update(float) = m1 0x4609bc, imac 0x501070;
-    virtual cocos2d::CCActionInterval* reverse() = m1 0x460be4, imac 0x501220;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x4608d4, imac 0x500f70, ios inline {
+	// CCZone* pNewZone = NULL;
+        CCEaseBounceInOut* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCEaseBounceInOut*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCEaseBounceInOut();
+            // pNewZone = new CCZone(pCopy);
+        }
+
+        pCopy->initWithAction((CCActionInterval *)(m_pInner->copy()->autorelease()));
+    
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual void update(float time) = m1 0x4609bc, imac 0x501070, ios inline {
+	float newT = 0;
+        if (time < 0.5f)
+        {
+            time = time * 2;
+            newT = (1 - bounceTime(1 - time)) * 0.5f;
+        }
+        else
+        {
+            newT = bounceTime(time * 2 - 1) * 0.5f + 0.5f;
+        }
+
+        m_pInner->update(newT);
+    }
+    virtual cocos2d::CCActionInterval* reverse() = m1 0x460be4, imac 0x501220, ios inline {
+	return CCEaseBounceInOut::create(m_pInner->reverse());
+    }
 }
 
 [[link(win, android)]]
