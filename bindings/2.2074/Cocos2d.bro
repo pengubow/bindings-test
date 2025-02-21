@@ -259,7 +259,7 @@ class cocos2d::CCEaseElastic : cocos2d::CCActionEase {
         return pRet; 
     }
 
-    bool cocos2d::CCEaseElastic::initWithAction(CCActionInterval* pAction, float fPeriod) = ios inline {
+    bool initWithAction(CCActionInterval* pAction, float fPeriod) = ios inline {
         if (CCActionEase::initWithAction(pAction))
         {
             m_fPeriod = fPeriod;
