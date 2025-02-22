@@ -3047,7 +3047,7 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
 
     // CCRepeat(cocos2d::CCRepeat const&);
     // CCRepeat();
-    ~CCRepeat(void) {
+    ~CCRepeat() {
         CC_SAFE_RELEASE(m_pInnerAction);
     }
 
