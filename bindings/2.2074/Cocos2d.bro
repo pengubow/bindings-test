@@ -3010,7 +3010,7 @@ class cocos2d::CCRenderTexture : cocos2d::CCNode {
 
 [[link(win, android)]]
 class cocos2d::CCRepeat : cocos2d::CCActionInterval {
-    static cocos2d::CCRepeat* create(cocos2d::CCFiniteTimeAction*, unsigned int) = imac 0x3a3110, m1 0x32fe54, ios inline {
+    static cocos2d::CCRepeat* create(cocos2d::CCFiniteTimeAction* pAction, unsigned int times) = imac 0x3a3110, m1 0x32fe54, ios inline {
         CCRepeat* pRepeat = new CCRepeat();
         pRepeat->initWithAction(pAction, times);
         pRepeat->autorelease();
