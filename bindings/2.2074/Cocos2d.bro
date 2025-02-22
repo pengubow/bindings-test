@@ -4392,7 +4392,30 @@ class cocos2d::extension::CCControlUtils {
 
 [[link(win, android)]]
 class cocos2d::CCSpawn : cocos2d::CCActionInterval {
-    static cocos2d::CCSpawn* create(cocos2d::CCArray* arrayOfActions) = m1 0x3309f8, imac 0x3a3db0;
+    static cocos2d::CCSpawn* create(cocos2d::CCArray* arrayOfActions) = m1 0x3309f8, imac 0x3a3db0, ios inline {
+        CCSpawn* pRet = NULL;
+        do 
+        {
+            unsigned  int count = arrayOfActions->count();
+            CC_BREAK_IF(count == 0);
+            CCFiniteTimeAction* prev = (CCFiniteTimeAction*)arrayOfActions->objectAtIndex(0);
+            if (count > 1)
+            {
+                for (unsigned int i = 1; i < arrayOfActions->count(); ++i)
+                {
+                    prev = createWithTwoActions(prev, (CCFiniteTimeAction*)arrayOfActions->objectAtIndex(i));
+                }
+            }
+            else
+            {
+                // If only one action is added to CCSpawn, make up a CCSpawn by adding a simplest finite time action.
+                prev = createWithTwoActions(prev, ExtraAction::create());
+            }
+            pRet = (CCSpawn*)prev;
+        }while (0);
+
+        return pRet;
+    }
     // static cocos2d::CCSpawn* create(cocos2d::CCFiniteTimeAction*, ...) = m1 0x33e430, imac 0x3b9e30;
     static cocos2d::CCSpawn* create(cocos2d::CCFiniteTimeAction* first, ...) = mac inline {
         va_list args;
