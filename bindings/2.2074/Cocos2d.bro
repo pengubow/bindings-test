@@ -3047,6 +3047,9 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
 
     // CCRepeat(cocos2d::CCRepeat const&);
     // CCRepeat();
+    ~CCRepeat(void) {
+        CC_SAFE_RELEASE(m_pInnerAction);
+    }
 
     virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x32ffdc, imac 0x3a32a0, ios inline {
         // CCZone* pNewZone = NULL;
