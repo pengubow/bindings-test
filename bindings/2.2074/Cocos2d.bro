@@ -4409,7 +4409,12 @@ class cocos2d::CCSpawn : cocos2d::CCActionInterval {
             else
             {
                 // If only one action is added to CCSpawn, make up a CCSpawn by adding a simplest finite time action.
-                prev = createWithTwoActions(prev, ExtraAction::create());
+                // ExtraAction doesnt exist for some reason
+                CCFiniteTimeAction* action = new CCFiniteTimeAction();
+                if (action) {
+                    pRet->autorelease();
+		}
+                prev = createWithTwoActions(prev, action);
             }
             pRet = (CCSpawn*)prev;
         }while (0);
