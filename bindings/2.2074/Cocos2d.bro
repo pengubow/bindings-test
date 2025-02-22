@@ -3074,7 +3074,7 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
 
                 m_pInnerAction->stop();
                 m_pInnerAction->startWithTarget(m_pTarget);
-                m_fNextDt += m_pInnerAction->getDuration()/m_fDuration;
+                m_fNextDt += m_pInnerAction->getDuration() / m_fDuration;
             }
 
             // fix for issue #1288, incorrect end value of repeat
@@ -3094,7 +3094,7 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
                 else
                 {
                     // issue #390 prevent jerk, use right update
-                    m_pInnerAction->update(dt - (m_fNextDt - m_pInnerAction->getDuration()/m_fDuration));
+                    m_pInnerAction->update(dt - (m_fNextDt - m_pInnerAction->getDuration() / m_fDuration));
                 }
             }
         }
