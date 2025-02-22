@@ -913,20 +913,6 @@ class cocos2d::CCSkewTo : cocos2d::CCActionInterval {
         return pSkewTo;
     }
 
-    // CCSkewTo(cocos2d::CCSkewTo const&);
-    //this shouldn't prolly be here but ok
-    CCSkewTo()
-    : m_fSkewX(0.0)
-    , m_fSkewY(0.0)
-    , m_fStartSkewX(0.0)
-    , m_fStartSkewY(0.0)
-    , m_fEndSkewX(0.0)
-    , m_fEndSkewY(0.0)
-    , m_fDeltaX(0.0)
-    , m_fDeltaY(0.0)
-    {
-    }
-
     virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x332248, imac 0x3a5900, ios inline {
 	// CCZone* pNewZone = NULL;
         CCSkewTo* pCopy = NULL;
