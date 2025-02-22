@@ -3010,9 +3010,36 @@ class cocos2d::CCRenderTexture : cocos2d::CCNode {
 
 [[link(win, android)]]
 class cocos2d::CCRepeat : cocos2d::CCActionInterval {
-    static cocos2d::CCRepeat* create(cocos2d::CCFiniteTimeAction*, unsigned int) = imac 0x3a3110, m1 0x32fe54;
+    static cocos2d::CCRepeat* create(cocos2d::CCFiniteTimeAction* pAction, unsigned int times) = imac 0x3a3110, m1 0x32fe54, ios inline {
+        CCRepeat* pRepeat = new CCRepeat();
+        pRepeat->initWithAction(pAction, times);
+        pRepeat->autorelease();
 
-    bool initWithAction(cocos2d::CCFiniteTimeAction*, unsigned int);
+        return pRepeat;
+    }
+
+    bool initWithAction(cocos2d::CCFiniteTimeAction* pAction, unsigned int times) = ios inline {
+        float d = pAction->getDuration() * times;
+
+        if (CCActionInterval::initWithDuration(d))
+        {
+            m_uTimes = times;
+            m_pInnerAction = pAction;
+            pAction->retain();
+
+            m_bActionInstant = dynamic_cast<CCActionInstant*>(pAction) ? true : false;
+            //an instant action needs to be executed one time less in the update method since it uses startWithTarget to execute the action
+            if (m_bActionInstant) 
+            {
+                m_uTimes -=1;
+            }
+            m_uTotal = 0;
+
+            return true;
+        }
+
+        return false;
+    }
 
     cocos2d::CCFiniteTimeAction* getInnerAction();
 
@@ -3021,12 +3048,83 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
     // CCRepeat(cocos2d::CCRepeat const&);
     // CCRepeat();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x32ffdc, imac 0x3a32a0;
-    virtual void update(float) = imac 0x3a3540, m1 0x330274;
-    virtual bool isDone() = imac 0x3a3670, m1 0x3303e4;
-    virtual void startWithTarget(cocos2d::CCNode*) = imac 0x3a34c0, m1 0x3301ec;
-    virtual void stop() = m1 0x330244, imac 0x3a3510;
-    virtual cocos2d::CCActionInterval* reverse() = imac 0x3a3680, m1 0x3303f4;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x32ffdc, imac 0x3a32a0, ios inline {
+        // CCZone* pNewZone = NULL;
+        CCRepeat* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCRepeat*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCRepeat();
+            // pZone = pNewZone = new CCZone(pCopy);
+        }
+
+        CCActionInterval::copyWithZone(pZone);
+
+        pCopy->initWithAction((CCFiniteTimeAction*)(m_pInnerAction->copy()->autorelease()), m_uTimes);
+
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual void update(float dt) = imac 0x3a3540, m1 0x330274, ios inline {
+        if (dt >= m_fNextDt)
+        {
+            while (dt > m_fNextDt && m_uTotal < m_uTimes)
+            {
+
+                m_pInnerAction->update(1.0f);
+                m_uTotal++;
+
+                m_pInnerAction->stop();
+                m_pInnerAction->startWithTarget(m_pTarget);
+                m_fNextDt += m_pInnerAction->getDuration()/m_fDuration;
+            }
+
+            // fix for issue #1288, incorrect end value of repeat
+            if(dt >= 1.0f && m_uTotal < m_uTimes)
+            {
+                m_uTotal++;
+            }
+
+            // don't set an instant action back or update it, it has no use because it has no duration
+            if (!m_bActionInstant)
+            {
+                if (m_uTotal == m_uTimes)
+                {
+                    m_pInnerAction->update(1);
+                    m_pInnerAction->stop();
+                }
+                else
+                {
+                    // issue #390 prevent jerk, use right update
+                    m_pInnerAction->update(dt - (m_fNextDt - m_pInnerAction->getDuration()/m_fDuration));
+                }
+            }
+        }
+        else
+        {
+            m_pInnerAction->update(fmodf(dt * m_uTimes,1.0f));
+        }
+    }
+    virtual bool isDone() = imac 0x3a3670, m1 0x3303e4, ios inline {
+        return m_uTotal == m_uTimes;
+    }
+    virtual void startWithTarget(cocos2d::CCNode* pTarget) = imac 0x3a34c0, m1 0x3301ec, ios inline {
+        m_uTotal = 0;
+        m_fNextDt = m_pInnerAction->getDuration()/m_fDuration;
+        CCActionInterval::startWithTarget(pTarget);
+        m_pInnerAction->startWithTarget(pTarget);
+    }
+    virtual void stop() = m1 0x330244, imac 0x3a3510, ios inline {
+        m_pInnerAction->stop();
+        CCActionInterval::stop();
+    }
+    virtual cocos2d::CCActionInterval* reverse() = imac 0x3a3680, m1 0x3303f4, ios inline {
+        return CCRepeat::create(m_pInnerAction->reverse(), m_uTimes);
+    }
 }
 
 [[link(win, android)]]
