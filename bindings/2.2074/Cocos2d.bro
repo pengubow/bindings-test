@@ -3065,7 +3065,12 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
     }
     virtual void update(float) = imac 0x3a3540, m1 0x330274;
     virtual bool isDone() = imac 0x3a3670, m1 0x3303e4;
-    virtual void startWithTarget(cocos2d::CCNode*) = imac 0x3a34c0, m1 0x3301ec;
+    virtual void startWithTarget(cocos2d::CCNode* pTarget) = imac 0x3a34c0, m1 0x3301ec, ios {
+        m_uTotal = 0;
+        m_fNextDt = m_pInnerAction->getDuration()/m_fDuration;
+        CCActionInterval::startWithTarget(pTarget);
+        m_pInnerAction->startWithTarget(pTarget);
+    }
     virtual void stop() = m1 0x330244, imac 0x3a3510;
     virtual cocos2d::CCActionInterval* reverse() = imac 0x3a3680, m1 0x3303f4;
 }
