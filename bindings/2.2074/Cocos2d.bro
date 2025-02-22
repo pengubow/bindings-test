@@ -3071,7 +3071,10 @@ class cocos2d::CCRepeat : cocos2d::CCActionInterval {
         CCActionInterval::startWithTarget(pTarget);
         m_pInnerAction->startWithTarget(pTarget);
     }
-    virtual void stop() = m1 0x330244, imac 0x3a3510;
+    virtual void stop() = m1 0x330244, imac 0x3a3510, ios inline {
+        m_pInnerAction->stop();
+        CCActionInterval::stop();
+    }
     virtual cocos2d::CCActionInterval* reverse() = imac 0x3a3680, m1 0x3303f4;
 }
 
