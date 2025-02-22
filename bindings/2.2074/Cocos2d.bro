@@ -3012,7 +3012,28 @@ class cocos2d::CCRenderTexture : cocos2d::CCNode {
 class cocos2d::CCRepeat : cocos2d::CCActionInterval {
     static cocos2d::CCRepeat* create(cocos2d::CCFiniteTimeAction*, unsigned int) = imac 0x3a3110, m1 0x32fe54;
 
-    bool initWithAction(cocos2d::CCFiniteTimeAction*, unsigned int);
+    bool initWithAction(cocos2d::CCFiniteTimeAction* pAction, unsigned int times) = ios inline {
+        float d = pAction->getDuration() * times;
+
+        if (CCActionInterval::initWithDuration(d))
+        {
+            m_uTimes = times;
+            m_pInnerAction = pAction;
+            pAction->retain();
+
+            m_bActionInstant = dynamic_cast<CCActionInstant*>(pAction) ? true : false;
+            //an instant action needs to be executed one time less in the update method since it uses startWithTarget to execute the action
+            if (m_bActionInstant) 
+            {
+                m_uTimes -=1;
+            }
+            m_uTotal = 0;
+
+            return true;
+        }
+
+        return false;
+    }
 
     cocos2d::CCFiniteTimeAction* getInnerAction();
 
