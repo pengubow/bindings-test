@@ -849,27 +849,158 @@ class cocos2d::CCScaleTo : cocos2d::CCActionInterval {
 
 [[link(win, android)]]
 class cocos2d::CCSkewBy : cocos2d::CCSkewTo {
-    static cocos2d::CCSkewBy* create(float, float, float) = m1 0x33249c, imac 0x3a5bd0;
+    static cocos2d::CCSkewBy* create(float t, float sx, float sy) = m1 0x33249c, imac 0x3a5bd0, ios inline {
+	CCSkewBy *pSkewBy = new CCSkewBy();
+        if (pSkewBy)
+        {
+            if (pSkewBy->initWithDuration(t, sx, sy))
+            {
+                pSkewBy->autorelease();
+            }
+            else
+            {
+                CC_SAFE_DELETE(pSkewBy);
+            }
+        }
+
+        return pSkewBy;
+    }
 
     // CCSkewBy(cocos2d::CCSkewBy const&);
     // CCSkewBy();
 
-    virtual void startWithTarget(cocos2d::CCNode*) = m1 0x33257c, imac 0x3a5d00;
-    virtual cocos2d::CCActionInterval* reverse() = m1 0x332658, imac 0x3a5e10;
-    virtual bool initWithDuration(float, float, float) = m1 0x332550, imac 0x3a5cb0;
+    virtual void startWithTarget(cocos2d::CCNode* pTarget) = m1 0x33257c, imac 0x3a5d00, ios inline {
+	CCSkewTo::startWithTarget(pTarget);
+        m_fDeltaX = m_fSkewX;
+        m_fDeltaY = m_fSkewY;
+        m_fEndSkewX = m_fStartSkewX + m_fDeltaX;
+        m_fEndSkewY = m_fStartSkewY + m_fDeltaY;
+    }
+    virtual cocos2d::CCActionInterval* reverse() = m1 0x332658, imac 0x3a5e10, ios inline {
+	return create(m_fDuration, -m_fSkewX, -m_fSkewY);
+    }
+    virtual bool initWithDuration(float t, float deltaSkewX, float deltaSkewY) = m1 0x332550, imac 0x3a5cb0, ios inline {
+	bool bRet = false;
+
+        if (CCSkewTo::initWithDuration(t, deltaSkewX, deltaSkewY))
+        {
+            m_fSkewX = deltaSkewX;
+            m_fSkewY = deltaSkewY;
+
+            bRet = true;
+        }
+
+        return bRet;
+    }
 }
 
 [[link(win, android)]]
 class cocos2d::CCSkewTo : cocos2d::CCActionInterval {
-    static cocos2d::CCSkewTo* create(float, float, float) = m1 0x332154, imac 0x3a57d0;
+    static cocos2d::CCSkewTo* create(float t, float sx, float sy) = m1 0x332154, imac 0x3a57d0, ios inline {
+	CCSkewTo *pSkewTo = new CCSkewTo();
+        if (pSkewTo)
+        {
+            if (pSkewTo->initWithDuration(t, sx, sy))
+            {
+                pSkewTo->autorelease();
+            }
+            else
+            {
+                CC_SAFE_DELETE(pSkewTo);
+            }
+        }
+
+        return pSkewTo;
+    }
 
     // CCSkewTo(cocos2d::CCSkewTo const&);
     // CCSkewTo();
 
-    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*) = m1 0x332248, imac 0x3a5900;
-    virtual void update(float) = m1 0x332410, imac 0x3a5b30;
-    virtual void startWithTarget(cocos2d::CCNode*) = m1 0x332328, imac 0x3a59e0;
-    virtual bool initWithDuration(float, float, float) = m1 0x332220, imac 0x3a58c0;
+    virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x332248, imac 0x3a5900, ios inline {
+	// CCZone* pNewZone = NULL;
+        CCSkewTo* pCopy = NULL;
+        if(pZone && pZone->m_pCopyObject) 
+        {
+            //in case of being called at sub class
+            pCopy = (CCSkewTo*)(pZone->m_pCopyObject);
+        }
+        else
+        {
+            pCopy = new CCSkewTo();
+            // pZone = pNewZone = new CCZone(pCopy);
+        }
+
+        CCActionInterval::copyWithZone(pZone);
+
+        pCopy->initWithDuration(m_fDuration, m_fEndSkewX, m_fEndSkewY);
+
+        // CC_SAFE_DELETE(pNewZone);
+        return pCopy;
+    }
+    virtual void update(float) = m1 0x332410, imac 0x3a5b30, ios inline {
+	m_pTarget->setSkewX(m_fStartSkewX + m_fDeltaX * t);
+        m_pTarget->setSkewY(m_fStartSkewY + m_fDeltaY * t);
+    }
+    virtual void startWithTarget(cocos2d::CCNode* pTarget) = m1 0x332328, imac 0x3a59e0, ios inline {
+	CCActionInterval::startWithTarget(pTarget);
+
+        m_fStartSkewX = pTarget->getSkewX();
+
+        if (m_fStartSkewX > 0)
+        {
+            m_fStartSkewX = fmodf(m_fStartSkewX, 180.f);
+        }
+        else
+        {
+            m_fStartSkewX = fmodf(m_fStartSkewX, -180.f);
+        }
+
+        m_fDeltaX = m_fEndSkewX - m_fStartSkewX;
+
+        if (m_fDeltaX > 180)
+        {
+            m_fDeltaX -= 360;
+        }
+        if (m_fDeltaX < -180)
+        {
+            m_fDeltaX += 360;
+        }
+
+        m_fStartSkewY = pTarget->getSkewY();
+
+        if (m_fStartSkewY > 0)
+        {
+            m_fStartSkewY = fmodf(m_fStartSkewY, 360.f);
+        }
+        else
+        {
+            m_fStartSkewY = fmodf(m_fStartSkewY, -360.f);
+        }
+
+        m_fDeltaY = m_fEndSkewY - m_fStartSkewY;
+
+        if (m_fDeltaY > 180)
+        {
+            m_fDeltaY -= 360;
+        }
+        if (m_fDeltaY < -180)
+        {
+            m_fDeltaY += 360;
+        }
+    }
+    virtual bool initWithDuration(float t, float sx, float sy) = m1 0x332220, imac 0x3a58c0, ios inline {
+	bool bRet = false;
+
+        if (CCActionInterval::initWithDuration(t))
+        {
+            m_fEndSkewX = sx;
+            m_fEndSkewY = sy;
+
+            bRet = true;
+        }
+
+        return bRet;
+    }
 }
 
 [[link(win, android)]]
