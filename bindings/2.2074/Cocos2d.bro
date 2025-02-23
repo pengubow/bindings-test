@@ -1556,7 +1556,16 @@ class cocos2d::CCParticleRain : cocos2d::CCParticleSystemQuad {
 [[link(win, android)]]
 class cocos2d::CCParticleSystemQuad : cocos2d::CCParticleSystem {
     static cocos2d::CCParticleSystemQuad* create(char const*, bool) = imac 0x5eb190, m1 0x51c418, ios 0x252a98;
-    static cocos2d::CCParticleSystemQuad* create() = m1 0x51d1bc, imac 0x5ec500;
+    static cocos2d::CCParticleSystemQuad* create() = m1 0x51d1bc, imac 0x5ec500, ios inline {
+        CCParticleSystemQuad *pParticleSystemQuad = new CCParticleSystemQuad();
+        if (pParticleSystemQuad && pParticleSystemQuad->init())
+        {
+            pParticleSystemQuad->autorelease();
+            return pParticleSystemQuad;
+        }
+        CC_SAFE_DELETE(pParticleSystemQuad);
+        return nullptr;
+    }
     static cocos2d::CCParticleSystemQuad* createWithTotalParticles(unsigned int, bool) = m1 0x51c500, imac 0x5eb270;
     
     void initIndices();
