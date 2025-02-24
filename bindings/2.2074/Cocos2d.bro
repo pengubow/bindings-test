@@ -561,7 +561,7 @@ class cocos2d::CCEaseSineOut : cocos2d::CCActionEase {
     virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone* pZone) = m1 0x45f2a0, imac 0x4ff8d0, ios inline {
         // CCZone* pNewZone = NULL;
         CCEaseSineOut* pCopy = NULL;
-        if(pZone && pZone->m_pCopyObject)
+        if(pZone && pZone->m_pCopyObject) 
         {
             //in case of being called at sub class
             pCopy = (CCEaseSineOut*)(pZone->m_pCopyObject);
@@ -571,8 +571,9 @@ class cocos2d::CCEaseSineOut : cocos2d::CCActionEase {
             pCopy = new CCEaseSineOut();
             // pNewZone = new CCZone(pCopy);
         }
+
         pCopy->initWithAction((CCActionInterval *)(m_pInner->copy()->autorelease()));
-        
+    
         // CC_SAFE_DELETE(pNewZone);
         return pCopy;
     }
