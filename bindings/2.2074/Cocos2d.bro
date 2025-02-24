@@ -2292,7 +2292,7 @@ class cocos2d::CCTextureCache : cocos2d::CCObject {
     bool reloadTexture(char const*);
     void removeAllTextures();
     void removeTexture(cocos2d::CCTexture2D*);
-    void removeTextureForKey(char const*) = imac 0x5d6ca0, m1 0x50a7e4;
+    void removeTextureForKey(char const*) = imac 0x5d6ca0, m1 0x50a7e4, ios 0x1175f0;
     void removeUnusedTextures();
     cocos2d::CCDictionary* snapshotTextures();
     cocos2d::CCTexture2D* textureForKey(char const*) = imac 0x5d6d20, m1 0x50a874, ios 0x117670;
@@ -3145,12 +3145,72 @@ class cocos2d::CCRenderTexture : cocos2d::CCNode {
     void clear(float, float, float, float);
     void clearDepth(float);
     void clearStencil(int);
-    void end() = imac 0x5de5e0, m1 0x5112f8;
+    void end() = imac 0x5de5e0, m1 0x5112f8, ios 0x3b8fb4;
     void endToLua();
     bool isAutoDraw() const;
     void listenToBackground(cocos2d::CCObject*);
     void listenToForeground(cocos2d::CCObject*);
-    cocos2d::CCImage* newCCImage(bool) = m1 0x5117a4, imac 0x5deb40;
+    cocos2d::CCImage* newCCImage(bool flipImage) = m1 0x5117a4, imac 0x5deb40, ios inline {
+	CCAssert(m_ePixelFormat == kCCTexture2DPixelFormat_RGBA8888, "only RGBA8888 can be saved as image");
+
+	if (NULL == m_pTexture)
+        {
+            return NULL;
+        }
+
+        const CCSize& s = m_pTexture->getContentSizeInPixels();
+
+        // to get the image size to save
+        //        if the saving image domain exceeds the buffer texture domain,
+        //        it should be cut
+        int nSavedBufferWidth = (int)s.width;
+        int nSavedBufferHeight = (int)s.height;
+
+        GLubyte *pBuffer = NULL;
+        GLubyte *pTempData = NULL;
+        CCImage *pImage = new CCImage();
+
+        do
+        {
+            CC_BREAK_IF(! (pBuffer = new GLubyte[nSavedBufferWidth * nSavedBufferHeight * 4]));
+
+            if(! (pTempData = new GLubyte[nSavedBufferWidth * nSavedBufferHeight * 4]))
+            {
+                delete[] pBuffer;
+                pBuffer = NULL;
+                break;
+            }
+
+            this->begin();
+            glPixelStorei(GL_PACK_ALIGNMENT, 1);
+            glReadPixels(0,0,nSavedBufferWidth, nSavedBufferHeight,GL_RGBA,GL_UNSIGNED_BYTE, pTempData);
+            this->end();
+
+            if ( flipImage ) // -- flip is only required when saving image to file
+            {
+                // to get the actual texture data
+                // #640 the image read from rendertexture is dirty
+                for (int i = 0; i < nSavedBufferHeight; ++i)
+                {
+                    memcpy(&pBuffer[i * nSavedBufferWidth * 4], 
+                           &pTempData[(nSavedBufferHeight - i - 1) * nSavedBufferWidth * 4], 
+                            nSavedBufferWidth * 4);
+                }
+
+                pImage->initWithImageData(pBuffer, nSavedBufferWidth * nSavedBufferHeight * 4, CCImage::kFmtRawData, nSavedBufferWidth, nSavedBufferHeight, 8);
+            }
+            else
+            {
+                pImage->initWithImageData(pTempData, nSavedBufferWidth * nSavedBufferHeight * 4, CCImage::kFmtRawData, nSavedBufferWidth, nSavedBufferHeight, 8);
+            }
+        
+        } while (0);
+
+        CC_SAFE_DELETE_ARRAY(pBuffer);
+        CC_SAFE_DELETE_ARRAY(pTempData);
+
+        return pImage;
+    }
     bool saveToFile(char const*);
     bool saveToFile(char const*, cocos2d::eImageFormat);
     void updateInternalScale(float, float);
@@ -3684,7 +3744,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
         CCObject* pObj = NULL;
         CCARRAY_FOREACH(n->getChildren(), pObj)
         {
-            cocos2d::CCClippingNode::setProgram((CCNode*)pObj, p); // this causes build to fail
+            setProgram((CCNode*)pObj, p); // add this into geode headers so build wont fail
         }
     }
 
