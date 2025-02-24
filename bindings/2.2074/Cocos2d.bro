@@ -3934,7 +3934,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     	m_bInverted = bInverted;
     }
 
-    static GLint g_sStencilBits = -1;
+    GLint g_sStencilBits = -1;
 }
 
 [[link(win, android)]]
