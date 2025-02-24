@@ -3813,7 +3813,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
         // this means that operation like glClear or glStencilOp will be masked with this value
         glStencilMask(mask_layer);
     
-	glClear(GL_STENCIL_BUFFER_BIT);
+	//glClear(GL_STENCIL_BUFFER_BIT);
         // manually save the depth test state
         //GLboolean currentDepthTestEnabled = GL_TRUE;
         GLboolean currentDepthWriteMask = GL_TRUE;
