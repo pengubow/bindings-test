@@ -1,6 +1,6 @@
 // Sync your RE'd addresses to & from GeometryDash.bro 
 // @author HJfod
-// @category GeodeSDK
+// @category GeodeCatgirls
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -692,6 +692,11 @@ public class SyncBromaScript extends GhidraScript {
                 for (var mem : cls.members) {
                     int length;
                     if (mem.name.isPresent()) {
+                        // Placeholder member for a doubly inherited virtual table
+                        if (fullName.equals("UILayer") && mem.name.get().value.equals("m_stupidDelegate")) {
+                            continue;
+                        }
+
                         final var memType = wrapper.addOrGetType(mem.type.get(), args.platform);
                         boolean isPointer = memType instanceof PointerDataType;
                         length = isPointer ? manager.getDataOrganization().getPointerSize() : memType.getLength();
