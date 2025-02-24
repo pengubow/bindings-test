@@ -3677,7 +3677,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     }
 
     // in normal cocos this is just a static func at the top of the file: https://github.com/cocos2d/cocos2d-x/blob/v2/cocos2dx/misc_nodes/CCClippingNode.cpp#L40
-    inline void setProgram(CCNode* n, CCGLProgram* p) {
+    static inline void setProgram(CCNode* n, CCGLProgram* p) {
         n->setShaderProgram(p);
         if (!n->getChildren()) return;
 
@@ -3933,6 +3933,8 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     void setInverted(bool bInverted) = ios inline, imac 0x709410, m1 0x628c20 {
     	m_bInverted = bInverted;
     }
+
+    static GLint g_sStencilBits = -1;
 }
 
 [[link(win, android)]]
