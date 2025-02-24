@@ -3702,11 +3702,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
 
 	if (once)
 	{
-		//glGetIntegerv(GL_STENCIL_BITS, &g_sStencilBits);
-		//if (g_sStencilBits <= 0)
-		//{
-		//	CCLOG("Stencil buffer is not enabled.");
-		//}
+		glGetIntegerv(GL_STENCIL_BITS, &g_sStencilBits);
 		once = false;
 	}
 
@@ -3813,7 +3809,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
         // this means that operation like glClear or glStencilOp will be masked with this value
         glStencilMask(mask_layer);
     
-	//glClear(GL_STENCIL_BUFFER_BIT);
+	glClear(GL_STENCIL_BUFFER_BIT);
         // manually save the depth test state
         //GLboolean currentDepthTestEnabled = GL_TRUE;
         GLboolean currentDepthWriteMask = GL_TRUE;
