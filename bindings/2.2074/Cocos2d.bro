@@ -3655,7 +3655,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     static cocos2d::CCClippingNode* create(cocos2d::CCNode* pStencil) = ios inline, imac 0x708e30, m1 0x6286bc {
     	auto pRet = new CCClippingNode();
 
-	if (pRet->init(stencil))
+	if (pRet->init(pStencil))
 	{
 		pRet->autorelease();
 		return pRet;
