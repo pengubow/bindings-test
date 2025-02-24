@@ -3728,14 +3728,14 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
 
     virtual void visit() = ios inline, imac 0x709030, m1 0x628894 {
     	// if stencil buffer disabled
-        if (g_sStencilBits < 1)
-        {
-            // draw everything, as if there where no stencil
-            CCNode::visit();
-            return;
-        }
-    
-        // return fast (draw nothing, or draw everything if in inverted mode) if:
+	//if (g_sStencilBits < 1)
+	//{
+	//	// draw everything, as if there where no stencil
+	//	CCNode::visit();
+	//	return;
+	//}
+
+	// return fast (draw nothing, or draw everything if in inverted mode) if:
 	// - nil stencil node
 	// - or stencil node invisible:
 	if (!m_pStencil || !m_pStencil->isVisible())
@@ -3754,7 +3754,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
 	static GLint layer = -1;
 
 	// all the _stencilBits are in use?
-	if (layer + 1 == g_sStencilBits) // this definetly wont break anything :clueless: //if (layer + 1 == g_sStencilBits)
+	if (false) // this definetly wont break anything :clueless: //if (layer + 1 == g_sStencilBits)
 	{
 		// warn once
 		static bool once = true;
@@ -3882,7 +3882,7 @@ GLclampf currentAlphaTestRef = 1;
 		program->setUniformLocationWith1f(alphaValueLocation, m_fAlphaThreshold);
 		// we need to recursively apply this shader to all the nodes in the stencil node
 		// XXX: we should have a way to apply shader to all nodes without having to do this
-		// setProgram(m_pStencil, program); // this causes fail
+		setProgram(m_pStencil, program); // this causes fail
 
 #endif
 }
