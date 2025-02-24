@@ -20121,8 +20121,8 @@ class SetupTriggerPopup : FLAlertLayer, TextInputDelegate, ConfigureValuePopupDe
     void updateSpawnedByTrigger() = win 0x45d320;
     void updateTouchTriggered() = win 0x45d230;
     void updateValue(int property, float value) = win 0x463b50, imac 0x2289d0, m1 0x1da380;
-    void updateValueControls(int property, float value) = win 0x45f7c0, imac 0x227950, m1 0x1d9370;
-    void valueChanged(int property, float value) = win 0x45fd90, imac 0x225210, m1 0x1d7e68;
+    void updateValueControls(int property, float value) = win 0x45f7c0, imac 0x227950, m1 0x1d9370, ios 0x134094;
+    void valueChanged(int property, float value) = win 0x45fd90, imac 0x225210, m1 0x1d7e68, ios 0x132fa0;
 
     EffectGameObject* m_gameObject;
     cocos2d::CCArray* m_gameObjects;
