@@ -3933,8 +3933,6 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     void setInverted(bool bInverted) = ios inline, imac 0x709410, m1 0x628c20 {
     	m_bInverted = bInverted;
     }
-
-    GLint g_sStencilBits = -1;
 }
 
 [[link(win, android)]]
