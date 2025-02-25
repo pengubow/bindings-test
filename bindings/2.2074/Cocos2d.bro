@@ -3617,8 +3617,46 @@ class cocos2d::CCCallFunc : cocos2d::CCActionInstant {
 }
 
 [[link(win, android)]]
-class cocos2d::CCCallFuncN : cocos2d::CCCallFunc, cocos2d::TypeInfo {
-    static cocos2d::CCCallFuncN* create(cocos2d::CCObject*, cocos2d::SEL_CallFuncN) = imac 0x7976c0, m1 0x6aa86c;
+class cocos2d::CCCallFuncN : cocos2d::CCCallFunc, cocos2d::TypeInfo { // full copy from cocos2dx
+    static cocos2d::CCCallFuncN* create(cocos2d::CCObject* pSelectorTarget, cocos2d::SEL_CallFuncN selector) = imac 0x7976c0, m1 0x6aa86c, ios inline {
+	CCCallFuncN *pRet = new CCCallFuncN();
+
+        if (pRet && pRet->initWithTarget(pSelectorTarget, selector))
+        {
+            pRet->autorelease();
+            return pRet;
+        }
+
+        CC_SAFE_DELETE(pRet);
+        return NULL;
+    }
+
+    bool initWithTarget(cocos2d::CCObject* pSelectorTarget, cocos2d::SEL_CallFuncN selector) = ios inline {
+        if (CCCallFunc::initWithTarget(pSelectorTarget)) {
+            m_pCallFuncN = selector;
+            return true;
+        }
+
+        return false;
+    }
+
+    virtual cocos2d::CCObject* copyWithZone(CCZone* pZone) = ios inline {
+        // CCZone* pNewZone = NULL;
+        CCCallFuncN* pRet = NULL;
+
+        if (zone && zone->m_pCopyObject) {
+            //in case of being called at sub class
+            pRet = (CCCallFuncN*) (zone->m_pCopyObject);
+        } else {
+            pRet = new CCCallFuncN();
+            // zone = pNewZone = new CCZone(pRet);
+        }
+
+        CCCallFunc::copyWithZone(zone);
+        pRet->initWithTarget(m_pSelectorTarget, m_pCallFuncN);
+        // CC_SAFE_DELETE(pNewZone);
+        return pRet;
+    }
 }
 
 [[link(win, android)]]
