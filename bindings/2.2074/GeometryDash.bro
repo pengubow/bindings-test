@@ -6140,11 +6140,11 @@ class FriendRequestPopup : FLAlertLayer, UploadActionDelegate, UploadPopupDelega
 class FriendsProfilePage : FLAlertLayer, FLAlertLayerProtocol, UploadActionDelegate, UploadPopupDelegate, UserListDelegate {
     // virtual ~FriendsProfilePage();
 
-    static FriendsProfilePage* create(UserListType) = win 0x13e010, imac 0x641780, m1 0x56a370;
+    static FriendsProfilePage* create(UserListType) = win 0x13e010, imac 0x641780, m1 0x56a370, ios 0x1d9ac0;
 
     bool init(UserListType type) = win 0x13e160, imac 0x641910, m1 0x56a498, ios 0x1d9ba0;
     void onBlocked(cocos2d::CCObject* sender) = win 0x13ef50, m1 0x56abb8, imac 0x6420b0;
-    void onClose(cocos2d::CCObject* sender) = win 0x13efe0, m1 0x56ab00, imac 0x641ff0;
+    void onClose(cocos2d::CCObject* sender) = win 0x13efe0, m1 0x56ab00, imac 0x641ff0, ios 0x1da1f8;
     void onUpdate(cocos2d::CCObject* sender) = win 0x13EE30, m1 0x56ac44, imac 0x642140;
     void setupUsersBrowser(cocos2d::CCArray* users, UserListType type) = win 0x13e870, imac 0x6421b0, m1 0x56aca8, ios 0x1da3a0;
 
