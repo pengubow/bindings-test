@@ -3816,7 +3816,7 @@ class DailyLevelPage : FLAlertLayer, FLAlertLayerProtocol, GJDailyLevelDelegate,
     void refreshDailyPage();
     void skipDailyLevel(DailyLevelNode*, GJGameLevel*);
     void tryGetDailyStatus() = win 0xcec10;
-    callback void updateTimers(float) = win 0xd0360, imac 0x21f570, m1 0x1d24a8;
+    callback void updateTimers(float) = win 0xd0360, imac 0x21f570, m1 0x1d24a8, ios 0x1bbe2c;
 
     cocos2d::CCLabelBMFont* m_timeLabel;
     LoadingCircle* m_timeCircle;
@@ -4198,7 +4198,7 @@ class EditLevelLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtocol
     void onEdit(cocos2d::CCObject* sender);
     void onGuidelines(cocos2d::CCObject* sender) = win 0xd52e0, imac 0x1eb5e0;
     void onHelp(cocos2d::CCObject* sender) = m1 0x1a1f28, imac 0x1eae30, win 0xd7c50;
-    void onLevelInfo(cocos2d::CCObject* sender) = win 0xd5500, m1 0x1a2420, imac 0x1eb320;
+    void onLevelInfo(cocos2d::CCObject* sender) = win 0xd5500, m1 0x1a2420, imac 0x1eb320, ios 0xee63c;
     void onLevelLeaderboard(cocos2d::CCObject* sender) = win 0xd5450;
     void onLevelOptions(cocos2d::CCObject* sender) = win 0xd54d0;
     void onMoveToTop();
