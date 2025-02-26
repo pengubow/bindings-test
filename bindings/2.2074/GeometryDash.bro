@@ -2284,7 +2284,7 @@ class ChallengeNode : cocos2d::CCNode {
     // virtual ~ChallengeNode();
     inline ChallengeNode() {}
 
-    static ChallengeNode* create(GJChallengeItem* challengeItem, ChallengesPage* challengesPage, bool isNew) = win inline, imac 0x38b290, m1 0x31a788 {
+    static ChallengeNode* create(GJChallengeItem* challengeItem, ChallengesPage* challengesPage, bool isNew) = win inline, imac 0x38b290, m1 0x31a788, ios 0x36c94 {
         auto ret = new ChallengeNode();
         if (ret->init(challengeItem, challengesPage, isNew)) {
             ret->autorelease();
@@ -2326,7 +2326,7 @@ class ChallengesPage : FLAlertLayer, FLAlertLayerProtocol, GJChallengeDelegate, 
     void onClose(cocos2d::CCObject* sender) = win 0x86940, m1 0x319edc, imac 0x38a930;
     TodoReturn tryGetChallenges();
     TodoReturn updateDots() = m1 0x31a344;
-    callback void updateTimers(float) = win 0x864b0, m1 0x319f28, imac 0x38a970;
+    callback void updateTimers(float) = win 0x864b0, m1 0x319f28, imac 0x38a970, ios 0x3657c;
 
     virtual bool init() = win 0x85300, imac 0x389f10, m1 0x319508, ios 0x35df0;
     virtual void registerWithTouchDispatcher() = win 0x425d0, imac 0x38b5d0, m1 0x31aab4, ios 0x36ea8;
@@ -7881,7 +7881,7 @@ class GameStatsManager : cocos2d::CCNode {
     int getBaseCurrencyForLevel(GJGameLevel*) = win 0x1dd4b0, imac 0x708c0, m1 0x642c4;
     void getBaseDiamonds(int) = imac 0x71240, m1 0x64c64;
     int getBonusDiamonds(int) = imac 0x71260, m1 0x64c78;
-    GJChallengeItem* getChallenge(int) = win 0x1dee70, m1 0x66a90, imac 0x73000;
+    GJChallengeItem* getChallenge(int) = win 0x1dee70, m1 0x66a90, imac 0x73000, ios 0x333cf4;
     TodoReturn getChallengeKey(GJChallengeItem*) = m1 0x66e24, imac 0x73370;
     int getCollectedCoinsForLevel(GJGameLevel*) = win 0x1dabd0;
     cocos2d::CCArray* getCompletedMapPacks() = win 0x1dc180, imac 0x6e6c0, m1 0x6230c;
@@ -7905,7 +7905,7 @@ class GameStatsManager : cocos2d::CCNode {
     TodoReturn getNextGoldChestID();
     TodoReturn getNextVideoAdReward();
     TodoReturn getPathRewardKey(int);
-    GJChallengeItem* getQueuedChallenge(int) = win 0x1def40, m1 0x66b94, imac 0x73100;
+    GJChallengeItem* getQueuedChallenge(int) = win 0x1def40, m1 0x66b94, imac 0x73100, ios 0x333d78;
     TodoReturn getRewardForSecretChest(int);
     TodoReturn getRewardForSpecialChest(gd::string);
     TodoReturn getRewardItem(GJRewardType);
@@ -8099,7 +8099,7 @@ class GameToolbox {
     static TodoReturn getMultipliedHSV(cocos2d::ccHSVValue const&, float);
     static TodoReturn getRelativeOffset(GameObject*, cocos2d::CCPoint) = win 0x64970;
     static gd::string getResponse(cocos2d::extension::CCHttpResponse*) = win 0x64310, imac 0x4dba00, m1 0x43eb40;
-    static gd::string getTimeString(int, bool) = win 0x65e20, imac 0x4de620, m1 0x44145c;
+    static gd::string getTimeString(int, bool) = win 0x65e20, imac 0x4de620, m1 0x44145c, ios 0x49338;
     static TodoReturn hsvFromString(gd::string const&, char const*) = imac 0x4dd030;
     static gd::string intToShortString(int) = win 0x69120, imac 0x4e4250, m1 0x4465bc, ios 0x4bd08;
     static TodoReturn intToString(int) = win 0x69060, imac 0x4e3f30, m1 0x446284;
