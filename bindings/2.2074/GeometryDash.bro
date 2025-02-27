@@ -6077,7 +6077,7 @@ class FRequestProfilePage : FLAlertLayer, FLAlertLayerProtocol, UploadActionDele
     virtual void setupPageInfo(gd::string, char const*) = win 0x13dcf0, imac 0x77ba20, m1 0x690874, ios 0x1b9714;
     virtual void forceReloadRequests(bool) = win 0x13dcd0, imac 0x77b9e0, m1 0x690840, ios 0x1b96e0;
 
-    TodoReturn deleteSelected() = m1 0x68fcd0, imac 0x77aeb0;
+    TodoReturn deleteSelected() = m1 0x68fcd0, imac 0x77aeb0, ios 0x1b8f60;
     bool init(bool) = win 0x13be30, m1 0x68ea04, imac 0x779a80;
     bool isCorrect(char const*);
     void loadPage(int);
@@ -6088,7 +6088,7 @@ class FRequestProfilePage : FLAlertLayer, FLAlertLayerProtocol, UploadActionDele
     void onSentRequests(cocos2d::CCObject* sender);
     void onToggleAllObjects(cocos2d::CCObject* sender);
     void onUpdate(cocos2d::CCObject* sender);
-    void setupCommentsBrowser(cocos2d::CCArray*) = win 0x13da30, m1 0x690494, imac 0x77b660;
+    void setupCommentsBrowser(cocos2d::CCArray*) = win 0x13da30, m1 0x690494, imac 0x77b660, ios 0x1b944c;
     TodoReturn untoggleAll();
     TodoReturn updateLevelsLabel();
     TodoReturn updatePageArrows();
@@ -6225,7 +6225,7 @@ class GameLevelManager : cocos2d::CCNode {
     void dataLoaded(DS_Dictionary*) = win 0x149310, imac 0x525360, m1 0x481004;
     void deleteAccountComment(int, int);
     void deleteComment(int, CommentType, int) = m1 0x496170, imac 0x53ccf0;
-    bool deleteFriendRequests(int, cocos2d::CCArray*, bool) = win 0x15e180, m1 0x49713c, imac 0x53de30;
+    bool deleteFriendRequests(int, cocos2d::CCArray*, bool) = win 0x15e180, m1 0x49713c, imac 0x53de30, ios 0xabc4c;
     void deleteLevel(GJGameLevel*) = win 0x142fe0, imac 0x517010, m1 0x4743e0, ios 0x967dc;
     void deleteLevelComment(int, int);
     void deleteLevelList(GJLevelList*) = win 0x143890, imac 0x517880, m1 0x474ba4, ios 0x96d58;
@@ -10599,7 +10599,7 @@ class GJLevelList : cocos2d::CCNode {
     TodoReturn duplicateListLevels(GJLevelList*);
     TodoReturn frameForListDifficulty(int, DifficultyIconType) = imac 0x54d4b0, m1 0x4a54d8;
     cocos2d::CCArray* getListLevelsArray(cocos2d::CCArray*) = win 0x174160;
-    gd::string getUnpackedDescription() = win 0x173b80, imac 0x54b670, m1 0x4a39d0;
+    gd::string getUnpackedDescription() = win 0x173b80, imac 0x54b670, m1 0x4a39d0, ios 0xb44a8;
     void handleStatsConflict(GJLevelList*) = imac 0x54b4a0, m1 0x4a37fc;
     bool hasMatchingLevels(GJLevelList*) = win 0x173970, imac 0x54b4c0, m1 0x4a3814, ios 0xb4390;
     TodoReturn orderForLevel(int);
@@ -10607,7 +10607,7 @@ class GJLevelList : cocos2d::CCNode {
     TodoReturn removeLevelFromList(int);
     void reorderLevel(int levelID, int newPosition) = win 0x174070, m1 0x4a44e0, imac 0x54c400;
     TodoReturn reorderLevelStep(int, bool);
-    void showListInfo() = win 0x174900, imac 0x54ca50, m1 0x4a4aac;
+    void showListInfo() = win 0x174900, imac 0x54ca50, m1 0x4a4aac, ios 0xb4ff8;
     TodoReturn totalLevels() = imac 0x54c9e0, m1 0x4a4a38;
     TodoReturn updateLevelsString();
 
@@ -12881,7 +12881,7 @@ class InfoLayer : FLAlertLayer, LevelCommentDelegate, CommentUploadDelegate, FLA
     void onComment(cocos2d::CCObject* sender) = win 0x2b5f20, m1 0x6ad908, imac 0x79b1e0;
     void onCopyLevelID(cocos2d::CCObject* sender) = imac 0x34c5b0;
     void onGetComments(cocos2d::CCObject* sender) = imac 0x79bd00;
-    void onLevelInfo(cocos2d::CCObject* sender) = win 0x2b64e0, m1 0x6ae924, imac 0x79c2f0;
+    void onLevelInfo(cocos2d::CCObject* sender) = win 0x2b64e0, m1 0x6ae924, imac 0x79c2f0, ios 0x351d4c;
     void onMore(cocos2d::CCObject* sender) = win 0x2b5e00, imac 0x79ae40, m1 0x6ad570;
     void onNextPage(cocos2d::CCObject* sender) = win 0x2b7860, imac 0x79b9b0;
     void onOriginal(cocos2d::CCObject* sender) = win 0x2b5e60, imac 0x79b090;
