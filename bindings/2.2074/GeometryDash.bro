@@ -5606,8 +5606,8 @@ class FLAlertLayer : cocos2d::CCLayerColor {
     void incrementForcePrio() = imac 0x488eb0, m1 0x3f6294, ios 0x2abb08;
     bool init(FLAlertLayerProtocol*, char const*, gd::string, char const*, char const*, float, bool, float, float) = win 0x51b60, imac 0x488360, m1 0x3f5800, ios 0x2ab0e4;
     bool init(int) = win 0x51a50, imac 0x488de0, m1 0x3f61c0, ios 0x2aba58;
-    void onBtn1(cocos2d::CCObject* sender) = win 0x52940, imac 0x488f00, m1 0x3f62e4;
-    void onBtn2(cocos2d::CCObject* sender) = win 0x529a0, imac 0x488f60, m1 0x2f6344;
+    void onBtn1(cocos2d::CCObject* sender) = win 0x52940, imac 0x488f00, m1 0x3f62e4, ios 0x2abb58;
+    void onBtn2(cocos2d::CCObject* sender) = win 0x529a0, imac 0x488f60, m1 0x3f6344, ios 0x2abbb8;
     // virtual void onEnter() = m1 0x3f6a84, imac 0x489640, ios 0x2ac0d4; // only exists on armv7...
 
     virtual bool ccTouchBegan(cocos2d::CCTouch*, cocos2d::CCEvent*) = win 0x52a00, imac 0x489190, m1 0x3f6568, ios 0x2abcac;
