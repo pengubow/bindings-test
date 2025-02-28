@@ -23,7 +23,7 @@ add_executable(${PROJECT_NAME}
 	src/PredeclareGen.cpp
 	src/SourceGen.cpp
 )
-target_compile_features(Codegen PUBLIC cxx_std_20)
+target_compile_features(Codegen PUBLIC cxx_std_17)
 
 target_link_libraries(Codegen PRIVATE fmt::fmt Broma mat-json)
 target_include_directories(Codegen PRIVATE 
