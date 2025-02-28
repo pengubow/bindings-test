@@ -3581,7 +3581,7 @@ class CustomSongLayer : FLAlertLayer, TextInputDelegate, GJDropDownLayerDelegate
         m_delegate = nullptr;
     }
 
-    static CustomSongLayer* create(CustomSongDelegate* delegate) = win inline, m1 0x1b82a4 {
+    static CustomSongLayer* create(CustomSongDelegate* delegate) = win inline, m1 0x1b82a4, ios 0x14703c {
         auto ret = new CustomSongLayer();
         if (ret->init(delegate)) {
             ret->autorelease();
@@ -3601,7 +3601,7 @@ class CustomSongLayer : FLAlertLayer, TextInputDelegate, GJDropDownLayerDelegate
     virtual void dropDownLayerWillClose(GJDropDownLayer*) = win 0xc34f0, m1 0x1b98b8, imac 0x204750, ios 0x148300;
     virtual void musicBrowserClosed(MusicBrowser*) = win 0xc35c0, m1 0x1b9980, imac 0x204800, ios 0x14836c;
 
-    bool init(CustomSongDelegate*) = win 0xc1f00, m1 0x1b83c0, imac 0x203120;
+    bool init(CustomSongDelegate*) = win 0xc1f00, m1 0x1b83c0, imac 0x203120, ios 0x147110;
     void onClose(cocos2d::CCObject* sender) = win 0xc3690;
     void onCreateLines(cocos2d::CCObject* sender);
     void onMusicBrowser(cocos2d::CCObject* sender) = win 0xc31a0, imac 0x203e50, m1 0x1b902c;
@@ -3609,7 +3609,7 @@ class CustomSongLayer : FLAlertLayer, TextInputDelegate, GJDropDownLayerDelegate
     void onNewgroundsBrowser(cocos2d::CCObject* sender) = win 0xc3300;
     void onOptions(cocos2d::CCObject* sender) = imac 0x203f00, m1 0x1b90cc;
     void onSearch(cocos2d::CCObject* sender) = win 0xc2c80, m1 0x1b90ec, imac 0x203f20;
-    void onSongBrowser(cocos2d::CCObject* sender) = win 0xc3120, m1 0x1b8fac, imac 0x203dd0;
+    void onSongBrowser(cocos2d::CCObject* sender) = win 0xc3120, m1 0x1b8fac, imac 0x203dd0, ios 0x147cc8;
     void showNewgroundsMessage() = m1 0x1b9264, imac 0x204090;
 
     CustomSongDelegate* m_songDelegate;
@@ -6251,7 +6251,7 @@ class GameLevelManager : cocos2d::CCNode {
     cocos2d::CCDictionary* getAllUsedSongIDs();
     GJLevelList* getAllUsedSongIDs(int);
     gd::string getBasePostString() = win 0x14a4b0, m1 0x4826c4, imac 0x526da0;
-    bool getBoolForKey(char const* key) = win inline, m1 0x49da8c, imac 0x544a30 {
+    bool getBoolForKey(char const* key) = win inline, m1 0x49da8c, imac 0x544a30, ios 0xaf64c {
         return m_searchFilters->valueForKey(key)->boolValue();
     }
     gd::string getCommentKey(int ID, int page, int mode, CommentKeyType keytype) = m1 0x492fb4, imac 0x5397d0 {
@@ -12070,7 +12070,7 @@ class GJSmartTemplate : cocos2d::CCObject {
 class GJSongBrowser : GJDropDownLayer, FLAlertLayerProtocol, TableViewCellDelegate {
     // virtual ~GJSongBrowser();
 
-    static GJSongBrowser* create() = win 0x2afab0, m1 0x518ed0, imac 0x5e7120;
+    static GJSongBrowser* create() = win 0x2afab0, m1 0x518ed0, imac 0x5e7120, ios 0x2649ac;
 
     virtual bool init() = win 0x2afc30, imac 0x5e7530, m1 0x5191bc, ios 0x264ad4;
     virtual void customSetup() = win 0x2afd30, m1 0x519468, imac 0x5e7800, ios 0x264cb4;
@@ -15039,7 +15039,7 @@ class MoreSearchLayer : FLAlertLayer, TextInputDelegate {
     void audioNext(cocos2d::CCObject* sender) = win 0x301c60, imac 0x618230, m1 0x5441d0;
     void audioPrevious(cocos2d::CCObject* sender) = win 0x301d80, imac 0x6181c0, m1 0x54415c;
     void createToggleButton(gd::string, cocos2d::SEL_MenuHandler, bool, cocos2d::CCMenu*, cocos2d::CCPoint) = win 0x302730;
-    void onClose(cocos2d::CCObject* sender) = win 0x302990, imac 0x617a10, m1 0x543960;
+    void onClose(cocos2d::CCObject* sender) = win 0x302990, imac 0x617a10, m1 0x543960, ios 0x59c50;
     void onCoins(cocos2d::CCObject* sender);
     void onCompleted(cocos2d::CCObject* sender);
     void onEpic(cocos2d::CCObject* sender);
@@ -15051,8 +15051,8 @@ class MoreSearchLayer : FLAlertLayer, TextInputDelegate {
     void onMythic(cocos2d::CCObject* sender);
     void onNoStar(cocos2d::CCObject* sender);
     void onOriginal(cocos2d::CCObject* sender);
-    void onSongFilter(cocos2d::CCObject* sender) = win 0x3012c0, imac 0x617e50, m1 0x543dfc;
-    void onSongMode(cocos2d::CCObject* sender) = win 0x301fe0, imac 0x618070, m1 0x54400c;
+    void onSongFilter(cocos2d::CCObject* sender) = win 0x3012c0, imac 0x617e50, m1 0x543dfc, ios 0x5a0d8;
+    void onSongMode(cocos2d::CCObject* sender) = win 0x301fe0, imac 0x618070, m1 0x54400c, ios 0x5a2e8;
     void onTwoPlayer(cocos2d::CCObject* sender);
     void onUncompleted(cocos2d::CCObject* sender);
     void selectSong(int songID) = win 0x301ea0, imac 0x618510, m1 0x544498;
