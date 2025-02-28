@@ -14152,7 +14152,7 @@ class LevelPage : cocos2d::CCLayer, DialogDelegate {
     void addSecretCoin() = win 0x307810, m1 0x39cb1c, imac 0x4215a0, ios 0x3fb304;
     void addSecretDoor() = win 0x307f20, m1 0x39ed88, imac 0x423b10, ios 0x3fcd1c;
     bool init(GJGameLevel*) = win 0x305070, m1 0x39dc80, imac 0x422900, ios 0x3fbe78;
-    void onInfo(cocos2d::CCObject* sender) = win 0x309260, m1 0x39d69c, imac 0x422200;
+    void onInfo(cocos2d::CCObject* sender) = win 0x309260, m1 0x39d69c, imac 0x422200, ios 0x3fbac4;
     void onMoreGames(cocos2d::CCObject* sender);
     void onPlay(cocos2d::CCObject* sender) = win 0x308cf0, imac 0x421ef0, m1 0x39d360, ios 0x3fb8bc;
     void onSecretDoor(cocos2d::CCObject* sender) = win 0x308130, imac 0x424140, m1 0x39f3a0;
@@ -14207,7 +14207,7 @@ class LevelSearchLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtoc
     }
     gd::string getLevelLenKey() = win 0x14b660;
     gd::string getSearchDiffKey() = m1 0x541e38;
-    GJSearchObject* getSearchObject(SearchType, gd::string) = win 0x2fb290, m1 0x541ae4, imac 0x615780;
+    GJSearchObject* getSearchObject(SearchType, gd::string) = win 0x2fb290, m1 0x541ae4, imac 0x615780, ios 0x58384;
     inline char const* getTimeKey(int time) {
         return cocos2d::CCString::createWithFormat("T%i", time)->getCString();
     }
@@ -14225,9 +14225,9 @@ class LevelSearchLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtoc
     void onMostDownloaded(cocos2d::CCObject* sender) = win 0x2fc4c0;
     void onMostLikes(cocos2d::CCObject* sender) = win 0x2fc580;
     void onMostRecent(cocos2d::CCObject* sender) = win 0x2fc880, m1 0x540424, imac 0x614110;
-    void onSearch(cocos2d::CCObject* sender) = win 0x2fcb80, m1 0x53fe68, imac 0x613ba0;
+    void onSearch(cocos2d::CCObject* sender) = win 0x2fcb80, m1 0x53fe68, imac 0x613ba0, ios 0x56c98;
     void onSearchMode(cocos2d::CCObject* sender) = win 0x2f9a30, imac 0x6137c0, m1 0x53fad4;
-    void onSearchUser(cocos2d::CCObject* sender) = win 0x2fcdc0, m1 0x53fff0, imac 0x613d10;
+    void onSearchUser(cocos2d::CCObject* sender) = win 0x2fcdc0, m1 0x53fff0, imac 0x613d10, ios 0x56ddc;
     void onSpecialDemon(cocos2d::CCObject* sender) = win 0x2f9690, m1 0x540b44;
     void onStarAward(cocos2d::CCObject* sender);
     void onSuggested(cocos2d::CCObject* sender) = win 0x2fc640;
@@ -14275,7 +14275,7 @@ class LevelSelectLayer : cocos2d::CCLayer, BoomScrollLayerDelegate, DynamicScrol
     bool init(int page) = win 0x303840, m1 0x39a760, imac 0x41f160, ios 0x3f98b8;
     void onBack(cocos2d::CCObject* sender) = win 0x304e80, m1 0x39b424, imac 0x41ff50;
     void onDownload(cocos2d::CCObject* sender) = win 0x304600, m1 0x39b36c, imac 0x41fea0;
-    void onInfo(cocos2d::CCObject* sender) = win 0x305000, m1 0x39b46c, imac 0x41ffa0;
+    void onInfo(cocos2d::CCObject* sender) = win 0x305000, m1 0x39b46c, imac 0x41ffa0, ios 0x3fa308;
     void onNext(cocos2d::CCObject* sender) = win 0x304d80, m1 0x39b3f4, imac 0x41ff20;
     void onPlay(cocos2d::CCObject* sender) = imac 0x421ea0, m1 0x39d328;
     void onPrev(cocos2d::CCObject* sender) = win 0x304e00, m1 0x39b3c4, imac 0x41fef0;
