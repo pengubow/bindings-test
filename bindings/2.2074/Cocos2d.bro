@@ -1852,7 +1852,7 @@ class cocos2d::CCNode : cocos2d::CCObject {
     void transformAncestors();
     void unschedule(cocos2d::SEL_SCHEDULE) = imac 0x262270, m1 0x20df6c, ios 0x23c340;
     void unscheduleAllSelectors() = imac 0x260e50, m1 0x20cbf8, ios 0x23b508;
-    void unscheduleUpdate() = imac 0x262160, m1 0x20de9c;
+    void unscheduleUpdate() = imac 0x262160, m1 0x20de9c, ios 0x23c2b0;
     void updateChildIndexes();
 
     virtual void update(float) = imac 0x262290, m1 0x20df98, ios 0x23c36c;
@@ -4429,7 +4429,7 @@ class DS_Dictionary {
     static void copyFile(char const*, char const*);
     cocos2d::CCObject* decodeObjectForKey(char const*, bool, int);
     gd::vector<gd::string> getAllKeys() = imac 0x16ccb0, m1 0x13935c;
-    cocos2d::CCArray* getArrayForKey(char const*, bool) = imac 0x1707b0, m1 0x13c84c;
+    cocos2d::CCArray* getArrayForKey(char const*, bool) = imac 0x1707b0, m1 0x13c84c, ios 0x165ed4;
     bool getBoolForKey(char const*) = imac 0x16d3e0, m1 0x1399d4, ios 0x165010;
     cocos2d::CCDictionary* getDictForKey(char const*, bool) = m1 0x13d6c8, imac 0x171760;
     float getFloatForKey(char const*) = imac 0x16d4e0, m1 0x139acc;
@@ -4438,7 +4438,7 @@ class DS_Dictionary {
     int getIntegerForKey(char const*) = imac 0x16d2a0, m1 0x1398c8, ios 0x164f04;
     gd::string getKey(unsigned int) = imac 0x16cb80, m1 0x139234;
     unsigned int getNumKeys();
-    cocos2d::CCObject* getObjectForKey(char const*) = imac 0x170930, m1 0x13c9b4;
+    cocos2d::CCObject* getObjectForKey(char const*) = imac 0x170930, m1 0x13c9b4, ios 0x165ff0;
     gd::vector<cocos2d::CCRect> getRectArrayForKey(char const*);
     cocos2d::CCRect getRectForKey(char const*);
     gd::vector<gd::string> getStringArrayForKey(char const*);
@@ -4459,7 +4459,7 @@ class DS_Dictionary {
     void setBoolForKey(char const*, bool, bool);
     void setBoolForKey(char const*, bool) = imac 0x16e790, m1 0x13ab9c;
     void setBoolMapForKey(char const*, gd::map<gd::string, bool>&) = m1 0x13cf9c;
-    void setDictForKey(char const*, cocos2d::CCDictionary*) = imac 0x170db0, m1 0x13cd9c;
+    void setDictForKey(char const*, cocos2d::CCDictionary*) = imac 0x170db0, m1 0x13cd9c, ios 0x1662a8;
     void setFloatForKey(char const*, float) = imac 0x16e9c0, m1 0x13ad84;
     void setFloatForKey(char const*, float, bool);
     void setIntegerForKey(char const*, int) = imac 0x16e4c0, m1 0x13a930;
