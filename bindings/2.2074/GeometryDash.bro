@@ -11104,7 +11104,7 @@ class GJPathsLayer : FLAlertLayer, FLAlertLayerProtocol {
     // virtual ~GJPathsLayer();
 
     static GJPathsLayer* create() = win 0x27d1d0, imac 0x2e9ed0;
-    static gd::string nameForPath(int) = win 0x27cf60, imac 0x2e9d30, m1 0x2842bc;
+    static gd::string nameForPath(int) = win 0x27cf60, imac 0x2e9d30, m1 0x2842bc, ios 0x3b068c;
 
     virtual bool init() = win 0x27d2d0, m1 0x28456c, imac 0x2ea020, ios 0x3b07ac;
     virtual void onExit() = win 0x27dac0, m1 0x284c94, imac 0x2ea730, ios 0x3b0e34;
