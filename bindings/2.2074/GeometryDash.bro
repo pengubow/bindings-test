@@ -4203,7 +4203,7 @@ class EditLevelLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtocol
     void onLevelOptions(cocos2d::CCObject* sender) = win 0xd54d0;
     void onMoveToTop();
     void onPlay(cocos2d::CCObject* sender) = win 0xd6920, m1 0x1a100c, imac 0x1e9f10;
-    void onSetFolder(cocos2d::CCObject* sender) = win 0xd7fc0, imac 0x1eb0b0, m1 0x1a21b8;
+    void onSetFolder(cocos2d::CCObject* sender) = win 0xd7fc0, imac 0x1eb0b0, m1 0x1a21b8, ios 0xee43c;
     void onShare(cocos2d::CCObject* sender) = win 0xd6f20, ios 0xed54c, m1 0x1a1164, imac 0x1ea050;
     void onTest(cocos2d::CCObject* sender) = m1 0x1a3298;
     void onUpdateDescription(cocos2d::CCObject* sender) = m1 0x1a1d60, imac 0x1eac60;
@@ -6343,7 +6343,7 @@ class GameLevelManager : cocos2d::CCNode {
     cocos2d::CCArray* getSavedLevelLists(int);
     cocos2d::CCArray* getSavedLevels(bool, int) = win 0x145410, m1 0x47af84, imac 0x51e9f0, ios 0x9afb4;
     GJMapPack* getSavedMapPack(int);
-    cocos2d::CCScene* getSearchScene(char const*) = imac 0x522e00, m1 0x47edb8;
+    cocos2d::CCScene* getSearchScene(char const*) = imac 0x522e00, m1 0x47edb8, ios 0x9d558;
     int getSplitIntFromKey(char const*, int);
     TodoReturn getStarLevelsString();
     cocos2d::CCArray* getStoredLevelComments(char const*) = win 0x15b420, imac 0x53b2f0, m1 0x494a28;
@@ -11650,7 +11650,7 @@ class GJSearchObject : cocos2d::CCNode {
     static GJSearchObject* create(SearchType searchType, gd::string searchQuery, gd::string difficulty, gd::string length, int page, bool star, bool uncompleted, bool featured, int songID, bool original, bool twoPlayer, bool customSong, bool songFilter, bool noStar, bool coins, bool epic, bool legendary, bool mythic, bool onlyCompleted, int demonFilter, int folder, int searchMode) = win 0x171900, m1 0x4a2868, imac 0x54a1a0;
     static GJSearchObject* create(SearchType searchType, gd::string searchQuery) = win 0x1717d0, imac 0x54a530, m1 0x4a2b7c, ios 0xb39a4;
     static GJSearchObject* create(SearchType searchType) = win 0x1716f0, imac 0x54a4c0, m1 0x4a2b10, ios 0xb3894;
-    static GJSearchObject* createFromKey(char const* key) = win 0x170ff0, imac 0x522e20, m1 0x47eddc;
+    static GJSearchObject* createFromKey(char const* key) = win 0x170ff0, imac 0x522e20, m1 0x47eddc, ios 0x9d57c;
 
     char const* getKey() = win 0x171c40, m1 0x4857e8, imac 0x52a470, ios 0xa1778;
     char const* getNextPageKey();
@@ -18129,7 +18129,7 @@ class SetColorIDPopup : SetIDPopup, GJSpecialColorSelectDelegate {
 class SetFolderPopup : SetIDPopup, SetTextPopupDelegate {
     // virtual ~SetFolderPopup();
 
-    static SetFolderPopup* create(int value, bool isCreated, gd::string title) = win 0x294e90, imac 0x29a410, m1 0x241e80;
+    static SetFolderPopup* create(int value, bool isCreated, gd::string title) = win 0x294e90, imac 0x29a410, m1 0x241e80, ios 0x2deb0c;
 
     virtual void valueChanged() = win 0x295250, imac 0x29aa90, m1 0x24249c, ios 0x2deffc;
     virtual void setTextPopupClosed(SetTextPopup*, gd::string) = win 0x295590, imac 0x29af60, m1 0x242914, ios 0x2df330;
