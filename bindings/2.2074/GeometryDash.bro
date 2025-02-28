@@ -6463,7 +6463,7 @@ class GameLevelManager : cocos2d::CCNode {
     void parseRestoreData(gd::string);
     void performNetworkTest() = m1 0x4642b0, imac 0x504c40;
     void ProcessHttpRequest(gd::string endpoint, gd::string params, gd::string tag, GJHttpType httpType) = win 0x140b70, imac 0x504fa0, m1 0x464634, ios 0x8bf54;
-    void processOnDownloadLevelCompleted(gd::string response, gd::string tag, bool) = win 0x150350, m1 0x489224, imac 0x52e460;
+    void processOnDownloadLevelCompleted(gd::string response, gd::string tag, bool) = win 0x150350, m1 0x489224, imac 0x52e460, ios 0xa38dc;
     void purgeUnusedLevels() = win 0x148330, imac 0x523900;
     void rateDemon(int, int, bool) = m1 0x48c020, imac 0x531730;
     void rateStars(int, int) = m1 0x48a7c8, imac 0x52fd00;
@@ -6499,7 +6499,7 @@ class GameLevelManager : cocos2d::CCNode {
             this->saveLevelList(static_cast<GJLevelList*>(lists->objectAtIndex(i)));
         }
     }
-    void saveFetchedLevels(cocos2d::CCArray*) = win 0x144960, imac 0x51b540, m1 0x477ed0;
+    void saveFetchedLevels(cocos2d::CCArray*) = win 0x144960, imac 0x51b540, m1 0x477ed0, ios 0x98dac;
     void saveFetchedMapPacks(cocos2d::CCArray*);
     void saveGauntlet(GJMapPack*);
     void saveLevel(GJGameLevel*) = win 0x146d40, imac 0x521650, m1 0x47d688;
@@ -6556,7 +6556,7 @@ class GameLevelManager : cocos2d::CCNode {
     gd::string userNameForUserID(int) = win 0x143e80, m1 0x475748, ios 0x9735c, imac 0x518420;
     TodoReturn verifyContainerOnlyHasLevels(cocos2d::CCDictionary*);
     void verifyLevelState(GJGameLevel*);
-    gd::string writeSpecialFilters(GJSearchObject*) = win 0x14b8b0, imac 0x529260, m1 0x4848d4;
+    gd::string writeSpecialFilters(GJSearchObject*) = win 0x14b8b0, imac 0x529260, m1 0x4848d4, ios 0xa0d2c;
 
     gd::set<gd::string> m_queuedLists;
     cocos2d::CCDictionary* m_mainLevels;
@@ -9950,7 +9950,7 @@ class GJGameLevel : cocos2d::CCNode {
     //GJGameLevel() = ios 0xb40a8;
 
     static GJGameLevel* create() = win 0x169b40, imac 0x5168e0, m1 0x473d34, ios 0x9637c;
-    static GJGameLevel* create(cocos2d::CCDictionary*, bool) = win 0x1683e0, m1 0x4760f0, imac 0x519030;
+    static GJGameLevel* create(cocos2d::CCDictionary*, bool) = win 0x1683e0, m1 0x4760f0, imac 0x519030, ios 0x978ec; // ios: probably
     static gd::string lengthKeyToString(int key) = win 0x16a0d0, imac 0x5457e0, m1 0x49e59c, ios 0xb0008;
 
     virtual void encodeWithCoder(DS_Dictionary*) = win 0x16c090, imac 0x5482f0, m1 0x4a0bd0, ios 0xb2118;
@@ -15350,7 +15350,7 @@ class MusicDownloadManager : cocos2d::CCNode, PlatformDownloadDelegate {
     }
     void clearUnusedSongs() = win 0x329160;
     void createArtistsInfo(gd::string) = win 0x328c50;
-    void createSongsInfo(gd::string, gd::string) = win 0x3288a0, imac 0x575b00, m1 0x4c998c;
+    void createSongsInfo(gd::string, gd::string) = win 0x3288a0, imac 0x575b00, m1 0x4c998c, ios 0x158a10;
     void dataLoaded(DS_Dictionary*) = win 0x32a450, imac 0x578e00, m1 0x4cc790;
     void deleteSFX(int);
     void deleteSong(int) = imac 0x577120, m1 0x4cada0, ios 0x159818;
@@ -17421,9 +17421,9 @@ class ScrollingLayer : cocos2d::CCLayerColor {
 class SearchButton : cocos2d::CCSprite {
     // virtual ~SearchButton();
 
-    static SearchButton* create(char const*, char const*, float, char const*) = win 0x2fdcd0, imac 0x613e90, m1 0x540198;
+    static SearchButton* create(char const*, char const*, float, char const*) = win 0x2fdcd0, imac 0x613e90, m1 0x540198, ios 0x56f84;
 
-    bool init(char const*, char const*, float, char const*) = win 0x2fdda0, imac 0x616050, m1 0x542340;
+    bool init(char const*, char const*, float, char const*) = win 0x2fdda0, imac 0x616050, m1 0x542340, ios 0x588f0;
 
     cocos2d::CCLabelBMFont* m_label;
     cocos2d::CCSprite* m_icon;
