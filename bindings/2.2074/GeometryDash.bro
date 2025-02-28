@@ -13878,7 +13878,7 @@ class LevelInfoLayer : cocos2d::CCLayer, LevelDownloadDelegate, LevelUpdateDeleg
     void onRateStarsMod(cocos2d::CCObject* sender) = win 0x2e9c80, imac 0x2ae230, m1 0x254168;
     void onSetFolder(cocos2d::CCObject* sender) = win 0x2e5300, imac 0x2aeda0, m1 0x254d6c;
     void onUpdate(cocos2d::CCObject* sender) = win 0x2ea280, m1 0x253bec, imac 0x2adcb0;
-    void onViewProfile(cocos2d::CCObject* sender) = win 0x2ea460, imac 0x2abc20, m1 0x251b4c;
+    void onViewProfile(cocos2d::CCObject* sender) = win 0x2ea460, imac 0x2abc20, m1 0x251b4c, ios 0x2a958;
     void playStep2();
     void playStep3() = m1 0x256650, ios 0x2eb24;
     void playStep4() = win 0x2e8ab0, m1 0x25678c;
@@ -13952,9 +13952,9 @@ class LevelLeaderboard : FLAlertLayer, LeaderboardManagerDelegate, FLAlertLayerP
     void loadScores() = m1 0x3515ec;
     void onChangeMode(cocos2d::CCObject* sender) = win 0x2edd40, m1 0x351344;
     void onChangeType(cocos2d::CCObject* sender) = win 0x2edca0;
-    void onClose(cocos2d::CCObject* sender) = win 0x84620, m1 0x35146c, imac 0x3c87f0;
+    void onClose(cocos2d::CCObject* sender) = win 0x84620, m1 0x35146c, imac 0x3c87f0, ios 0x24f504;
     void onDeleteLocalScores(cocos2d::CCObject* sender) = imac 0x3c8720, m1 0x351394;
-    void onUpdate(cocos2d::CCObject* sender) = win 0x2eddc0, m1 0x3514a8, imac 0x3c8820;
+    void onUpdate(cocos2d::CCObject* sender) = win 0x2eddc0, m1 0x3514a8, imac 0x3c8820, ios 0x24f540;
     TodoReturn reloadLeaderboard(LevelLeaderboardType, LevelLeaderboardMode);
     TodoReturn setupLeaderboard(cocos2d::CCArray*) = m1 0x351800, imac 0x3c8b60;
 
