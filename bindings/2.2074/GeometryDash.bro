@@ -14050,10 +14050,10 @@ class LevelListLayer : LevelBrowserLayer, TextInputDelegate, SelectListIconDeleg
     void confirmDelete(cocos2d::CCObject*) = win 0x2f3a20, m1 0x2def6c, imac 0x34a590;
     void confirmOwnerDelete(cocos2d::CCObject*) = win 0x2f3b50, imac 0x34a470, m1 0x2dee64;
     bool init(GJLevelList*) = win 0x2eebf0, m1 0x2dd0cc, imac 0x348500, ios 0x242200;
-    void onClaimReward(cocos2d::CCObject* sender) = win 0x2f1650, m1 0x2e024c, imac 0x34b8c0;
+    void onClaimReward(cocos2d::CCObject* sender) = win 0x2f1650, m1 0x2e024c, imac 0x34b8c0, ios 0x245114;
     void onDelete();
     void onDescription(cocos2d::CCObject* sender) = imac 0x34a680, m1 0x2df064;
-    void onFavorite(cocos2d::CCObject* sender) = win 0x2f2ce0, imac 0x34a3c0, m1 0x2dedb4;
+    void onFavorite(cocos2d::CCObject* sender) = win 0x2f2ce0, imac 0x34a3c0, m1 0x2dedb4, ios 0x243dd8;
     void onInfo(cocos2d::CCObject* sender) = win 0x2f2fe0, imac 0x34a230;
     void onLike(cocos2d::CCObject* sender) = win 0x2f3020, m1 0x2dec54;
     void onListInfo(cocos2d::CCObject* sender);
