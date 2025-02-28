@@ -6272,7 +6272,7 @@ class GameLevelManager : cocos2d::CCNode {
     TodoReturn getDifficultyStr(bool, bool, bool, bool, bool, bool, bool, bool);
     char const* getDiffKey(int) = m1 0x49d290, imac 0x544280;
     bool getDiffVal(int);
-    gd::string getFolderName(int, bool) = win 0x148910, imac 0x5245e0, m1 0x4803b8;
+    gd::string getFolderName(int, bool) = win 0x148910, imac 0x5245e0, m1 0x4803b8, ios 0x9e158;
     char const* getFriendRequestKey(bool, int) = m1 0x4945e4, imac 0x53af40;
     void getFriendRequests(bool, int, int) = m1 0x49689c, imac 0x53d510;
     char const* getGauntletKey(int);
@@ -13257,7 +13257,7 @@ class LeaderboardsLayer : cocos2d::CCLayer, LeaderboardManagerDelegate, FLAlertL
         m_tabs = nullptr;
     }
 
-    static LeaderboardsLayer* create(LeaderboardState state) = win inline, imac 0x4fc3a0, m1 0x45bf64 {
+    static LeaderboardsLayer* create(LeaderboardState state) = win inline, imac 0x4fc3a0, m1 0x45bf64, ios 0x3a9128 {
         auto ret = new LeaderboardsLayer();
         if (ret->init(state)) {
             ret->autorelease();
@@ -13426,9 +13426,9 @@ class LevelBrowserLayer : cocos2d::CCLayerColor, LevelManagerDelegate, FLAlertLa
     void onFavorites(cocos2d::CCObject* sender) = win 0x2c6030;
     void onGoToFolder(cocos2d::CCObject* sender) = win 0x2c47c0, m1 0x3e95b4, imac 0x47b1a0;
     void onGoToLastPage(cocos2d::CCObject* sender) = win 0x2c4640;
-    void onGoToPage(cocos2d::CCObject* sender) = win 0x2c46b0, imac 0x479eb0, m1 0x3e81a8;
+    void onGoToPage(cocos2d::CCObject* sender) = win 0x2c46b0, imac 0x479eb0, m1 0x3e81a8, ios 0x40dcb0;
     void onHelp(cocos2d::CCObject* sender);
-    void onInfo(cocos2d::CCObject* sender) = win 0x2c4df0, imac 0x47ae20, m1 0x3e91dc;
+    void onInfo(cocos2d::CCObject* sender) = win 0x2c4df0, imac 0x47ae20, m1 0x3e91dc, ios 0x40e7a0;
     void onLocalMode(cocos2d::CCObject* sender) = win 0x2c5c70;
     void onMyOnlineLevels(cocos2d::CCObject* sender) = win 0x2c5e60, imac 0x47a430;
     void onNew(cocos2d::CCObject* sender) = win 0x2c57c0, imac 0x47a340;
@@ -13497,7 +13497,7 @@ class LevelCell : TableViewCell {
     void loadLocalLevelCell() = win 0xb05f0, imac 0x23cc80, m1 0x1ec8ac, ios 0x10edd4;
     void onClick(cocos2d::CCObject* sender) = win 0xb1080, imac 0x240090, m1 0x1ef99c, ios 0x111c5c;
     void onToggle(cocos2d::CCObject* sender) = ios 0x111c44;
-    void onViewProfile(cocos2d::CCObject* sender) = win 0xb12a0, imac 0x2401f0, m1 0x1efb00;
+    void onViewProfile(cocos2d::CCObject* sender) = win 0xb12a0, imac 0x2401f0, m1 0x1efb00, ios 0x111d94;
     void updateBGColor(int) = ios 0x105dc0;
     void updateCellMode(int) = win 0xb0df0, imac 0x23c6a0, m1 0x1ec39c;
     void updateToggle();
