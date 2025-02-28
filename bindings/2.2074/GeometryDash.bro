@@ -7872,7 +7872,7 @@ class GameStatsManager : cocos2d::CCNode {
     void createSpecialChestItems() = m1 0x52580, imac 0x5d1d0;
     void createStoreItems() = win 0x1ce830, m1 0x504f8, ios 0x325a70;
     void dataLoaded(DS_Dictionary*) = win 0x1ef0b0, m1 0x808bc;
-    void encodeDataTo(DS_Dictionary*) = m1 0x803f4;
+    void encodeDataTo(DS_Dictionary*) = m1 0x803f4, ios 0x33ec78;
     void firstSetup();
     void generateItemUnlockableData() = imac 0x651f0, m1 0x59b18;
     int getAwardedCurrencyForLevel(GJGameLevel*) = win 0x1dd750, imac 0x70ab0, m1 0x6450c, ios 0x3326e0;
