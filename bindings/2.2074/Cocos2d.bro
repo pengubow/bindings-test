@@ -2238,7 +2238,9 @@ class cocos2d::CCTexture2D : cocos2d::CCObject {
     bool initWithString(char const*, char const*, float, cocos2d::CCSize const&, cocos2d::CCTextAlignment, cocos2d::CCVerticalTextAlignment) = imac 0x466300, m1 0x3d6198;
     bool initWithString(char const*, cocos2d::_ccFontDefinition*);
 
-    cocos2d::CCSize const& getContentSizeInPixels();
+    cocos2d::CCSize const& getContentSizeInPixels() = ios inline {
+	return m_tContentSize;
+    }
 
     void setAliasTexParameters() = m1 0x3d6778, imac 0x4668f0, ios 0x1311e0;
     void setAntiAliasTexParameters();
@@ -3151,7 +3153,67 @@ class cocos2d::CCRenderTexture : cocos2d::CCNode {
     bool isAutoDraw() const;
     void listenToBackground(cocos2d::CCObject*);
     void listenToForeground(cocos2d::CCObject*);
-    cocos2d::CCImage* newCCImage(bool flipImage) = m1 0x5117a4, imac 0x5deb40;
+    cocos2d::CCImage* newCCImage(bool flipImage) = m1 0x5117a4, imac 0x5deb40, ios inline {
+	CCAssert(m_ePixelFormat == kCCTexture2DPixelFormat_RGBA8888, "only RGBA8888 can be saved as image");
+
+        if (NULL == m_pTexture)
+        {
+            return NULL;
+        }
+
+        const CCSize& s = m_pTexture->getContentSizeInPixels();
+
+        // to get the image size to save
+        //        if the saving image domain exceeds the buffer texture domain,
+        //        it should be cut
+        int nSavedBufferWidth = (int)s.width;
+        int nSavedBufferHeight = (int)s.height;
+
+        GLubyte *pBuffer = NULL;
+        GLubyte *pTempData = NULL;
+        CCImage *pImage = new CCImage();
+
+        do
+        {
+            CC_BREAK_IF(! (pBuffer = new GLubyte[nSavedBufferWidth * nSavedBufferHeight * 4]));
+
+            if(! (pTempData = new GLubyte[nSavedBufferWidth * nSavedBufferHeight * 4]))
+            {
+                delete[] pBuffer;
+                pBuffer = NULL;
+                break;
+            }
+
+            this->begin();
+            glPixelStorei(GL_PACK_ALIGNMENT, 1);
+            glReadPixels(0,0,nSavedBufferWidth, nSavedBufferHeight,GL_RGBA,GL_UNSIGNED_BYTE, pTempData);
+            this->end();
+
+            if ( flipImage ) // -- flip is only required when saving image to file
+            {
+                // to get the actual texture data
+                // #640 the image read from rendertexture is dirty
+                for (int i = 0; i < nSavedBufferHeight; ++i)
+                {
+                    memcpy(&pBuffer[i * nSavedBufferWidth * 4], 
+                           &pTempData[(nSavedBufferHeight - i - 1) * nSavedBufferWidth * 4], 
+                           nSavedBufferWidth * 4);
+                }
+
+                pImage->initWithImageData(pBuffer, nSavedBufferWidth * nSavedBufferHeight * 4, CCImage::kFmtRawData, nSavedBufferWidth, nSavedBufferHeight, 8);
+            }
+            else
+            {
+                pImage->initWithImageData(pTempData, nSavedBufferWidth * nSavedBufferHeight * 4, CCImage::kFmtRawData, nSavedBufferWidth, nSavedBufferHeight, 8);
+            }
+        
+        } while (0);
+
+        CC_SAFE_DELETE_ARRAY(pBuffer);
+        CC_SAFE_DELETE_ARRAY(pTempData);
+
+        return pImage;
+    }
     bool saveToFile(char const*);
     bool saveToFile(char const*, cocos2d::eImageFormat);
     void updateInternalScale(float, float);
