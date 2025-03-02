@@ -2356,12 +2356,12 @@ class cocos2d::CCTouchDispatcher : cocos2d::CCObject, cocos2d::EGLTouchDelegate 
     void forceRemoveDelegate(cocos2d::CCTouchDelegate*) = imac 0x4b8d10;
     void incrementForcePrio(int);
     bool isDispatchEvents();
-    bool isUsingForcePrio() = imac 0x4b8970;
+    bool isUsingForcePrio(); // = imac 0x4b8970;
     void rearrangeHandlers(cocos2d::CCArray* handlers) = ios inline {
-	std::sort(handlers->data->arr, handlers->data->arr + handlers->data->num, [](const CCObject* p1, const CCObject* p2) {
-		return ((CCTouchHandler*)p1)->getPriority() < ((CCTouchHandler*)p2)->getPriority();
-	});
-    }
+	// std::sort(handlers->data->arr, handlers->data->arr + handlers->data->num, [](const CCObject* p1, const CCObject* p2) {
+		// return ((CCTouchHandler*)p1)->getPriority() < ((CCTouchHandler*)p2)->getPriority();
+	// });
+    // }
     void registerForcePrio(cocos2d::CCObject*, int) = imac 0x4b8880, m1 0x420540, ios 0x152340;
     void removeAllDelegates();
     void removeDelegate(cocos2d::CCTouchDelegate*) = m1 0x420b2c, imac 0x4b8e00, ios 0x1527ac;
