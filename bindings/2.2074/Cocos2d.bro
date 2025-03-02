@@ -2357,11 +2357,11 @@ class cocos2d::CCTouchDispatcher : cocos2d::CCObject, cocos2d::EGLTouchDelegate 
     void incrementForcePrio(int);
     bool isDispatchEvents();
     bool isUsingForcePrio(); // = imac 0x4b8970;
-    void rearrangeHandlers(cocos2d::CCArray* handlers) = ios inline {
-	std::sort(handlers->data->arr, handlers->data->arr + handlers->data->num, [](const CCObject* p1, const CCObject* p2) {
-		return ((CCTouchHandler*)p1)->getPriority() < ((CCTouchHandler*)p2)->getPriority();
-	});
-    }
+    void rearrangeHandlers(cocos2d::CCArray* handlers); // = ios inline {
+	// std::sort(handlers->data->arr, handlers->data->arr + handlers->data->num, [](const CCObject* p1, const CCObject* p2) {
+		// return ((CCTouchHandler*)p1)->getPriority() < ((CCTouchHandler*)p2)->getPriority();
+	// });
+    // }
     void registerForcePrio(cocos2d::CCObject*, int) = imac 0x4b8880, m1 0x420540, ios 0x152340;
     void removeAllDelegates();
     void removeDelegate(cocos2d::CCTouchDelegate*) = m1 0x420b2c, imac 0x4b8e00, ios 0x1527ac;
@@ -3783,7 +3783,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
         CCObject* pObj = NULL;
         CCARRAY_FOREACH(n->getChildren(), pObj)
         {
-            setProgram((CCNode*)pObj, p); // add this into geode headers so build wont fail
+            // setProgram((CCNode*)pObj, p); // add this into geode headers so build wont fail
         }
     }
 
@@ -3803,7 +3803,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
 
 	if (once)
 	{
-		glGetIntegerv(GL_STENCIL_BITS, &g_sStencilBits);
+		// glGetIntegerv(GL_STENCIL_BITS, &g_sStencilBits);
 		once = false;
 	}
 
