@@ -3776,7 +3776,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
     }
 
     // in normal cocos this is just a static func at the top of the file: https://github.com/cocos2d/cocos2d-x/blob/v2/cocos2dx/misc_nodes/CCClippingNode.cpp#L40
-    static void setProgram(CCNode* n, CCGLProgram* p) {
+    inline static void setProgram(CCNode* n, CCGLProgram* p) {
         n->setShaderProgram(p);
         if (!n->getChildren()) return;
 
@@ -3829,12 +3829,12 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
 
     virtual void visit() = ios inline, imac 0x709030, m1 0x628894 {
     	// if stencil buffer disabled
-        if (g_sStencilBits < 1)
-        {
+        // if (g_sStencilBits < 1)
+        // {
             // draw everything, as if there where no stencil
-            CCNode::visit();
-            return;
-        }
+            // CCNode::visit();
+            // return;
+        // }
     
         // return fast (draw nothing, or draw everything if in inverted mode) if:
 	// - nil stencil node
@@ -3855,7 +3855,7 @@ class cocos2d::CCClippingNode : cocos2d::CCNode {
 	static GLint layer = -1;
 
 	// all the _stencilBits are in use?
-	if (layer + 1 == g_sStencilBits) // this definetly wont break anything :clueless: //if (layer + 1 == g_sStencilBits)
+	if (false) // this definetly wont break anything :clueless: //if (layer + 1 == g_sStencilBits)
 	{
 		// warn once
 		static bool once = true;
