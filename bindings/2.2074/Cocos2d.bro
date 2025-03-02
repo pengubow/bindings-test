@@ -3060,7 +3060,7 @@ class cocos2d::CCArray : cocos2d::CCObject {
     void fastRemoveObjectAtIndexChild(unsigned int);
     void fastRemoveObjectAtIndexNew(unsigned int);
     unsigned int indexOfObject(cocos2d::CCObject*) const;
-    void insertObject(cocos2d::CCObject*, unsigned int);
+    void insertObject(cocos2d::CCObject*, unsigned int) = ios 0x2494f4;
     bool isEqualToArray(cocos2d::CCArray*);
     // cocos2d::CCObject* lastObject();
     // cocos2d::CCObject* objectAtIndex(unsigned int) = m1 0x6293a0, imac 0x709d40;
