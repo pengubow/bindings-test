@@ -2357,7 +2357,7 @@ class cocos2d::CCTouchDispatcher : cocos2d::CCObject, cocos2d::EGLTouchDelegate 
     void incrementForcePrio(int);
     bool isDispatchEvents();
     bool isUsingForcePrio(); // = imac 0x4b8970;
-    void rearrangeHandlers(cocos2d::CCArray* handlers) = ios inline {
+    void rearrangeHandlers(cocos2d::CCArray* handlers); // = ios inline {
 	// std::sort(handlers->data->arr, handlers->data->arr + handlers->data->num, [](const CCObject* p1, const CCObject* p2) {
 		// return ((CCTouchHandler*)p1)->getPriority() < ((CCTouchHandler*)p2)->getPriority();
 	// });
