@@ -1421,7 +1421,7 @@ class CCCounterLabel : cocos2d::CCLabelBMFont {
         m_counterEnabled = false;
         m_stepCount = 10;
         m_dontSchedule = false;
-        m_formatterType = FormatterType::Integer;
+        //m_formatterType = FormatterType::Integer;
     }
 
     static CCCounterLabel* create(int count, char const* font, FormatterType type) = win inline {
